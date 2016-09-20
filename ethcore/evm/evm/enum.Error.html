@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Error` enum in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Error">
+
+    <title>ethcore::evm::evm::Error - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>ethcore</a>::<wbr><a href='../index.html'>evm</a>::<wbr><a href='index.html'>evm</a></p><script>window.sidebarCurrent = {name: 'Error', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../../index.html'>ethcore</a>::<wbr><a href='../index.html'>evm</a>::<wbr><a href='index.html'>evm</a>::<wbr><a class='enum' href=''>Error</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-13686' class='srclink' href='../../../src/ethcore/ethcore/src/evm/evm.rs.html#26-66' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum Error {
+    OutOfGas,
+    BadJumpDestination {
+        destination: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    },
+    BadInstruction {
+        instruction: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>,
+    },
+    StackUnderflow {
+        instruction: &amp;'static <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>,
+        wanted: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+        on_stack: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    },
+    OutOfStack {
+        instruction: &amp;'static <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>,
+        wanted: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+        limit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    },
+    Internal,
+}</pre><div class='docblock'><p>Evm errors.</p>
+</div><h2 class='variants'>Variants</h2>
+<span id='variant.OutOfGas' class='variant'><code>OutOfGas</code></span><div class='docblock'><p><code>OutOfGas</code> is returned when transaction execution runs out of gas.
+The state should be reverted to the state from before the
+transaction execution. But it does not mean that transaction
+was invalid. Balance still should be transfered and nonce
+should be increased.</p>
+</div><span id='variant.BadJumpDestination' class='variant'><code>BadJumpDestination</code></span><div class='docblock'><p><code>BadJumpDestination</code> is returned when execution tried to move
+to position that wasn&#39;t marked with JUMPDEST instruction</p>
+</div><h3 class='fields'>Fields</h3>
+
+                           <table><tr><td id='variant.BadJumpDestination.field.destination'><code>destination:&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></td><td><div class='docblock'><p>Position the code tried to jump to.</p>
+</div></td></tr></table><span id='variant.BadInstruction' class='variant'><code>BadInstruction</code></span><div class='docblock'><p><code>BadInstructions</code> is returned when given instruction is not supported</p>
+</div><h3 class='fields'>Fields</h3>
+
+                           <table><tr><td id='variant.BadInstruction.field.instruction'><code>instruction:&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a></code></td><td><div class='docblock'><p>Unrecognized opcode</p>
+</div></td></tr></table><span id='variant.StackUnderflow' class='variant'><code>StackUnderflow</code></span><div class='docblock'><p><code>StackUnderflow</code> when there is not enough stack elements to execute instruction</p>
+</div><h3 class='fields'>Fields</h3>
+
+                           <table><tr><td id='variant.StackUnderflow.field.instruction'><code>instruction:&nbsp;&amp;'static <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></td><td><div class='docblock'><p>Invoked instruction</p>
+</div></td></tr><tr><td id='variant.StackUnderflow.field.wanted'><code>wanted:&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></td><td><div class='docblock'><p>How many stack elements was requested by instruction</p>
+</div></td></tr><tr><td id='variant.StackUnderflow.field.on_stack'><code>on_stack:&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></td><td><div class='docblock'><p>How many elements were on stack</p>
+</div></td></tr></table><span id='variant.OutOfStack' class='variant'><code>OutOfStack</code></span><div class='docblock'><p>When execution would exceed defined Stack Limit</p>
+</div><h3 class='fields'>Fields</h3>
+
+                           <table><tr><td id='variant.OutOfStack.field.instruction'><code>instruction:&nbsp;&amp;'static <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></td><td><div class='docblock'><p>Invoked instruction</p>
+</div></td></tr><tr><td id='variant.OutOfStack.field.wanted'><code>wanted:&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></td><td><div class='docblock'><p>How many stack elements instruction wanted to push</p>
+</div></td></tr><tr><td id='variant.OutOfStack.field.limit'><code>limit:&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></td><td><div class='docblock'><p>What was the stack limit</p>
+</div></td></tr></table><span id='variant.Internal' class='variant'><code>Internal</code></span><div class='docblock'><p>Returned on evm internal error. Should never be ignored during development.
+Likely to cause consensus issues.</p>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../../../ethcore/evm/evm/enum.Error.html' title='ethcore::evm::evm::Error'>Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-13656' class='srclink' href='../../../src/ethcore/ethcore/src/evm/evm.rs.html#25' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../../ethcore/evm/evm/enum.Error.html' title='ethcore::evm::evm::Error'>Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-13657' class='srclink' href='../../../src/ethcore/ethcore/src/evm/evm.rs.html#25' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../../ethcore/evm/evm/enum.Error.html' title='ethcore::evm::evm::Error'>Error</a></code></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../../ethcore/evm/evm/enum.Error.html' title='ethcore::evm::evm::Error'>Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-13668' class='srclink' href='../../../src/ethcore/ethcore/src/evm/evm.rs.html#25' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> for <a class='enum' href='../../../ethcore/evm/evm/enum.Error.html' title='ethcore::evm::evm::Error'>Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-13701' class='srclink' href='../../../src/ethcore/ethcore/src/evm/evm.rs.html#68-81' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

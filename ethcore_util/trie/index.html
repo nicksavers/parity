@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `trie` mod in crate `ethcore_util`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, trie">
+
+    <title>ethcore_util::trie - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore_util</a></p><script>window.sidebarCurrent = {name: 'trie', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>ethcore_util</a>::<wbr><a class='mod' href=''>trie</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2459' class='srclink' href='../../src/ethcore_util/util/src/trie/mod.rs.html#17-236' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Trie interface and implementation.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::standardmap::{<a class='enum' href='../../ethcore_util/trie/standardmap/enum.Alphabet.html' title='ethcore_util::trie::standardmap::Alphabet'>Alphabet</a>, <a class='struct' href='../../ethcore_util/trie/standardmap/struct.StandardMap.html' title='ethcore_util::trie::standardmap::StandardMap'>StandardMap</a>, <a class='enum' href='../../ethcore_util/trie/standardmap/enum.ValueMode.html' title='ethcore_util::trie::standardmap::ValueMode'>ValueMode</a>};</code></td></tr><tr><td><code>pub use self::<a class='mod'
+                                       href='./triedbmut/index.html'>triedbmut</a>::<a class='struct' href='../../ethcore_util/trie/triedbmut/struct.TrieDBMut.html' title='ethcore_util::trie::triedbmut::TrieDBMut'>TrieDBMut</a>;</code></td></tr><tr><td><code>pub use self::triedb::{<a class='struct' href='../../ethcore_util/trie/triedb/struct.TrieDB.html' title='ethcore_util::trie::triedb::TrieDB'>TrieDB</a>, <a class='struct' href='../../ethcore_util/trie/triedb/struct.TrieDBIterator.html' title='ethcore_util::trie::triedb::TrieDBIterator'>TrieDBIterator</a>};</code></td></tr><tr><td><code>pub use self::<a class='mod'
+                                       href='./sectriedbmut/index.html'>sectriedbmut</a>::<a class='struct' href='../../ethcore_util/trie/sectriedbmut/struct.SecTrieDBMut.html' title='ethcore_util::trie::sectriedbmut::SecTrieDBMut'>SecTrieDBMut</a>;</code></td></tr><tr><td><code>pub use self::<a class='mod'
+                                       href='./sectriedb/index.html'>sectriedb</a>::<a class='struct' href='../../ethcore_util/trie/sectriedb/struct.SecTrieDB.html' title='ethcore_util::trie::sectriedb::SecTrieDB'>SecTrieDB</a>;</code></td></tr><tr><td><code>pub use self::<a class='mod'
+                                       href='./recorder/index.html'>recorder</a>::<a class='trait' href='../../ethcore_util/trie/recorder/trait.Recorder.html' title='ethcore_util::trie::recorder::Recorder'>Recorder</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='journal/index.html'
+                                  title='ethcore_util::trie::journal'>journal</a></td>
+                           <td class='docblock short'>
+                                <p>Export the journal module.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='node/index.html'
+                                  title='ethcore_util::trie::node'>node</a></td>
+                           <td class='docblock short'>
+                                <p>Export the node module.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='recorder/index.html'
+                                  title='ethcore_util::trie::recorder'>recorder</a></td>
+                           <td class='docblock short'>
+                                <p>Trie query recording.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='sectriedb/index.html'
+                                  title='ethcore_util::trie::sectriedb'>sectriedb</a></td>
+                           <td class='docblock short'>
+                                <p>Export the sectriedb module.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='sectriedbmut/index.html'
+                                  title='ethcore_util::trie::sectriedbmut'>sectriedbmut</a></td>
+                           <td class='docblock short'>
+                                <p>Export the sectriedbmut module.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='standardmap/index.html'
+                                  title='ethcore_util::trie::standardmap'>standardmap</a></td>
+                           <td class='docblock short'>
+                                <p>Export the standardmap module.
+Key-value datastore with a modified Merkle tree.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='triedb/index.html'
+                                  title='ethcore_util::trie::triedb'>triedb</a></td>
+                           <td class='docblock short'>
+                                <p>Export the triedb module.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='triedbmut/index.html'
+                                  title='ethcore_util::trie::triedbmut'>triedbmut</a></td>
+                           <td class='docblock short'>
+                                <p>Export the triedbmut module.
+In-memory trie representation.</p>
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.FatDB.html'
+                                  title='ethcore_util::trie::FatDB'>FatDB</a></td>
+                           <td class='docblock short'>
+                                <p>A <code>Trie</code> implementation which hashes keys and uses a generic <code>HashDB</code> backing database.
+Additionaly it stores inserted hash-key mappings for later retrieval.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.FatDBIterator.html'
+                                  title='ethcore_util::trie::FatDBIterator'>FatDBIterator</a></td>
+                           <td class='docblock short'>
+                                <p>Itarator over inserted pairs of key values.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.FatDBMut.html'
+                                  title='ethcore_util::trie::FatDBMut'>FatDBMut</a></td>
+                           <td class='docblock short'>
+                                <p>A mutable <code>Trie</code> implementation which hashes keys and uses a generic <code>HashDB</code> backing database.
+Additionaly it stores inserted hash-key mappings for later retrieval.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.TrieFactory.html'
+                                  title='ethcore_util::trie::TrieFactory'>TrieFactory</a></td>
+                           <td class='docblock short'>
+                                <p>Trie factory.</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.TrieError.html'
+                                  title='ethcore_util::trie::TrieError'>TrieError</a></td>
+                           <td class='docblock short'>
+                                <p>Trie Errors.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.TrieKinds.html'
+                                  title='ethcore_util::trie::TrieKinds'>TrieKinds</a></td>
+                           <td class='docblock short'>
+                                <p>All different kinds of tries.
+This is used to prevent a heap allocation for every created trie.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.TrieSpec.html'
+                                  title='ethcore_util::trie::TrieSpec'>TrieSpec</a></td>
+                           <td class='docblock short'>
+                                <p>Trie types</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.Trie.html'
+                                  title='ethcore_util::trie::Trie'>Trie</a></td>
+                           <td class='docblock short'>
+                                <p>A key-value datastore implemented as a database-backed modified Merkle tree.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.TrieMut.html'
+                                  title='ethcore_util::trie::TrieMut'>TrieMut</a></td>
+                           <td class='docblock short'>
+                                <p>A key-value datastore implemented as a database-backed modified Merkle tree.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.Result.html'
+                                  title='ethcore_util::trie::Result'>Result</a></td>
+                           <td class='docblock short'>
+                                <p>Trie result type. Boxed to avoid copying around extra space for <code>H256</code>s on successful queries.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.TrieItem.html'
+                                  title='ethcore_util::trie::TrieItem'>TrieItem</a></td>
+                           <td class='docblock short'>
+                                <p>Trie-Item type.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore_util";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

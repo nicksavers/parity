@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `SECP256K1` struct in crate `ethkey`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, SECP256K1">
+
+    <title>ethkey::SECP256K1 - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>ethkey</a></p><script>window.sidebarCurrent = {name: 'SECP256K1', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>ethkey</a>::<wbr><a class='struct' href=''>SECP256K1</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span></span></h1>
+<pre class='rust struct'>pub struct SECP256K1 {
+    // some fields omitted
+}</pre><h2 id='deref-methods'>Methods from <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>__Deref</a>&lt;Target=Secp256k1&gt;</h2><div class='impl-items'><h4 id='method.sign_schnorr' class='method'><code>fn <a href='#method.sign_schnorr' class='fnname'>sign_schnorr</a>(&amp;self, msg: &amp;Message, sk: &amp;SecretKey) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Signature,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Create a Schnorr signature</p>
+</div><h4 id='method.verify_schnorr' class='method'><code>fn <a href='#method.verify_schnorr' class='fnname'>verify_schnorr</a>(&amp;self, msg: &amp;Message, sig: &amp;Signature, pk: &amp;PublicKey) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Verify a Schnorr signature</p>
+</div><h4 id='method.recover_schnorr' class='method'><code>fn <a href='#method.recover_schnorr' class='fnname'>recover_schnorr</a>(&amp;self, msg: &amp;Message, sig: &amp;Signature) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;PublicKey,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Retrieves the public key for which <code>sig</code> is a valid signature for <code>msg</code>.
+Requires a verify-capable context.</p>
+</div></div><div class='impl-items'><h4 id='method.randomize' class='method'><code>fn <a href='#method.randomize' class='fnname'>randomize</a>&lt;R&gt;(&amp;mut self, rng: &amp;mut R) <span class='where'>where R: <a class='trait' href='https://doc.rust-lang.org/rand/rand/trait.Rng.html' title='rand::Rng'>Rng</a></span></code></h4>
+<div class='docblock'><p>(Re)randomizes the Secp256k1 context for cheap sidechannel resistence;
+see comment in libsecp256k1 commit d2275795f by Gregory Maxwell</p>
+</div><h4 id='method.generate_keypair' class='method'><code>fn <a href='#method.generate_keypair' class='fnname'>generate_keypair</a>&lt;R&gt;(&amp;self, rng: &amp;mut R) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>SecretKey, PublicKey<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>,&nbsp;Error&gt; <span class='where'>where R: <a class='trait' href='https://doc.rust-lang.org/rand/rand/trait.Rng.html' title='rand::Rng'>Rng</a></span></code></h4>
+<div class='docblock'><p>Generates a random keypair. Convenience function for <code>key::SecretKey::new</code>
+and <code>key::PublicKey::from_secret_key</code>; call those functions directly for
+batch key generation. Requires a signing-capable context.</p>
+</div><h4 id='method.sign' class='method'><code>fn <a href='#method.sign' class='fnname'>sign</a>(&amp;self, msg: &amp;Message, sk: &amp;SecretKey) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Signature,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Constructs a signature for <code>msg</code> using the secret key <code>sk</code> and RFC6979 nonce
+Requires a signing-capable context.</p>
+</div><h4 id='method.sign_recoverable' class='method'><code>fn <a href='#method.sign_recoverable' class='fnname'>sign_recoverable</a>(&amp;self, msg: &amp;Message, sk: &amp;SecretKey) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;RecoverableSignature,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Constructs a signature for <code>msg</code> using the secret key <code>sk</code> and RFC6979 nonce
+Requires a signing-capable context.</p>
+</div><h4 id='method.recover' class='method'><code>fn <a href='#method.recover' class='fnname'>recover</a>(&amp;self, msg: &amp;Message, sig: &amp;RecoverableSignature) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;PublicKey,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Determines the public key for which <code>sig</code> is a valid signature for
+<code>msg</code>. Requires a verify-capable context.</p>
+</div><h4 id='method.verify' class='method'><code>fn <a href='#method.verify' class='fnname'>verify</a>(&amp;self, msg: &amp;Message, sig: &amp;Signature, pk: &amp;PublicKey) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Checks that <code>sig</code> is a valid ECDSA signature for <code>msg</code> using the public
+key <code>pubkey</code>. Returns <code>Ok(true)</code> on success. Note that this function cannot
+be used for Bitcoin consensus checking since there may exist signatures
+which OpenSSL would verify but not libsecp256k1, or vice-versa. Requires a
+verify-capable context.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>__Deref</a> for <a class='struct' href='../ethkey/struct.SECP256K1.html' title='ethkey::SECP256K1'>SECP256K1</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Target' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#associatedtype.Target' class='type'>Target</a> = Secp256k1</code></h4>
+<div class='docblock'><p>The resulting type after dereferencing</p>
+</div><h4 id='method.deref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>&lt;'a&gt;(&amp;'a self) -&gt; &amp;'a Secp256k1</code></h4>
+<div class='docblock'><p>The method called to dereference a value</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "ethkey";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

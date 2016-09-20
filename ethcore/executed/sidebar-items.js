@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["CallError","Result of executing the transaction."],["CallType","The type of the call-like instruction."],["ExecutionError","Result of executing the transaction."]],"struct":[["Executed","Transaction execution receipt."]],"type":[["ExecutionResult","Transaction execution result."]]});

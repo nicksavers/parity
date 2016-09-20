@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ArchiveV7","Version for `ArchiveDB`."],["OverlayRecentV7","Version for `OverlayRecent` database. more involved than the archive version because of journaling."]]});

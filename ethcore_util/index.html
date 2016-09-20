@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ethcore_util` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ethcore_util">
+
+    <title>ethcore_util - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'ethcore_util', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>ethcore_util</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/ethcore_util/util/src/lib.rs.html#17-165' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Ethcore-util library</p>
+
+<h3 id='rust-version' class='section-header'><a href='#rust-version'>Rust version:</a></h3>
+<ul>
+<li>nightly</li>
+</ul>
+
+<h3 id='supported-platforms' class='section-header'><a href='#supported-platforms'>Supported platforms:</a></h3>
+<ul>
+<li>OSX</li>
+<li>Linux</li>
+</ul>
+
+<h3 id='building' class='section-header'><a href='#building'>Building:</a></h3>
+<ul>
+<li><p>Ubuntu 14.04 and later:</p>
+
+<pre><code class="language-bash"># install rocksdb
+add-apt-repository &quot;deb http://ppa.launchpad.net/giskou/librocksdb/ubuntu trusty main&quot;
+apt-get update
+apt-get install -y --force-yes librocksdb
+
+# install multirust
+curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh -s -- --yes
+
+# install nightly and make it default
+multirust update nightly &amp;&amp; multirust default nightly
+
+# export rust LIBRARY_PATH
+export LIBRARY_PATH=/usr/local/lib
+
+# download and build parity
+git clone https://github.com/ethcore/parity
+cd parity
+cargo build --release
+</code></pre></li>
+<li><p>OSX:</p>
+
+<pre><code class="language-bash"># install rocksdb &amp;&amp; multirust
+brew update
+brew install rocksdb
+brew install multirust
+
+# install nightly and make it default
+multirust update nightly &amp;&amp; multirust default nightly
+
+# export rust LIBRARY_PATH
+export LIBRARY_PATH=/usr/local/lib
+
+# download and build parity
+git clone https://github.com/ethcore/parity
+cd parity
+cargo build --release
+</code></pre></li>
+</ul>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub extern crate using_queue;</code></td></tr><tr><td><code>pub extern crate table;</code></td></tr><tr><td><code>pub use <a class='mod' href='../ethcore_util/common/index.html' title='ethcore_util::common'>common</a>::*;</code></td></tr><tr><td><code>pub use <a class='mod' href='../ethcore_util/misc/index.html' title='ethcore_util::misc'>misc</a>::*;</code></td></tr><tr><td><code>pub use <a class='mod' href='../ethcore_util/hashdb/index.html' title='ethcore_util::hashdb'>hashdb</a>::*;</code></td></tr><tr><td><code>pub use <a class='mod' href='../ethcore_util/memorydb/index.html' title='ethcore_util::memorydb'>memorydb</a>::*;</code></td></tr><tr><td><code>pub use <a class='mod' href='../ethcore_util/overlaydb/index.html' title='ethcore_util::overlaydb'>overlaydb</a>::*;</code></td></tr><tr><td><code>pub use journaldb::<a class='trait' href='../ethcore_util/journaldb/traits/trait.JournalDB.html' title='ethcore_util::journaldb::traits::JournalDB'>JournalDB</a>;</code></td></tr><tr><td><code>pub use <a class='mod' href='../ethcore_util/triehash/index.html' title='ethcore_util::triehash'>triehash</a>::*;</code></td></tr><tr><td><code>pub use trie::{<a class='trait' href='../ethcore_util/trie/trait.Trie.html' title='ethcore_util::trie::Trie'>Trie</a>, <a class='trait' href='../ethcore_util/trie/trait.TrieMut.html' title='ethcore_util::trie::TrieMut'>TrieMut</a>, <a class='struct' href='../ethcore_util/trie/triedb/struct.TrieDB.html' title='ethcore_util::trie::triedb::TrieDB'>TrieDB</a>, <a class='struct' href='../ethcore_util/trie/triedbmut/struct.TrieDBMut.html' title='ethcore_util::trie::triedbmut::TrieDBMut'>TrieDBMut</a>, <a class='struct' href='../ethcore_util/trie/struct.TrieFactory.html' title='ethcore_util::trie::TrieFactory'>TrieFactory</a>, <a class='enum' href='../ethcore_util/trie/enum.TrieError.html' title='ethcore_util::trie::TrieError'>TrieError</a>, <a class='struct' href='../ethcore_util/trie/sectriedb/struct.SecTrieDB.html' title='ethcore_util::trie::sectriedb::SecTrieDB'>SecTrieDB</a>, <a class='struct' href='../ethcore_util/trie/sectriedbmut/struct.SecTrieDBMut.html' title='ethcore_util::trie::sectriedbmut::SecTrieDBMut'>SecTrieDBMut</a>};</code></td></tr><tr><td><code>pub use <a class='mod' href='../ethcore_util/nibbleslice/index.html' title='ethcore_util::nibbleslice'>nibbleslice</a>::*;</code></td></tr><tr><td><code>pub use <a class='mod' href='../ethcore_util/semantic_version/index.html' title='ethcore_util::semantic_version'>semantic_version</a>::*;</code></td></tr><tr><td><code>pub use <a class='mod' href='../ethcore_util/log/index.html' title='ethcore_util::log'>log</a>::*;</code></td></tr><tr><td><code>pub use <a class='mod' href='../ethcore_util/kvdb/index.html' title='ethcore_util::kvdb'>kvdb</a>::*;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='bloom/index.html'
+                                  title='ethcore_util::bloom'>bloom</a></td>
+                           <td class='docblock short'>
+                                <p>Bloom operations.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='bytes/index.html'
+                                  title='ethcore_util::bytes'>bytes</a></td>
+                           <td class='docblock short'>
+                                <p>General bytes-related utilities.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='common/index.html'
+                                  title='ethcore_util::common'>common</a></td>
+                           <td class='docblock short'>
+                                <p>Utils common types and macros global reexport.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='error/index.html'
+                                  title='ethcore_util::error'>error</a></td>
+                           <td class='docblock short'>
+                                <p>General error types for use in ethcore.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='from_json/index.html'
+                                  title='ethcore_util::from_json'>from_json</a></td>
+                           <td class='docblock short'>
+                                <p>Coversion from json.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='hashdb/index.html'
+                                  title='ethcore_util::hashdb'>hashdb</a></td>
+                           <td class='docblock short'>
+                                <p>Database of byte-slices keyed to their Keccak hash.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='journaldb/index.html'
+                                  title='ethcore_util::journaldb'>journaldb</a></td>
+                           <td class='docblock short'>
+                                <p><code>JournalDB</code> interface and implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='kvdb/index.html'
+                                  title='ethcore_util::kvdb'>kvdb</a></td>
+                           <td class='docblock short'>
+                                <p>Key-Value store abstraction with <code>RocksDB</code> backend.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='log/index.html'
+                                  title='ethcore_util::log'>log</a></td>
+                           <td class='docblock short'>
+                                <p>Common log helper functions</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='memorydb/index.html'
+                                  title='ethcore_util::memorydb'>memorydb</a></td>
+                           <td class='docblock short'>
+                                <p>Reference-counted memory-based <code>HashDB</code> implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='migration/index.html'
+                                  title='ethcore_util::migration'>migration</a></td>
+                           <td class='docblock short'>
+                                <p>DB Migration module.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='misc/index.html'
+                                  title='ethcore_util::misc'>misc</a></td>
+                           <td class='docblock short'>
+                                <p>Diff misc.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='nibbleslice/index.html'
+                                  title='ethcore_util::nibbleslice'>nibbleslice</a></td>
+                           <td class='docblock short'>
+                                <p>Nibble-orientated view onto byte-slice, allowing nibble-precision offsets.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='nibblevec/index.html'
+                                  title='ethcore_util::nibblevec'>nibblevec</a></td>
+                           <td class='docblock short'>
+                                <p>An owning, nibble-oriented byte vector.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='overlaydb/index.html'
+                                  title='ethcore_util::overlaydb'>overlaydb</a></td>
+                           <td class='docblock short'>
+                                <p>Disk-backed <code>HashDB</code> implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='path/index.html'
+                                  title='ethcore_util::path'>path</a></td>
+                           <td class='docblock short'>
+                                <p>Path utilities</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='semantic_version/index.html'
+                                  title='ethcore_util::semantic_version'>semantic_version</a></td>
+                           <td class='docblock short'>
+                                <p>Semantic version formatting and comparing.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='sha3/index.html'
+                                  title='ethcore_util::sha3'>sha3</a></td>
+                           <td class='docblock short'>
+                                <p>Wrapper around tiny-keccak crate as well as common hash constants.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='snappy/index.html'
+                                  title='ethcore_util::snappy'>snappy</a></td>
+                           <td class='docblock short'>
+                                <p>Snappy compression bindings.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='standard/index.html'
+                                  title='ethcore_util::standard'>standard</a></td>
+                           <td class='docblock short'>
+                                <p>Std lib global reexports.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='trie/index.html'
+                                  title='ethcore_util::trie'>trie</a></td>
+                           <td class='docblock short'>
+                                <p>Trie interface and implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='triehash/index.html'
+                                  title='ethcore_util::triehash'>triehash</a></td>
+                           <td class='docblock short'>
+                                <p>Generetes trie root.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='vector/index.html'
+                                  title='ethcore_util::vector'>vector</a></td>
+                           <td class='docblock short'>
+                                <p>Vector extensions.</p>
+                           </td>
+                       </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.flush!.html'
+                                  title='ethcore_util::flush!'>flush!</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.flushln!.html'
+                                  title='ethcore_util::flushln!'>flushln!</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.hash_map!.html'
+                                  title='ethcore_util::hash_map!'>hash_map!</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.hash_map_into!.html'
+                                  title='ethcore_util::hash_map_into!'>hash_map_into!</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.map!.html'
+                                  title='ethcore_util::map!'>map!</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.map_into!.html'
+                                  title='ethcore_util::map_into!'>map_into!</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.vec_into!.html'
+                                  title='ethcore_util::vec_into!'>vec_into!</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.xjson!.html'
+                                  title='ethcore_util::xjson!'>xjson!</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.PerfTimer.html'
+                                  title='ethcore_util::PerfTimer'>PerfTimer</a></td>
+                           <td class='docblock short'>
+                                <p>Performance timer with logging. Starts measuring time in the constructor, prints
+elapsed time in the destructor or when <code>stop</code> is called.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.Address.html'
+                                  title='ethcore_util::Address'>Address</a></td>
+                           <td class='docblock short'>
+                                <p>160-bit integer representing account address</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.Secret.html'
+                                  title='ethcore_util::Secret'>Secret</a></td>
+                           <td class='docblock short'>
+                                <p>Secret</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "ethcore_util";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

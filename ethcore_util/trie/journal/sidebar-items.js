@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Journal","A journal of operations on the backing database."],["Score","How many insertions and removals were done in an `apply` operation."]]});

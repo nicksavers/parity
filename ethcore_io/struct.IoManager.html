@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `IoManager` struct in crate `ethcore_io`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, IoManager">
+
+    <title>ethcore_io::IoManager - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>ethcore_io</a></p><script>window.sidebarCurrent = {name: 'IoManager', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>ethcore_io</a>::<wbr><a class='struct' href=''>IoManager</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-123' class='srclink' href='../src/ethcore_io/util/io/src/service.rs.html#166-172' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct IoManager&lt;Message&gt; <span class='where'>where Message: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a></span> {
+    // some fields omitted
+}</pre><div class='docblock'><p>Root IO handler. Manages user handlers, messages and IO timers.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;Message&gt; <a class='struct' href='../ethcore_io/struct.IoManager.html' title='ethcore_io::IoManager'>IoManager</a>&lt;Message&gt; <span class='where'>where Message: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> + 'static</span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-130' class='srclink' href='../src/ethcore_io/util/io/src/service.rs.html#174-202' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.start' class='method'><code>fn <a href='#method.start' class='fnname'>start</a>(panic_handler: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../ethcore_io/struct.PanicHandler.html' title='ethcore_io::PanicHandler'>PanicHandler</a>&gt;, event_loop: &amp;mut EventLoop&lt;<a class='struct' href='../ethcore_io/struct.IoManager.html' title='ethcore_io::IoManager'>IoManager</a>&lt;Message&gt;&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../ethcore_io/enum.IoError.html' title='ethcore_io::IoError'>IoError</a>&gt;</code></h4>
+<div class='docblock'><p>Creates a new instance and registers it with the event loop.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;Message&gt; Handler for <a class='struct' href='../ethcore_io/struct.IoManager.html' title='ethcore_io::IoManager'>IoManager</a>&lt;Message&gt; <span class='where'>where Message: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + 'static</span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-146' class='srclink' href='../src/ethcore_io/util/io/src/service.rs.html#204-303' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Timeout' class='type'><code>type <a href='#associatedtype.Timeout' class='type'>Timeout</a> = Token</code></h4>
+<h4 id='associatedtype.Message' class='type'><code>type <a href='#associatedtype.Message' class='type'>Message</a> = IoMessage&lt;Message&gt;</code></h4>
+<h4 id='method.ready' class='method'><code>fn <a href='#method.ready' class='fnname'>ready</a>(&amp;mut self, _event_loop: &amp;mut EventLoop&lt;Self&gt;, token: Token, events: EventSet)</code></h4>
+<div class='docblock'><p>Invoked when the socket represented by <code>token</code> is ready to be operated on. <code>events</code> indicates the specific operations that are ready to be performed. <a href="#method.ready">Read more</a></p>
+</div><h4 id='method.timeout' class='method'><code>fn <a href='#method.timeout' class='fnname'>timeout</a>(&amp;mut self, event_loop: &amp;mut EventLoop&lt;Self&gt;, token: Token)</code></h4>
+<div class='docblock'><p>Invoked when a timeout has completed.</p>
+</div><h4 id='method.notify' class='method'><code>fn <a href='#method.notify' class='fnname'>notify</a>(&amp;mut self, event_loop: &amp;mut EventLoop&lt;Self&gt;, msg: Self::Message)</code></h4>
+<div class='docblock'><p>Invoked when a message has been received via the event loop&#39;s channel.</p>
+</div><h4 id='method.interrupted' class='method'><code>fn <a href='#method.interrupted' class='fnname'>interrupted</a>(&amp;mut self, event_loop: &amp;mut EventLoop&lt;Self&gt;)</code></h4>
+<div class='docblock'><p>Invoked when <code>EventLoop</code> has been interrupted by a signal interrupt.</p>
+</div><h4 id='method.tick' class='method'><code>fn <a href='#method.tick' class='fnname'>tick</a>(&amp;mut self, event_loop: &amp;mut EventLoop&lt;Self&gt;)</code></h4>
+<div class='docblock'><p>Invoked at the end of an event loop tick.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "ethcore_io";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

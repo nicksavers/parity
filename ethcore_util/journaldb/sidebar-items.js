@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Algorithm","A journal database algorithm."]],"fn":[["new","Create a new `JournalDB` trait object."]],"mod":[["traits","Export the journaldb module. Disk-backed `HashDB` implementation."]]});

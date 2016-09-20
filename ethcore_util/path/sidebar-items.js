@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["config_path","Get the config path for application `name`. `name` should be capitalized, e.g. `\"Ethereum\"`, `\"Parity\"`."],["config_path_with","Get the specific folder inside a config path."],["restrict_permissions_owner","Restricts the permissions of given path only to the owner."]],"mod":[["ethereum","Default ethereum paths"]]});

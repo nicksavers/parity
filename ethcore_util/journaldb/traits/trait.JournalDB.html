@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `JournalDB` trait in crate `ethcore_util`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, JournalDB">
+
+    <title>ethcore_util::journaldb::traits::JournalDB - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>ethcore_util</a>::<wbr><a href='../index.html'>journaldb</a>::<wbr><a href='index.html'>traits</a></p><script>window.sidebarCurrent = {name: 'JournalDB', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>ethcore_util</a>::<wbr><a href='../index.html'>journaldb</a>::<wbr><a href='index.html'>traits</a>::<wbr><a class='trait' href=''>JournalDB</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1157' class='srclink' href='../../../src/ethcore_util/util/src/journaldb/traits.rs.html#25-84' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait JournalDB: <a class='trait' href='../../../ethcore_util/hashdb/trait.HashDB.html' title='ethcore_util::hashdb::HashDB'>HashDB</a> {
+    fn <a href='#tymethod.boxed_clone' class='fnname'>boxed_clone</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='../../../ethcore_util/journaldb/traits/trait.JournalDB.html' title='ethcore_util::journaldb::traits::JournalDB'>JournalDB</a>&gt;;
+    fn <a href='#tymethod.mem_used' class='fnname'>mem_used</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>;
+    fn <a href='#tymethod.is_empty' class='fnname'>is_empty</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.latest_era' class='fnname'>latest_era</a>(&amp;self) -&gt; <a class='enum' href='../../../ethcore_util/standard/option/enum.Option.html' title='ethcore_util::standard::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;;
+    fn <a href='#tymethod.commit' class='fnname'>commit</a>(&amp;mut self, batch: &amp;mut <a class='struct' href='../../../ethcore_util/kvdb/struct.DBTransaction.html' title='ethcore_util::kvdb::DBTransaction'>DBTransaction</a>, now: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>, id: &amp;<a class='struct' href='../../../ethcore_util/common/hash/struct.H256.html' title='ethcore_util::common::hash::H256'>H256</a>, end: <a class='enum' href='../../../ethcore_util/standard/option/enum.Option.html' title='ethcore_util::standard::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>, <a class='struct' href='../../../ethcore_util/common/hash/struct.H256.html' title='ethcore_util::common::hash::H256'>H256</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;) -&gt; <a class='enum' href='../../../ethcore_util/standard/result/enum.Result.html' title='ethcore_util::standard::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,&nbsp;<a class='enum' href='../../../ethcore_util/error/enum.UtilError.html' title='ethcore_util::error::UtilError'>UtilError</a>&gt;;
+    fn <a href='#tymethod.inject' class='fnname'>inject</a>(&amp;mut self, batch: &amp;mut <a class='struct' href='../../../ethcore_util/kvdb/struct.DBTransaction.html' title='ethcore_util::kvdb::DBTransaction'>DBTransaction</a>) -&gt; <a class='enum' href='../../../ethcore_util/standard/result/enum.Result.html' title='ethcore_util::standard::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,&nbsp;<a class='enum' href='../../../ethcore_util/error/enum.UtilError.html' title='ethcore_util::error::UtilError'>UtilError</a>&gt;;
+    fn <a href='#tymethod.state' class='fnname'>state</a>(&amp;self, _id: &amp;<a class='struct' href='../../../ethcore_util/common/hash/struct.H256.html' title='ethcore_util::common::hash::H256'>H256</a>) -&gt; <a class='enum' href='../../../ethcore_util/standard/option/enum.Option.html' title='ethcore_util::standard::option::Option'>Option</a>&lt;<a class='type' href='../../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;;
+    fn <a href='#tymethod.backing' class='fnname'>backing</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../../ethcore_util/standard/struct.Arc.html' title='ethcore_util::standard::Arc'>Arc</a>&lt;<a class='struct' href='../../../ethcore_util/kvdb/struct.Database.html' title='ethcore_util::kvdb::Database'>Database</a>&gt;;
+    fn <a href='#tymethod.consolidate' class='fnname'>consolidate</a>(&amp;mut self, overlay: <a class='struct' href='../../../ethcore_util/memorydb/struct.MemoryDB.html' title='ethcore_util::memorydb::MemoryDB'>MemoryDB</a>);
+
+    fn <a href='#method.is_pruned' class='fnname'>is_pruned</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a> { ... }
+    fn <a href='#method.flush' class='fnname'>flush</a>(&amp;self) { ... }
+}</pre><div class='docblock'><p>A <code>HashDB</code> which can manage a short-term journal potentially containing many forks of mutually
+exclusive actions.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.boxed_clone' class='method stab '><code>fn <a href='#tymethod.boxed_clone' class='fnname'>boxed_clone</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='../../../ethcore_util/journaldb/traits/trait.JournalDB.html' title='ethcore_util::journaldb::traits::JournalDB'>JournalDB</a>&gt;</code></h3><div class='docblock'><p>Return a copy of ourself, in a box.</p>
+</div><h3 id='tymethod.mem_used' class='method stab '><code>fn <a href='#tymethod.mem_used' class='fnname'>mem_used</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Returns heap memory size used</p>
+</div><h3 id='tymethod.is_empty' class='method stab '><code>fn <a href='#tymethod.is_empty' class='fnname'>is_empty</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Check if this database has any commits</p>
+</div><h3 id='tymethod.latest_era' class='method stab '><code>fn <a href='#tymethod.latest_era' class='fnname'>latest_era</a>(&amp;self) -&gt; <a class='enum' href='../../../ethcore_util/standard/option/enum.Option.html' title='ethcore_util::standard::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></h3><div class='docblock'><p>Get the latest era in the DB. None if there isn&#39;t yet any data in there.</p>
+</div><h3 id='tymethod.commit' class='method stab '><code>fn <a href='#tymethod.commit' class='fnname'>commit</a>(&amp;mut self, batch: &amp;mut <a class='struct' href='../../../ethcore_util/kvdb/struct.DBTransaction.html' title='ethcore_util::kvdb::DBTransaction'>DBTransaction</a>, now: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>, id: &amp;<a class='struct' href='../../../ethcore_util/common/hash/struct.H256.html' title='ethcore_util::common::hash::H256'>H256</a>, end: <a class='enum' href='../../../ethcore_util/standard/option/enum.Option.html' title='ethcore_util::standard::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>, <a class='struct' href='../../../ethcore_util/common/hash/struct.H256.html' title='ethcore_util::common::hash::H256'>H256</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;) -&gt; <a class='enum' href='../../../ethcore_util/standard/result/enum.Result.html' title='ethcore_util::standard::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,&nbsp;<a class='enum' href='../../../ethcore_util/error/enum.UtilError.html' title='ethcore_util::error::UtilError'>UtilError</a>&gt;</code></h3><div class='docblock'><p>Commit all recent insert operations and canonical historical commits&#39; removals from the
+old era to the backing database, reverting any non-canonical historical commit&#39;s inserts.</p>
+</div><h3 id='tymethod.inject' class='method stab '><code>fn <a href='#tymethod.inject' class='fnname'>inject</a>(&amp;mut self, batch: &amp;mut <a class='struct' href='../../../ethcore_util/kvdb/struct.DBTransaction.html' title='ethcore_util::kvdb::DBTransaction'>DBTransaction</a>) -&gt; <a class='enum' href='../../../ethcore_util/standard/result/enum.Result.html' title='ethcore_util::standard::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>,&nbsp;<a class='enum' href='../../../ethcore_util/error/enum.UtilError.html' title='ethcore_util::error::UtilError'>UtilError</a>&gt;</code></h3><div class='docblock'><p>Commit all queued insert and delete operations without affecting any journalling -- this requires that all insertions
+and deletions are indeed canonical and will likely lead to an invalid database if that assumption is violated.</p>
+
+<p>Any keys or values inserted or deleted must be completely independent of those affected
+by any previous <code>commit</code> operations. Essentially, this means that <code>inject</code> can be used
+either to restore a state to a fresh database, or to insert data which may only be journalled
+from this point onwards.</p>
+</div><h3 id='tymethod.state' class='method stab '><code>fn <a href='#tymethod.state' class='fnname'>state</a>(&amp;self, _id: &amp;<a class='struct' href='../../../ethcore_util/common/hash/struct.H256.html' title='ethcore_util::common::hash::H256'>H256</a>) -&gt; <a class='enum' href='../../../ethcore_util/standard/option/enum.Option.html' title='ethcore_util::standard::option::Option'>Option</a>&lt;<a class='type' href='../../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;</code></h3><div class='docblock'><p>State data query</p>
+</div><h3 id='tymethod.backing' class='method stab '><code>fn <a href='#tymethod.backing' class='fnname'>backing</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../../ethcore_util/standard/struct.Arc.html' title='ethcore_util::standard::Arc'>Arc</a>&lt;<a class='struct' href='../../../ethcore_util/kvdb/struct.Database.html' title='ethcore_util::kvdb::Database'>Database</a>&gt;</code></h3><div class='docblock'><p>Get backing database.</p>
+</div><h3 id='tymethod.consolidate' class='method stab '><code>fn <a href='#tymethod.consolidate' class='fnname'>consolidate</a>(&amp;mut self, overlay: <a class='struct' href='../../../ethcore_util/memorydb/struct.MemoryDB.html' title='ethcore_util::memorydb::MemoryDB'>MemoryDB</a>)</code></h3><div class='docblock'><p>Consolidate all the insertions and deletions in the given memory overlay.</p>
+</div></div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.is_pruned' class='method stab '><code>fn <a href='#method.is_pruned' class='fnname'>is_pruned</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Whether this database is pruned.</p>
+</div><h3 id='method.flush' class='method stab '><code>fn <a href='#method.flush' class='fnname'>flush</a>(&amp;self)</code></h3><div class='docblock'><p>Clear internal strucutres. This should called after changes have been written
+to the backing strage</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    </ul><script type="text/javascript" async
+                         src="../../../implementors/ethcore_util/journaldb/traits/trait.JournalDB.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "ethcore_util";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

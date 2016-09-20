@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Engine` trait in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Engine">
+
+    <title>ethcore::engines::Engine - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>engines</a></p><script>window.sidebarCurrent = {name: 'Engine', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>engines</a>::<wbr><a class='trait' href=''>Engine</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-503' class='srclink' href='../../src/ethcore/ethcore/src/engines/mod.rs.html#35-132' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Engine: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> {
+    fn <a href='#tymethod.name' class='fnname'>name</a>(&amp;self) -&gt; &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>;
+    fn <a href='#tymethod.params' class='fnname'>params</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../ethcore/spec/spec/struct.CommonParams.html' title='ethcore::spec::spec::CommonParams'>CommonParams</a>;
+    fn <a href='#tymethod.schedule' class='fnname'>schedule</a>(&amp;self, env_info: &amp;<a class='struct' href='../../ethcore/client/struct.EnvInfo.html' title='ethcore::client::EnvInfo'>EnvInfo</a>) -&gt; <a class='struct' href='../../ethcore/evm/schedule/struct.Schedule.html' title='ethcore::evm::schedule::Schedule'>Schedule</a>;
+    fn <a href='#tymethod.builtins' class='fnname'>builtins</a>(&amp;self) -&gt; &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/btree/map/struct.BTreeMap.html' title='collections::btree::map::BTreeMap'>BTreeMap</a>&lt;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>,&nbsp;Builtin&gt;;
+
+    fn <a href='#method.version' class='fnname'>version</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore_util/semantic_version/struct.SemanticVersion.html' title='ethcore_util::semantic_version::SemanticVersion'>SemanticVersion</a> { ... }
+    fn <a href='#method.seal_fields' class='fnname'>seal_fields</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.extra_info' class='fnname'>extra_info</a>(&amp;self, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html' title='std::collections::hash::map::HashMap'>HashMap</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt; { ... }
+    fn <a href='#method.additional_params' class='fnname'>additional_params</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html' title='std::collections::hash::map::HashMap'>HashMap</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt; { ... }
+    fn <a href='#method.maximum_extra_data_size' class='fnname'>maximum_extra_data_size</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.maximum_uncle_count' class='fnname'>maximum_uncle_count</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.maximum_uncle_age' class='fnname'>maximum_uncle_age</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a> { ... }
+    fn <a href='#method.account_start_nonce' class='fnname'>account_start_nonce</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a> { ... }
+    fn <a href='#method.on_new_block' class='fnname'>on_new_block</a>(&amp;self, _block: &amp;mut <a class='struct' href='../../ethcore/block/struct.ExecutedBlock.html' title='ethcore::block::ExecutedBlock'>ExecutedBlock</a>) { ... }
+    fn <a href='#method.on_close_block' class='fnname'>on_close_block</a>(&amp;self, _block: &amp;mut <a class='struct' href='../../ethcore/block/struct.ExecutedBlock.html' title='ethcore::block::ExecutedBlock'>ExecutedBlock</a>) { ... }
+    fn <a href='#method.is_sealer' class='fnname'>is_sealer</a>(&amp;self, _author: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>&gt; { ... }
+    fn <a href='#method.is_default_sealer' class='fnname'>is_default_sealer</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>&gt; { ... }
+    fn <a href='#method.generate_seal' class='fnname'>generate_seal</a>(&amp;self, _block: &amp;<a class='struct' href='../../ethcore/block/struct.ExecutedBlock.html' title='ethcore::block::ExecutedBlock'>ExecutedBlock</a>, _accounts: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../ethcore/account_provider/struct.AccountProvider.html' title='ethcore::account_provider::AccountProvider'>AccountProvider</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;&gt; { ... }
+    fn <a href='#method.verify_block_basic' class='fnname'>verify_block_basic</a>(&amp;self, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, _block: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt; { ... }
+    fn <a href='#method.verify_block_unordered' class='fnname'>verify_block_unordered</a>(&amp;self, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, _block: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt; { ... }
+    fn <a href='#method.verify_block_family' class='fnname'>verify_block_family</a>(&amp;self, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, _parent: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, _block: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt; { ... }
+    fn <a href='#method.verify_transaction_basic' class='fnname'>verify_transaction_basic</a>(&amp;self, _t: &amp;<a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a>, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt; { ... }
+    fn <a href='#method.verify_transaction' class='fnname'>verify_transaction</a>(&amp;self, _t: &amp;<a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a>, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt; { ... }
+    fn <a href='#method.verify_block_seal' class='fnname'>verify_block_seal</a>(&amp;self, header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt; { ... }
+    fn <a href='#method.populate_from_parent' class='fnname'>populate_from_parent</a>(&amp;self, header: &amp;mut <a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, parent: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, _gas_floor_target: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>, _gas_ceil_target: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>) { ... }
+    fn <a href='#method.is_builtin' class='fnname'>is_builtin</a>(&amp;self, a: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a> { ... }
+    fn <a href='#method.cost_of_builtin' class='fnname'>cost_of_builtin</a>(&amp;self, a: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, input: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a> { ... }
+    fn <a href='#method.execute_builtin' class='fnname'>execute_builtin</a>(&amp;self, a: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, input: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, output: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;mut [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) { ... }
+}</pre><div class='docblock'><p>A consensus mechanism for the chain. Generally either proof-of-work or proof-of-stake-based.
+Provides hooks into each of the major parts of block import.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.name' class='method stab '><code>fn <a href='#tymethod.name' class='fnname'>name</a>(&amp;self) -&gt; &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></h3><div class='docblock'><p>The name of this engine.</p>
+</div><h3 id='tymethod.params' class='method stab '><code>fn <a href='#tymethod.params' class='fnname'>params</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../ethcore/spec/spec/struct.CommonParams.html' title='ethcore::spec::spec::CommonParams'>CommonParams</a></code></h3><div class='docblock'><p>Get the general parameters of the chain.</p>
+</div><h3 id='tymethod.schedule' class='method stab '><code>fn <a href='#tymethod.schedule' class='fnname'>schedule</a>(&amp;self, env_info: &amp;<a class='struct' href='../../ethcore/client/struct.EnvInfo.html' title='ethcore::client::EnvInfo'>EnvInfo</a>) -&gt; <a class='struct' href='../../ethcore/evm/schedule/struct.Schedule.html' title='ethcore::evm::schedule::Schedule'>Schedule</a></code></h3><div class='docblock'><p>Get the EVM schedule for the given <code>env_info</code>.</p>
+</div><h3 id='tymethod.builtins' class='method stab '><code>fn <a href='#tymethod.builtins' class='fnname'>builtins</a>(&amp;self) -&gt; &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/btree/map/struct.BTreeMap.html' title='collections::btree::map::BTreeMap'>BTreeMap</a>&lt;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>,&nbsp;Builtin&gt;</code></h3><div class='docblock'><p>Builtin-contracts we would like to see in the chain.
+(In principle these are just hints for the engine since that has the last word on them.)</p>
+</div></div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.version' class='method stab '><code>fn <a href='#method.version' class='fnname'>version</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore_util/semantic_version/struct.SemanticVersion.html' title='ethcore_util::semantic_version::SemanticVersion'>SemanticVersion</a></code></h3><div class='docblock'><p>The version of this engine. Should be of the form</p>
+</div><h3 id='method.seal_fields' class='method stab '><code>fn <a href='#method.seal_fields' class='fnname'>seal_fields</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>The number of additional header fields required for this engine.</p>
+</div><h3 id='method.extra_info' class='method stab '><code>fn <a href='#method.extra_info' class='fnname'>extra_info</a>(&amp;self, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html' title='std::collections::hash::map::HashMap'>HashMap</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code></h3><div class='docblock'><p>Additional engine-specific information for the user/developer concerning <code>header</code>.</p>
+</div><h3 id='method.additional_params' class='method stab '><code>fn <a href='#method.additional_params' class='fnname'>additional_params</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html' title='std::collections::hash::map::HashMap'>HashMap</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code></h3><div class='docblock'><p>Additional information.</p>
+</div><h3 id='method.maximum_extra_data_size' class='method stab '><code>fn <a href='#method.maximum_extra_data_size' class='fnname'>maximum_extra_data_size</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Some intrinsic operation parameters; by default they take their value from the <code>spec()</code>&#39;s <code>engine_params</code>.</p>
+</div><h3 id='method.maximum_uncle_count' class='method stab '><code>fn <a href='#method.maximum_uncle_count' class='fnname'>maximum_uncle_count</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>Maximum number of uncles a block is allowed to declare.</p>
+</div><h3 id='method.maximum_uncle_age' class='method stab '><code>fn <a href='#method.maximum_uncle_age' class='fnname'>maximum_uncle_age</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h3><div class='docblock'><p>The number of generations back that uncles can be.</p>
+</div><h3 id='method.account_start_nonce' class='method stab '><code>fn <a href='#method.account_start_nonce' class='fnname'>account_start_nonce</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a></code></h3><div class='docblock'><p>The nonce with which accounts begin.</p>
+</div><h3 id='method.on_new_block' class='method stab '><code>fn <a href='#method.on_new_block' class='fnname'>on_new_block</a>(&amp;self, _block: &amp;mut <a class='struct' href='../../ethcore/block/struct.ExecutedBlock.html' title='ethcore::block::ExecutedBlock'>ExecutedBlock</a>)</code></h3><div class='docblock'><p>Block transformation functions, before the transactions.</p>
+</div><h3 id='method.on_close_block' class='method stab '><code>fn <a href='#method.on_close_block' class='fnname'>on_close_block</a>(&amp;self, _block: &amp;mut <a class='struct' href='../../ethcore/block/struct.ExecutedBlock.html' title='ethcore::block::ExecutedBlock'>ExecutedBlock</a>)</code></h3><div class='docblock'><p>Block transformation functions, after the transactions.</p>
+</div><h3 id='method.is_sealer' class='method stab '><code>fn <a href='#method.is_sealer' class='fnname'>is_sealer</a>(&amp;self, _author: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>&gt;</code></h3><div class='docblock'><p>If Some(true) this author is able to generate seals, generate_seal has to be implemented.
+None indicates that this Engine never seals internally regardless of author (e.g. PoW).</p>
+</div><h3 id='method.is_default_sealer' class='method stab '><code>fn <a href='#method.is_default_sealer' class='fnname'>is_default_sealer</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>&gt;</code></h3><div class='docblock'><p>Checks if default address is able to seal.</p>
+</div><h3 id='method.generate_seal' class='method stab '><code>fn <a href='#method.generate_seal' class='fnname'>generate_seal</a>(&amp;self, _block: &amp;<a class='struct' href='../../ethcore/block/struct.ExecutedBlock.html' title='ethcore::block::ExecutedBlock'>ExecutedBlock</a>, _accounts: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../ethcore/account_provider/struct.AccountProvider.html' title='ethcore::account_provider::AccountProvider'>AccountProvider</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;&gt;</code></h3><div class='docblock'><p>Attempt to seal the block internally.</p>
+
+<p>If <code>Some</code> is returned, then you get a valid seal.</p>
+
+<p>This operation is synchronous and may (quite reasonably) not be available, in which None will
+be returned.</p>
+</div><h3 id='method.verify_block_basic' class='method stab '><code>fn <a href='#method.verify_block_basic' class='fnname'>verify_block_basic</a>(&amp;self, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, _block: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt;</code></h3><div class='docblock'><p>Phase 1 quick block verification. Only does checks that are cheap. <code>block</code> (the header&#39;s full block)
+may be provided for additional checks. Returns either a null <code>Ok</code> or a general error detailing the problem with import.</p>
+</div><h3 id='method.verify_block_unordered' class='method stab '><code>fn <a href='#method.verify_block_unordered' class='fnname'>verify_block_unordered</a>(&amp;self, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, _block: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt;</code></h3><div class='docblock'><p>Phase 2 verification. Perform costly checks such as transaction signatures. <code>block</code> (the header&#39;s full block)
+may be provided for additional checks. Returns either a null <code>Ok</code> or a general error detailing the problem with import.</p>
+</div><h3 id='method.verify_block_family' class='method stab '><code>fn <a href='#method.verify_block_family' class='fnname'>verify_block_family</a>(&amp;self, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, _parent: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, _block: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt;</code></h3><div class='docblock'><p>Phase 3 verification. Check block information against parent and uncles. <code>block</code> (the header&#39;s full block)
+may be provided for additional checks. Returns either a null <code>Ok</code> or a general error detailing the problem with import.</p>
+</div><h3 id='method.verify_transaction_basic' class='method stab '><code>fn <a href='#method.verify_transaction_basic' class='fnname'>verify_transaction_basic</a>(&amp;self, _t: &amp;<a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a>, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt;</code></h3><div class='docblock'><p>Additional verification for transactions in blocks.</p>
+</div><h3 id='method.verify_transaction' class='method stab '><code>fn <a href='#method.verify_transaction' class='fnname'>verify_transaction</a>(&amp;self, _t: &amp;<a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a>, _header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt;</code></h3><div class='docblock'><p>Verify a particular transaction is valid.</p>
+</div><h3 id='method.verify_block_seal' class='method stab '><code>fn <a href='#method.verify_block_seal' class='fnname'>verify_block_seal</a>(&amp;self, header: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt;</code></h3><div class='docblock'><p>Verify the seal of a block. This is an auxilliary method that actually just calls other <code>verify_</code> methods
+to get the job done. By default it must pass <code>verify_basic</code> and <code>verify_block_unordered</code>. If more or fewer
+methods are needed for an Engine, this may be overridden.</p>
+</div><h3 id='method.populate_from_parent' class='method stab '><code>fn <a href='#method.populate_from_parent' class='fnname'>populate_from_parent</a>(&amp;self, header: &amp;mut <a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, parent: &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>, _gas_floor_target: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>, _gas_ceil_target: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>)</code></h3><div class='docblock'><p>Don&#39;t forget to call Super::populate_from_parent when subclassing &amp; overriding.</p>
+</div><h3 id='method.is_builtin' class='method stab '><code>fn <a href='#method.is_builtin' class='fnname'>is_builtin</a>(&amp;self, a: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Determine whether a particular address is a builtin contract.</p>
+</div><h3 id='method.cost_of_builtin' class='method stab '><code>fn <a href='#method.cost_of_builtin' class='fnname'>cost_of_builtin</a>(&amp;self, a: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, input: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a></code></h3><div class='docblock'><p>Determine the code execution cost of the builtin contract with address <code>a</code>.
+Panics if <code>is_builtin(a)</code> is not true.</p>
+</div><h3 id='method.execute_builtin' class='method stab '><code>fn <a href='#method.execute_builtin' class='fnname'>execute_builtin</a>(&amp;self, a: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, input: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, output: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;mut [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>)</code></h3><div class='docblock'><p>Execution the builtin contract <code>a</code> on <code>input</code> and return <code>output</code>.
+Panics if <code>is_builtin(a)</code> is not true.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl Engine for <a class='struct' href='../../ethcore/engines/struct.NullEngine.html' title='ethcore::engines::NullEngine'>NullEngine</a></code></li>
+<li><code>impl Engine for <a class='struct' href='../../ethcore/engines/struct.InstantSeal.html' title='ethcore::engines::InstantSeal'>InstantSeal</a></code></li>
+<li><code>impl Engine for <a class='struct' href='../../ethcore/engines/struct.BasicAuthority.html' title='ethcore::engines::BasicAuthority'>BasicAuthority</a></code></li>
+<li><code>impl Engine for <a class='struct' href='../../ethcore/ethereum/ethash/struct.Ethash.html' title='ethcore::ethereum::ethash::Ethash'>Ethash</a></code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/ethcore/engines/trait.Engine.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

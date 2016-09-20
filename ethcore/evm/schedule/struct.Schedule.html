@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Schedule` struct in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Schedule">
+
+    <title>ethcore::evm::schedule::Schedule - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>ethcore</a>::<wbr><a href='../index.html'>evm</a>::<wbr><a href='index.html'>schedule</a></p><script>window.sidebarCurrent = {name: 'Schedule', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>ethcore</a>::<wbr><a href='../index.html'>evm</a>::<wbr><a href='index.html'>schedule</a>::<wbr><a class='struct' href=''>Schedule</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-14627' class='srclink' href='../../../src/ethcore/ethcore/src/evm/schedule.rs.html#20-83' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Schedule {
+    pub exceptional_failed_code_deposit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub have_delegate_call: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub stack_limit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub max_depth: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub tier_step_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 8]</a>,
+    pub exp_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub exp_byte_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub sha3_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub sha3_word_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub sload_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub sstore_set_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub sstore_reset_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub sstore_refund_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub jumpdest_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub log_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub log_data_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub log_topic_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub create_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub call_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub call_stipend: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub call_value_transfer_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub call_new_account_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub suicide_refund_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub memory_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub quad_coeff_div: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub create_data_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub tx_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub tx_create_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub tx_data_zero_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub tx_data_non_zero_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub copy_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+}</pre><div class='docblock'><p>Definition of the cost schedule and other parameterisations for the EVM.</p>
+</div><h2 class='fields'>Fields</h2><span id='structfield.exceptional_failed_code_deposit' class='structfield'><code>exceptional_failed_code_deposit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Does it support exceptional failed code deposit</p>
+</div><span id='structfield.have_delegate_call' class='structfield'><code>have_delegate_call: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Does it have a delegate cal</p>
+</div><span id='structfield.stack_limit' class='structfield'><code>stack_limit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>VM stack limit</p>
+</div><span id='structfield.max_depth' class='structfield'><code>max_depth: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Max number of nested calls/creates</p>
+</div><span id='structfield.tier_step_gas' class='structfield'><code>tier_step_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 8]</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas prices for instructions in all tiers</p>
+</div><span id='structfield.exp_gas' class='structfield'><code>exp_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas price for <code>EXP</code> opcode</p>
+</div><span id='structfield.exp_byte_gas' class='structfield'><code>exp_byte_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Additional gas for <code>EXP</code> opcode for each byte of exponent</p>
+</div><span id='structfield.sha3_gas' class='structfield'><code>sha3_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas price for <code>SHA3</code> opcode</p>
+</div><span id='structfield.sha3_word_gas' class='structfield'><code>sha3_word_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Additional gas for <code>SHA3</code> opcode for each word of hashed memory</p>
+</div><span id='structfield.sload_gas' class='structfield'><code>sload_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas price for loading from storage</p>
+</div><span id='structfield.sstore_set_gas' class='structfield'><code>sstore_set_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas price for setting new value to storage (<code>storage==0</code>, <code>new!=0</code>)</p>
+</div><span id='structfield.sstore_reset_gas' class='structfield'><code>sstore_reset_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas price for altering value in storage</p>
+</div><span id='structfield.sstore_refund_gas' class='structfield'><code>sstore_refund_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas refund for <code>SSTORE</code> clearing (when <code>storage!=0</code>, <code>new==0</code>)</p>
+</div><span id='structfield.jumpdest_gas' class='structfield'><code>jumpdest_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas price for <code>JUMPDEST</code> opcode</p>
+</div><span id='structfield.log_gas' class='structfield'><code>log_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas price for <code>LOG*</code></p>
+</div><span id='structfield.log_data_gas' class='structfield'><code>log_data_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Additional gas for data in <code>LOG*</code></p>
+</div><span id='structfield.log_topic_gas' class='structfield'><code>log_topic_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Additional gas for each topic in <code>LOG*</code></p>
+</div><span id='structfield.create_gas' class='structfield'><code>create_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas price for <code>CREATE</code> opcode</p>
+</div><span id='structfield.call_gas' class='structfield'><code>call_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas price for <code>*CALL*</code> opcodes</p>
+</div><span id='structfield.call_stipend' class='structfield'><code>call_stipend: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Stipend for transfer for <code>CALL|CALLCODE</code> opcode when <code>value&gt;0</code></p>
+</div><span id='structfield.call_value_transfer_gas' class='structfield'><code>call_value_transfer_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Additional gas required for value transfer (<code>CALL|CALLCODE</code>)</p>
+</div><span id='structfield.call_new_account_gas' class='structfield'><code>call_new_account_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Additional gas for creating new account (<code>CALL|CALLCODE</code>)</p>
+</div><span id='structfield.suicide_refund_gas' class='structfield'><code>suicide_refund_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Refund for SUICIDE</p>
+</div><span id='structfield.memory_gas' class='structfield'><code>memory_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas for used memory</p>
+</div><span id='structfield.quad_coeff_div' class='structfield'><code>quad_coeff_div: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Coefficient used to convert memory size to gas price for memory</p>
+</div><span id='structfield.create_data_gas' class='structfield'><code>create_data_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Cost for contract length when executing <code>CREATE</code></p>
+</div><span id='structfield.tx_gas' class='structfield'><code>tx_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Transaction cost</p>
+</div><span id='structfield.tx_create_gas' class='structfield'><code>tx_create_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p><code>CREATE</code> transaction cost</p>
+</div><span id='structfield.tx_data_zero_gas' class='structfield'><code>tx_data_zero_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Additional cost for empty data transaction</p>
+</div><span id='structfield.tx_data_non_zero_gas' class='structfield'><code>tx_data_non_zero_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Aditional cost for non-empty data transaction</p>
+</div><span id='structfield.copy_gas' class='structfield'><code>copy_gas: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas price for copying memory</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../../ethcore/evm/schedule/struct.Schedule.html' title='ethcore::evm::schedule::Schedule'>Schedule</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-14660' class='srclink' href='../../../src/ethcore/ethcore/src/evm/schedule.rs.html#85-131' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new_frontier' class='method'><code>fn <a href='#method.new_frontier' class='fnname'>new_frontier</a>() -&gt; <a class='struct' href='../../../ethcore/evm/schedule/struct.Schedule.html' title='ethcore::evm::schedule::Schedule'>Schedule</a></code></h4>
+<div class='docblock'><p>Schedule for the Frontier-era of the Ethereum main net.</p>
+</div><h4 id='method.new_homestead' class='method'><code>fn <a href='#method.new_homestead' class='fnname'>new_homestead</a>() -&gt; <a class='struct' href='../../../ethcore/evm/schedule/struct.Schedule.html' title='ethcore::evm::schedule::Schedule'>Schedule</a></code></h4>
+<div class='docblock'><p>Schedule for the Homestead-era of the Ethereum main net.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

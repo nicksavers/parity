@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CompactionProfile","Compaction profile for the database settings"],["DBTransaction","Write transaction. Batches a sequence of put/delete operations for efficiency."],["Database","Key-Value database."],["DatabaseConfig","Database configuration"],["DatabaseIterator","Database iterator for flushed data only"]]});

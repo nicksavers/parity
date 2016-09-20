@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["NibbleSlice","Nibble-orientated view onto byte-slice, allowing nibble-precision offsets."],["NibbleSliceIterator","Iterator type for a nibble slice."]]});

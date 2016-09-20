@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Genesis` struct in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Genesis">
+
+    <title>ethcore::spec::Genesis - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>spec</a></p><script>window.sidebarCurrent = {name: 'Genesis', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>spec</a>::<wbr><a class='struct' href=''>Genesis</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-9164' class='srclink' href='../../src/ethcore/ethcore/src/spec/genesis.rs.html#23-46' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Genesis {
+    pub seal: Seal,
+    pub difficulty: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>,
+    pub author: <a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>,
+    pub timestamp: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
+    pub parent_hash: <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>,
+    pub gas_limit: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>,
+    pub transactions_root: <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>,
+    pub receipts_root: <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>,
+    pub state_root: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;,
+    pub gas_used: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>,
+    pub extra_data: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;,
+}</pre><div class='docblock'><p>Genesis components.</p>
+</div><h2 class='fields'>Fields</h2><span id='structfield.seal' class='structfield'><code>seal: Seal</code>
+                           </span><span class='stab '></span><div class='docblock'><p>Seal.</p>
+</div><span id='structfield.difficulty' class='structfield'><code>difficulty: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Difficulty.</p>
+</div><span id='structfield.author' class='structfield'><code>author: <a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Author.</p>
+</div><span id='structfield.timestamp' class='structfield'><code>timestamp: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Timestamp.</p>
+</div><span id='structfield.parent_hash' class='structfield'><code>parent_hash: <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Parent hash.</p>
+</div><span id='structfield.gas_limit' class='structfield'><code>gas_limit: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas limit.</p>
+</div><span id='structfield.transactions_root' class='structfield'><code>transactions_root: <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Transactions root.</p>
+</div><span id='structfield.receipts_root' class='structfield'><code>receipts_root: <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Receipts root.</p>
+</div><span id='structfield.state_root' class='structfield'><code>state_root: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>State root.</p>
+</div><span id='structfield.gas_used' class='structfield'><code>gas_used: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas used.</p>
+</div><span id='structfield.extra_data' class='structfield'><code>extra_data: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>Extra data.</p>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html' title='core::convert::From'>From</a>&lt;Genesis&gt; for <a class='struct' href='../../ethcore/spec/struct.Genesis.html' title='ethcore::spec::Genesis'>Genesis</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-9176' class='srclink' href='../../src/ethcore/ethcore/src/spec/genesis.rs.html#48-64' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(g: Genesis) -&gt; Self</code></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

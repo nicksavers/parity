@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Client` struct in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Client">
+
+    <title>ethcore::client::Client - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>client</a></p><script>window.sidebarCurrent = {name: 'Client', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>client</a>::<wbr><a class='struct' href=''>Client</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1884' class='srclink' href='../../src/ethcore/ethcore/src/client/client.rs.html#123-145' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Client {
+    // some fields omitted
+}</pre><div class='docblock'><p>Blockchain database client backed by a persistent database. Owns and manages a blockchain and a block queue.
+Call <code>import_block()</code> to import a block asynchronously; <code>flush_queue()</code> flushes the queue.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../ethcore/client/struct.Client.html' title='ethcore::client::Client'>Client</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-1912' class='srclink' href='../../src/ethcore/ethcore/src/client/client.rs.html#156-671' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(config: <a class='struct' href='../../ethcore/client/struct.ClientConfig.html' title='ethcore::client::ClientConfig'>ClientConfig</a>, spec: &amp;<a class='struct' href='../../ethcore/spec/spec/struct.Spec.html' title='ethcore::spec::spec::Spec'>Spec</a>, path: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>, miner: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../ethcore/miner/struct.Miner.html' title='ethcore::miner::Miner'>Miner</a>&gt;, message_channel: <a class='struct' href='../../ethcore_io/service/struct.IoChannel.html' title='ethcore_io::service::IoChannel'>IoChannel</a>&lt;<a class='enum' href='../../ethcore/service/enum.ClientIoMessage.html' title='ethcore::service::ClientIoMessage'>ClientIoMessage</a>&gt;, db_config: &amp;<a class='struct' href='../../ethcore_util/kvdb/struct.DatabaseConfig.html' title='ethcore_util::kvdb::DatabaseConfig'>DatabaseConfig</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../ethcore/client/struct.Client.html' title='ethcore::client::Client'>Client</a>&gt;,&nbsp;<a class='enum' href='../../ethcore/client/enum.Error.html' title='ethcore::client::Error'>ClientError</a>&gt;</code></h4>
+<div class='docblock'><p>Create a new client with given spec and DB path and custom verifier.</p>
+</div><h4 id='method.add_notify' class='method'><code>fn <a href='#method.add_notify' class='fnname'>add_notify</a>(&amp;self, target: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='trait' href='../../ethcore/client/chain_notify/trait.ChainNotify.html' title='ethcore::client::chain_notify::ChainNotify'>ChainNotify</a>&gt;)</code></h4>
+<div class='docblock'><p>Adds an actor to be notified on certain events</p>
+</div><h4 id='method.flush_queue' class='method'><code>fn <a href='#method.flush_queue' class='fnname'>flush_queue</a>(&amp;self)</code></h4>
+<div class='docblock'><p>Flush the block import queue.</p>
+</div><h4 id='method.import_verified_blocks' class='method'><code>fn <a href='#method.import_verified_blocks' class='fnname'>import_verified_blocks</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>This is triggered by a message coming from a block queue when the block is ready for insertion</p>
+</div><h4 id='method.import_queued_transactions' class='method'><code>fn <a href='#method.import_queued_transactions' class='fnname'>import_queued_transactions</a>(&amp;self, transactions: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Import transactions from the IO queue</p>
+</div><h4 id='method.state_at' class='method'><code>fn <a href='#method.state_at' class='fnname'>state_at</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;State&gt;</code></h4>
+<div class='docblock'><p>Attempt to get a copy of a specific block&#39;s final state.</p>
+
+<p>This will not fail if given BlockID::Latest.
+Otherwise, this can fail (but may not) if the DB prunes state.</p>
+</div><h4 id='method.state_at_beginning' class='method'><code>fn <a href='#method.state_at_beginning' class='fnname'>state_at_beginning</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;State&gt;</code></h4>
+<div class='docblock'><p>Attempt to get a copy of a specific block&#39;s beginning state.</p>
+
+<p>This will not fail if given BlockID::Latest.
+Otherwise, this can fail (but may not) if the DB prunes state.</p>
+</div><h4 id='method.state' class='method'><code>fn <a href='#method.state' class='fnname'>state</a>(&amp;self) -&gt; State</code></h4>
+<div class='docblock'><p>Get a copy of the best block&#39;s state.</p>
+</div><h4 id='method.blockchain_cache_info' class='method'><code>fn <a href='#method.blockchain_cache_info' class='fnname'>blockchain_cache_info</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore/client/struct.BlockChainCacheSize.html' title='ethcore::client::BlockChainCacheSize'>BlockChainCacheSize</a></code></h4>
+<div class='docblock'><p>Get info on the cache.</p>
+</div><h4 id='method.report' class='method'><code>fn <a href='#method.report' class='fnname'>report</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore/client/struct.ClientReport.html' title='ethcore::client::ClientReport'>ClientReport</a></code></h4>
+<div class='docblock'><p>Get the report.</p>
+</div><h4 id='method.tick' class='method'><code>fn <a href='#method.tick' class='fnname'>tick</a>(&amp;self)</code></h4>
+<div class='docblock'><p>Tick the client.</p>
+</div><h4 id='method.block_number' class='method'><code>fn <a href='#method.block_number' class='fnname'>block_number</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore/header/type.BlockNumber.html' title='ethcore::header::BlockNumber'>BlockNumber</a>&gt;</code></h4>
+<div class='docblock'><p>Look up the block number for the given block ID.</p>
+</div><h4 id='method.take_snapshot' class='method'><code>fn <a href='#method.take_snapshot' class='fnname'>take_snapshot</a>&lt;W:&nbsp;<a class='trait' href='../../ethcore/snapshot/io/trait.SnapshotWriter.html' title='ethcore::snapshot::io::SnapshotWriter'>SnapshotWriter</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a>&gt;(&amp;self, writer: W, at: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>, p: &amp;<a class='struct' href='../../ethcore/snapshot/struct.Progress.html' title='ethcore::snapshot::Progress'>Progress</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>EthcoreError</a>&gt;</code></h4>
+<div class='docblock'><p>Take a snapshot at the given block.
+If the ID given is &quot;latest&quot;, this will default to 1000 blocks behind.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../../ethcore/snapshot/service/trait.DatabaseRestore.html' title='ethcore::snapshot::service::DatabaseRestore'>DatabaseRestore</a> for <a class='struct' href='../../ethcore/client/struct.Client.html' title='ethcore::client::Client'>Client</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2186' class='srclink' href='../../src/ethcore/ethcore/src/client/client.rs.html#673-691' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.restore_db' class='method'><code>fn <a href='../../ethcore/snapshot/service/trait.DatabaseRestore.html#tymethod.restore_db' class='fnname'>restore_db</a>(&amp;self, new_db: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>EthcoreError</a>&gt;</code></h4>
+<div class='docblock'><p>Restart the client with a new backend</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../../ethcore/client/trait.BlockChainClient.html' title='ethcore::client::BlockChainClient'>BlockChainClient</a> for <a class='struct' href='../../ethcore/client/struct.Client.html' title='ethcore::client::Client'>Client</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2203' class='srclink' href='../../src/ethcore/ethcore/src/client/client.rs.html#694-1035' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.call' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.call' class='fnname'>call</a>(&amp;self, t: &amp;<a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a>, block: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>, analytics: <a class='struct' href='../../ethcore/client/struct.CallAnalytics.html' title='ethcore::client::CallAnalytics'>CallAnalytics</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../ethcore/client/struct.Executed.html' title='ethcore::client::Executed'>Executed</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.CallError.html' title='ethcore::error::CallError'>CallError</a>&gt;</code></h4>
+<div class='docblock'><p>Makes a non-persistent transaction call.</p>
+</div><h4 id='method.replay' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.replay' class='fnname'>replay</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.TransactionID.html' title='ethcore::client::TransactionID'>TransactionID</a>, analytics: <a class='struct' href='../../ethcore/client/struct.CallAnalytics.html' title='ethcore::client::CallAnalytics'>CallAnalytics</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../ethcore/client/struct.Executed.html' title='ethcore::client::Executed'>Executed</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.CallError.html' title='ethcore::error::CallError'>CallError</a>&gt;</code></h4>
+<div class='docblock'><p>Replays a given transaction for inspection.</p>
+</div><h4 id='method.keep_alive' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#method.keep_alive' class='fnname'>keep_alive</a>(&amp;self)</code></h4>
+<div class='docblock'><p>Should be called by any external-facing interface when actively using the client. To minimise chatter, there&#39;s no need to call more than once every 30s. <a href="../../ethcore/client/trait.BlockChainClient.html#method.keep_alive">Read more</a></p>
+</div><h4 id='method.best_block_header' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.best_block_header' class='fnname'>best_block_header</a>(&amp;self) -&gt; <a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a></code></h4>
+<div class='docblock'><p>Get the best block header.</p>
+</div><h4 id='method.block_header' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.block_header' class='fnname'>block_header</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;</code></h4>
+<div class='docblock'><p>Get raw block header data by block id.</p>
+</div><h4 id='method.block_body' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.block_body' class='fnname'>block_body</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;</code></h4>
+<div class='docblock'><p>Get raw block body data by block id. Block body is an RLP list of two items: uncles and transactions. <a href="../../ethcore/client/trait.BlockChainClient.html#tymethod.block_body">Read more</a></p>
+</div><h4 id='method.block' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.block' class='fnname'>block</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;</code></h4>
+<div class='docblock'><p>Get raw block data by block header hash.</p>
+</div><h4 id='method.block_status' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.block_status' class='fnname'>block_status</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='../../ethcore/client/enum.BlockStatus.html' title='ethcore::client::BlockStatus'>BlockStatus</a></code></h4>
+<div class='docblock'><p>Get block status by block header hash.</p>
+</div><h4 id='method.block_total_difficulty' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.block_total_difficulty' class='fnname'>block_total_difficulty</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>&gt;</code></h4>
+<div class='docblock'><p>Get block total difficulty.</p>
+</div><h4 id='method.nonce' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.nonce' class='fnname'>nonce</a>(&amp;self, address: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>&gt;</code></h4>
+<div class='docblock'><p>Attempt to get address nonce at given block. May not fail on BlockID::Latest. <a href="../../ethcore/client/trait.BlockChainClient.html#tymethod.nonce">Read more</a></p>
+</div><h4 id='method.block_hash' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.block_hash' class='fnname'>block_hash</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;</code></h4>
+<div class='docblock'><p>Get block hash.</p>
+</div><h4 id='method.code' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.code' class='fnname'>code</a>(&amp;self, address: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Get address code at given block&#39;s state.</p>
+</div><h4 id='method.balance' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.balance' class='fnname'>balance</a>(&amp;self, address: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>&gt;</code></h4>
+<div class='docblock'><p>Get address balance at the given block&#39;s state. <a href="../../ethcore/client/trait.BlockChainClient.html#tymethod.balance">Read more</a></p>
+</div><h4 id='method.storage_at' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.storage_at' class='fnname'>storage_at</a>(&amp;self, address: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, position: &amp;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>, id: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;</code></h4>
+<div class='docblock'><p>Get value of the storage at given position at the given block&#39;s state. <a href="../../ethcore/client/trait.BlockChainClient.html#tymethod.storage_at">Read more</a></p>
+</div><h4 id='method.transaction' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.transaction' class='fnname'>transaction</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.TransactionID.html' title='ethcore::client::TransactionID'>TransactionID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/transaction/struct.LocalizedTransaction.html' title='ethcore::transaction::LocalizedTransaction'>LocalizedTransaction</a>&gt;</code></h4>
+<div class='docblock'><p>Get transaction with given hash.</p>
+</div><h4 id='method.uncle' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.uncle' class='fnname'>uncle</a>(&amp;self, id: <a class='struct' href='../../ethcore/client/struct.UncleID.html' title='ethcore::client::UncleID'>UncleID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;</code></h4>
+<div class='docblock'><p>Get uncle with given id.</p>
+</div><h4 id='method.transaction_receipt' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.transaction_receipt' class='fnname'>transaction_receipt</a>(&amp;self, id: <a class='enum' href='../../ethcore/client/enum.TransactionID.html' title='ethcore::client::TransactionID'>TransactionID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/receipt/struct.LocalizedReceipt.html' title='ethcore::receipt::LocalizedReceipt'>LocalizedReceipt</a>&gt;</code></h4>
+<div class='docblock'><p>Get transaction receipt with given hash.</p>
+</div><h4 id='method.tree_route' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.tree_route' class='fnname'>tree_route</a>(&amp;self, from: &amp;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>, to: &amp;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/tree_route/struct.TreeRoute.html' title='ethcore::tree_route::TreeRoute'>TreeRoute</a>&gt;</code></h4>
+<div class='docblock'><p>Get a tree route between <code>from</code> and <code>to</code>. See <code>BlockChain::tree_route</code>. <a href="../../ethcore/client/trait.BlockChainClient.html#tymethod.tree_route">Read more</a></p>
+</div><h4 id='method.find_uncles' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.find_uncles' class='fnname'>find_uncles</a>(&amp;self, hash: &amp;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Get all possible uncle hashes for a block.</p>
+</div><h4 id='method.state_data' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.state_data' class='fnname'>state_data</a>(&amp;self, hash: &amp;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;</code></h4>
+<div class='docblock'><p>Get latest state node</p>
+</div><h4 id='method.block_receipts' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.block_receipts' class='fnname'>block_receipts</a>(&amp;self, hash: &amp;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;</code></h4>
+<div class='docblock'><p>Get raw block receipts data by block header hash.</p>
+</div><h4 id='method.import_block' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.import_block' class='fnname'>import_block</a>(&amp;self, bytes: <a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>,&nbsp;<a class='enum' href='../../ethcore/client/enum.BlockImportError.html' title='ethcore::client::BlockImportError'>BlockImportError</a>&gt;</code></h4>
+<div class='docblock'><p>Import a block into the blockchain.</p>
+</div><h4 id='method.queue_info' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.queue_info' class='fnname'>queue_info</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore/block_queue/struct.BlockQueueInfo.html' title='ethcore::block_queue::BlockQueueInfo'>BlockQueueInfo</a></code></h4>
+<div class='docblock'><p>Get block queue information.</p>
+</div><h4 id='method.clear_queue' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.clear_queue' class='fnname'>clear_queue</a>(&amp;self)</code></h4>
+<div class='docblock'><p>Clear block queue and abort all import activity.</p>
+</div><h4 id='method.chain_info' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.chain_info' class='fnname'>chain_info</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore/client/struct.BlockChainInfo.html' title='ethcore::client::BlockChainInfo'>BlockChainInfo</a></code></h4>
+<div class='docblock'><p>Get blockchain information.</p>
+</div><h4 id='method.additional_params' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.additional_params' class='fnname'>additional_params</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/btree/map/struct.BTreeMap.html' title='collections::btree::map::BTreeMap'>BTreeMap</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code></h4>
+<div class='docblock'><p>Get the registrar address, if it exists.</p>
+</div><h4 id='method.blocks_with_bloom' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.blocks_with_bloom' class='fnname'>blocks_with_bloom</a>(&amp;self, bloom: &amp;<a class='struct' href='../../ethcore_bigint/hash/struct.H2048.html' title='ethcore_bigint::hash::H2048'>H2048</a>, from_block: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>, to_block: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../../ethcore/header/type.BlockNumber.html' title='ethcore::header::BlockNumber'>BlockNumber</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns numbers of blocks containing given bloom.</p>
+</div><h4 id='method.logs' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.logs' class='fnname'>logs</a>(&amp;self, filter: <a class='struct' href='../../ethcore/filter/struct.Filter.html' title='ethcore::filter::Filter'>Filter</a>, limit: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/log_entry/struct.LocalizedLogEntry.html' title='ethcore::log_entry::LocalizedLogEntry'>LocalizedLogEntry</a>&gt;</code></h4>
+<div class='docblock'><p>Returns logs matching given filter.</p>
+</div><h4 id='method.filter_traces' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.filter_traces' class='fnname'>filter_traces</a>(&amp;self, filter: <a class='struct' href='../../ethcore/client/struct.TraceFilter.html' title='ethcore::client::TraceFilter'>TraceFilter</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.LocalizedTrace.html' title='ethcore::trace::LocalizedTrace'>LocalizedTrace</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns traces matching given filter.</p>
+</div><h4 id='method.trace' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.trace' class='fnname'>trace</a>(&amp;self, trace: <a class='struct' href='../../ethcore/client/struct.TraceId.html' title='ethcore::client::TraceId'>TraceId</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/struct.LocalizedTrace.html' title='ethcore::trace::LocalizedTrace'>LocalizedTrace</a>&gt;</code></h4>
+<div class='docblock'><p>Returns trace with given id.</p>
+</div><h4 id='method.transaction_traces' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.transaction_traces' class='fnname'>transaction_traces</a>(&amp;self, transaction: <a class='enum' href='../../ethcore/client/enum.TransactionID.html' title='ethcore::client::TransactionID'>TransactionID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.LocalizedTrace.html' title='ethcore::trace::LocalizedTrace'>LocalizedTrace</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns traces created by transaction.</p>
+</div><h4 id='method.block_traces' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.block_traces' class='fnname'>block_traces</a>(&amp;self, block: <a class='enum' href='../../ethcore/client/enum.BlockID.html' title='ethcore::client::BlockID'>BlockID</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.LocalizedTrace.html' title='ethcore::trace::LocalizedTrace'>LocalizedTrace</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns traces created by transaction from block.</p>
+</div><h4 id='method.last_hashes' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.last_hashes' class='fnname'>last_hashes</a>(&amp;self) -&gt; <a class='type' href='../../ethcore/client/type.LastHashes.html' title='ethcore::client::LastHashes'>LastHashes</a></code></h4>
+<div class='docblock'><p>Get last hashes starting from best block.</p>
+</div><h4 id='method.queue_transactions' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.queue_transactions' class='fnname'>queue_transactions</a>(&amp;self, transactions: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;)</code></h4>
+<div class='docblock'><p>Queue transactions for importing.</p>
+</div><h4 id='method.pending_transactions' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#tymethod.pending_transactions' class='fnname'>pending_transactions</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a>&gt;</code></h4>
+<div class='docblock'><p>list all transactions</p>
+</div><h4 id='method.latest_nonce' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#method.latest_nonce' class='fnname'>latest_nonce</a>(&amp;self, address: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>) -&gt; <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a></code></h4>
+<div class='docblock'><p>Get address nonce at the latest block&#39;s state.</p>
+</div><h4 id='method.latest_code' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#method.latest_code' class='fnname'>latest_code</a>(&amp;self, address: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;</code></h4>
+<div class='docblock'><p>Get address code at the latest block&#39;s state.</p>
+</div><h4 id='method.latest_balance' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#method.latest_balance' class='fnname'>latest_balance</a>(&amp;self, address: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>) -&gt; <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a></code></h4>
+<div class='docblock'><p>Get address balance at the latest block&#39;s state.</p>
+</div><h4 id='method.latest_storage_at' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#method.latest_storage_at' class='fnname'>latest_storage_at</a>(&amp;self, address: &amp;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, position: &amp;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>) -&gt; <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code></h4>
+<div class='docblock'><p>Get value of the storage at given position at the latest block&#39;s state.</p>
+</div><h4 id='method.gas_price_statistics' class='method'><code>fn <a href='../../ethcore/client/trait.BlockChainClient.html#method.gas_price_statistics' class='fnname'>gas_price_statistics</a>(&amp;self, sample_size: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, distribution_size: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>&gt;,&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Get the gas price distribution.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../../ethcore/client/trait.MiningBlockChainClient.html' title='ethcore::client::MiningBlockChainClient'>MiningBlockChainClient</a> for <a class='struct' href='../../ethcore/client/struct.Client.html' title='ethcore::client::Client'>Client</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2463' class='srclink' href='../../src/ethcore/ethcore/src/client/client.rs.html#1037-1100' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.prepare_open_block' class='method'><code>fn <a href='../../ethcore/client/trait.MiningBlockChainClient.html#tymethod.prepare_open_block' class='fnname'>prepare_open_block</a>(&amp;self, author: <a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, gas_range_target: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>, <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>, extra_data: <a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>) -&gt; <a class='struct' href='../../ethcore/block/struct.OpenBlock.html' title='ethcore::block::OpenBlock'>OpenBlock</a></code></h4>
+<div class='docblock'><p>Returns OpenBlock prepared for closing.</p>
+</div><h4 id='method.vm_factory' class='method'><code>fn <a href='../../ethcore/client/trait.MiningBlockChainClient.html#tymethod.vm_factory' class='fnname'>vm_factory</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../ethcore/evm/factory/struct.Factory.html' title='ethcore::evm::factory::Factory'>EvmFactory</a></code></h4>
+<div class='docblock'><p>Returns EvmFactory.</p>
+</div><h4 id='method.import_sealed_block' class='method'><code>fn <a href='../../ethcore/client/trait.MiningBlockChainClient.html#tymethod.import_sealed_block' class='fnname'>import_sealed_block</a>(&amp;self, block: <a class='struct' href='../../ethcore/block/struct.SealedBlock.html' title='ethcore::block::SealedBlock'>SealedBlock</a>) -&gt; <a class='type' href='../../ethcore/error/type.ImportResult.html' title='ethcore::error::ImportResult'>ImportResult</a></code></h4>
+<div class='docblock'><p>Import sealed block. Skips all verifications.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../../ethcore_io/panics/trait.MayPanic.html' title='ethcore_io::panics::MayPanic'>MayPanic</a> for <a class='struct' href='../../ethcore/client/struct.Client.html' title='ethcore::client::Client'>Client</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2496' class='srclink' href='../../src/ethcore/ethcore/src/client/client.rs.html#1102-1106' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.on_panic' class='method'><code>fn <a href='../../ethcore_io/panics/trait.MayPanic.html#tymethod.on_panic' class='fnname'>on_panic</a>&lt;F&gt;(&amp;self, closure: F) <span class='where'>where F: <a class='trait' href='../../ethcore_io/panics/trait.OnPanicListener.html' title='ethcore_io::panics::OnPanicListener'>OnPanicListener</a></span></code></h4>
+<div class='docblock'><p><code>closure</code> will be invoked whenever panic in thread is caught</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

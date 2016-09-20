@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="Source to the Rust file `rpc/src/v1/helpers/errors.rs`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang">
+
+    <title>errors.rs.html -- source</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+<span id="2">  2</span>
+<span id="3">  3</span>
+<span id="4">  4</span>
+<span id="5">  5</span>
+<span id="6">  6</span>
+<span id="7">  7</span>
+<span id="8">  8</span>
+<span id="9">  9</span>
+<span id="10"> 10</span>
+<span id="11"> 11</span>
+<span id="12"> 12</span>
+<span id="13"> 13</span>
+<span id="14"> 14</span>
+<span id="15"> 15</span>
+<span id="16"> 16</span>
+<span id="17"> 17</span>
+<span id="18"> 18</span>
+<span id="19"> 19</span>
+<span id="20"> 20</span>
+<span id="21"> 21</span>
+<span id="22"> 22</span>
+<span id="23"> 23</span>
+<span id="24"> 24</span>
+<span id="25"> 25</span>
+<span id="26"> 26</span>
+<span id="27"> 27</span>
+<span id="28"> 28</span>
+<span id="29"> 29</span>
+<span id="30"> 30</span>
+<span id="31"> 31</span>
+<span id="32"> 32</span>
+<span id="33"> 33</span>
+<span id="34"> 34</span>
+<span id="35"> 35</span>
+<span id="36"> 36</span>
+<span id="37"> 37</span>
+<span id="38"> 38</span>
+<span id="39"> 39</span>
+<span id="40"> 40</span>
+<span id="41"> 41</span>
+<span id="42"> 42</span>
+<span id="43"> 43</span>
+<span id="44"> 44</span>
+<span id="45"> 45</span>
+<span id="46"> 46</span>
+<span id="47"> 47</span>
+<span id="48"> 48</span>
+<span id="49"> 49</span>
+<span id="50"> 50</span>
+<span id="51"> 51</span>
+<span id="52"> 52</span>
+<span id="53"> 53</span>
+<span id="54"> 54</span>
+<span id="55"> 55</span>
+<span id="56"> 56</span>
+<span id="57"> 57</span>
+<span id="58"> 58</span>
+<span id="59"> 59</span>
+<span id="60"> 60</span>
+<span id="61"> 61</span>
+<span id="62"> 62</span>
+<span id="63"> 63</span>
+<span id="64"> 64</span>
+<span id="65"> 65</span>
+<span id="66"> 66</span>
+<span id="67"> 67</span>
+<span id="68"> 68</span>
+<span id="69"> 69</span>
+<span id="70"> 70</span>
+<span id="71"> 71</span>
+<span id="72"> 72</span>
+<span id="73"> 73</span>
+<span id="74"> 74</span>
+<span id="75"> 75</span>
+<span id="76"> 76</span>
+<span id="77"> 77</span>
+<span id="78"> 78</span>
+<span id="79"> 79</span>
+<span id="80"> 80</span>
+<span id="81"> 81</span>
+<span id="82"> 82</span>
+<span id="83"> 83</span>
+<span id="84"> 84</span>
+<span id="85"> 85</span>
+<span id="86"> 86</span>
+<span id="87"> 87</span>
+<span id="88"> 88</span>
+<span id="89"> 89</span>
+<span id="90"> 90</span>
+<span id="91"> 91</span>
+<span id="92"> 92</span>
+<span id="93"> 93</span>
+<span id="94"> 94</span>
+<span id="95"> 95</span>
+<span id="96"> 96</span>
+<span id="97"> 97</span>
+<span id="98"> 98</span>
+<span id="99"> 99</span>
+<span id="100">100</span>
+<span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
+<span id="107">107</span>
+<span id="108">108</span>
+<span id="109">109</span>
+<span id="110">110</span>
+<span id="111">111</span>
+<span id="112">112</span>
+<span id="113">113</span>
+<span id="114">114</span>
+<span id="115">115</span>
+<span id="116">116</span>
+<span id="117">117</span>
+<span id="118">118</span>
+<span id="119">119</span>
+<span id="120">120</span>
+<span id="121">121</span>
+<span id="122">122</span>
+<span id="123">123</span>
+<span id="124">124</span>
+<span id="125">125</span>
+<span id="126">126</span>
+<span id="127">127</span>
+<span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+<span id="131">131</span>
+<span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
+<span id="139">139</span>
+<span id="140">140</span>
+<span id="141">141</span>
+<span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+<span id="149">149</span>
+<span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
+<span id="160">160</span>
+<span id="161">161</span>
+<span id="162">162</span>
+<span id="163">163</span>
+<span id="164">164</span>
+<span id="165">165</span>
+<span id="166">166</span>
+<span id="167">167</span>
+<span id="168">168</span>
+<span id="169">169</span>
+<span id="170">170</span>
+<span id="171">171</span>
+<span id="172">172</span>
+<span id="173">173</span>
+<span id="174">174</span>
+<span id="175">175</span>
+<span id="176">176</span>
+<span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
+<span id="180">180</span>
+<span id="181">181</span>
+<span id="182">182</span>
+<span id="183">183</span>
+<span id="184">184</span>
+<span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
+<span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
+<span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+<span id="201">201</span>
+<span id="202">202</span>
+<span id="203">203</span>
+<span id="204">204</span>
+<span id="205">205</span>
+</pre><pre class='rust '>
+<span class='comment'>// Copyright 2015, 2016 Ethcore (UK) Ltd.</span>
+<span class='comment'>// This file is part of Parity.</span>
+
+<span class='comment'>// Parity is free software: you can redistribute it and/or modify</span>
+<span class='comment'>// it under the terms of the GNU General Public License as published by</span>
+<span class='comment'>// the Free Software Foundation, either version 3 of the License, or</span>
+<span class='comment'>// (at your option) any later version.</span>
+
+<span class='comment'>// Parity is distributed in the hope that it will be useful,</span>
+<span class='comment'>// but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class='comment'>// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class='comment'>// GNU General Public License for more details.</span>
+
+<span class='comment'>// You should have received a copy of the GNU General Public License</span>
+<span class='comment'>// along with Parity.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class='doccomment'>//! RPC Error codes and error objects</span>
+
+<span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>rpc_unimplemented</span> {
+	() <span class='op'>=&gt;</span> (<span class='prelude-val'>Err</span>(::<span class='ident'>v1</span>::<span class='ident'>helpers</span>::<span class='ident'>errors</span>::<span class='ident'>unimplemented</span>()))
+}
+
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>fmt</span>;
+<span class='kw'>use</span> <span class='ident'>ethcore</span>::<span class='ident'>error</span>::<span class='ident'>Error</span> <span class='kw'>as</span> <span class='ident'>EthcoreError</span>;
+<span class='kw'>use</span> <span class='ident'>ethcore</span>::<span class='ident'>account_provider</span>::{<span class='ident'>Error</span> <span class='kw'>as</span> <span class='ident'>AccountError</span>};
+<span class='kw'>use</span> <span class='ident'>jsonrpc_core</span>::{<span class='ident'>Error</span>, <span class='ident'>ErrorCode</span>, <span class='ident'>Value</span>};
+
+<span class='kw'>mod</span> <span class='ident'>codes</span> {
+	<span class='comment'>// NOTE [ToDr] Codes from [-32099, -32000]</span>
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>UNSUPPORTED_REQUEST</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32000</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NO_WORK</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32001</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NO_AUTHOR</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32002</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NO_NEW_WORK</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32003</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>UNKNOWN_ERROR</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32009</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TRANSACTION_ERROR</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32010</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ACCOUNT_LOCKED</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32020</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PASSWORD_INVALID</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32021</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ACCOUNT_ERROR</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32023</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIGNER_DISABLED</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32030</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>REQUEST_REJECTED</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32040</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>REQUEST_REJECTED_LIMIT</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32041</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>REQUEST_NOT_FOUND</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32042</span>;
+	<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>COMPILATION_ERROR</span>: <span class='ident'>i64</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>32050</span>;
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>unimplemented</span>() <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>UNSUPPORTED_REQUEST</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;This request is not implemented yet. Please create an issue on Github repo.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>None</span>
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>request_not_found</span>() <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>REQUEST_NOT_FOUND</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;Request not found.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>None</span>,
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>request_rejected</span>() <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>REQUEST_REJECTED</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;Request has been rejected.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>None</span>,
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>request_rejected_limit</span>() <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>REQUEST_REJECTED_LIMIT</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;Request has been rejected because of queue limit.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>None</span>,
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>account</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>fmt</span>::<span class='ident'>Debug</span><span class='op'>&gt;</span>(<span class='ident'>error</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>details</span>: <span class='ident'>T</span>) <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>ACCOUNT_ERROR</span>),
+		<span class='ident'>message</span>: <span class='ident'>error</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>Some</span>(<span class='ident'>Value</span>::<span class='ident'>String</span>(<span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;{:?}&quot;</span>, <span class='ident'>details</span>))),
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>compilation</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>fmt</span>::<span class='ident'>Debug</span><span class='op'>&gt;</span>(<span class='ident'>error</span>: <span class='ident'>T</span>) <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>COMPILATION_ERROR</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;Error while compiling code.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>Some</span>(<span class='ident'>Value</span>::<span class='ident'>String</span>(<span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;{:?}&quot;</span>, <span class='ident'>error</span>))),
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>internal</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>fmt</span>::<span class='ident'>Debug</span><span class='op'>&gt;</span>(<span class='ident'>error</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>data</span>: <span class='ident'>T</span>) <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>InternalError</span>,
+		<span class='ident'>message</span>: <span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;Internal error occurred: {}&quot;</span>, <span class='ident'>error</span>),
+		<span class='ident'>data</span>: <span class='prelude-val'>Some</span>(<span class='ident'>Value</span>::<span class='ident'>String</span>(<span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;{:?}&quot;</span>, <span class='ident'>data</span>))),
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>invalid_params</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>fmt</span>::<span class='ident'>Debug</span><span class='op'>&gt;</span>(<span class='ident'>param</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>details</span>: <span class='ident'>T</span>) <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>InvalidParams</span>,
+		<span class='ident'>message</span>: <span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;Couldn&#39;t parse parameters: {}&quot;</span>, <span class='ident'>param</span>),
+		<span class='ident'>data</span>: <span class='prelude-val'>Some</span>(<span class='ident'>Value</span>::<span class='ident'>String</span>(<span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;{:?}&quot;</span>, <span class='ident'>details</span>))),
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>state_pruned</span>() <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>UNSUPPORTED_REQUEST</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;This request is not supported because your node is running with state pruning. Run with --pruning=archive.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>None</span>
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>no_work</span>() <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>NO_WORK</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;Still syncing.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>None</span>
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>no_new_work</span>() <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>NO_NEW_WORK</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;Work has not changed.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>None</span>
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>no_author</span>() <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>NO_AUTHOR</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;Author not configured. Run Parity with --author to configure.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>None</span>
+	}
+}
+
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>signer_disabled</span>() <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>SIGNER_DISABLED</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;Trusted Signer is disabled. This API is not available.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>None</span>
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>from_signing_error</span>(<span class='ident'>error</span>: <span class='ident'>AccountError</span>) <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>ACCOUNT_LOCKED</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;Your account is locked. Unlock the account via CLI, personal_unlockAccount or use Trusted Signer.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>Some</span>(<span class='ident'>Value</span>::<span class='ident'>String</span>(<span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;{:?}&quot;</span>, <span class='ident'>error</span>))),
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>from_password_error</span>(<span class='ident'>error</span>: <span class='ident'>AccountError</span>) <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='ident'>Error</span> {
+		<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>PASSWORD_INVALID</span>),
+		<span class='ident'>message</span>: <span class='string'>&quot;Account password is invalid or account does not exist.&quot;</span>.<span class='ident'>into</span>(),
+		<span class='ident'>data</span>: <span class='prelude-val'>Some</span>(<span class='ident'>Value</span>::<span class='ident'>String</span>(<span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;{:?}&quot;</span>, <span class='ident'>error</span>))),
+	}
+}
+
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>from_transaction_error</span>(<span class='ident'>error</span>: <span class='ident'>EthcoreError</span>) <span class='op'>-&gt;</span> <span class='ident'>Error</span> {
+	<span class='kw'>use</span> <span class='ident'>ethcore</span>::<span class='ident'>error</span>::<span class='ident'>TransactionError</span>::<span class='op'>*</span>;
+
+	<span class='kw'>if</span> <span class='kw'>let</span> <span class='ident'>EthcoreError</span>::<span class='ident'>Transaction</span>(<span class='ident'>e</span>) <span class='op'>=</span> <span class='ident'>error</span> {
+		<span class='kw'>let</span> <span class='ident'>msg</span> <span class='op'>=</span> <span class='kw'>match</span> <span class='ident'>e</span> {
+			<span class='ident'>AlreadyImported</span> <span class='op'>=&gt;</span> <span class='string'>&quot;Transaction with the same hash was already imported.&quot;</span>.<span class='ident'>into</span>(),
+			<span class='ident'>Old</span> <span class='op'>=&gt;</span> <span class='string'>&quot;Transaction nonce is too low. Try incrementing the nonce.&quot;</span>.<span class='ident'>into</span>(),
+			<span class='ident'>TooCheapToReplace</span> <span class='op'>=&gt;</span> {
+				<span class='string'>&quot;Transaction fee is too low. There is another transaction with same nonce in the queue. Try increasing the fee or incrementing the nonce.&quot;</span>.<span class='ident'>into</span>()
+			},
+			<span class='ident'>LimitReached</span> <span class='op'>=&gt;</span> {
+				<span class='string'>&quot;There are too many transactions in the queue. Your transaction was dropped due to limit. Try increasing the fee.&quot;</span>.<span class='ident'>into</span>()
+			},
+			<span class='ident'>InsufficientGasPrice</span> { <span class='ident'>minimal</span>, <span class='ident'>got</span> } <span class='op'>=&gt;</span> {
+				<span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;Transaction fee is too low. It does not satisfy your node&#39;s minimal fee (minimal: {}, got: {}). Try increasing the fee.&quot;</span>, <span class='ident'>minimal</span>, <span class='ident'>got</span>)
+			},
+			<span class='ident'>InsufficientBalance</span> { <span class='ident'>balance</span>, <span class='ident'>cost</span> } <span class='op'>=&gt;</span> {
+				<span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;Insufficient funds. Account you try to send transaction from does not have enough funds. Required {} and got: {}.&quot;</span>, <span class='ident'>cost</span>, <span class='ident'>balance</span>)
+			},
+			<span class='ident'>GasLimitExceeded</span> { <span class='ident'>limit</span>, <span class='ident'>got</span> } <span class='op'>=&gt;</span> {
+				<span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;Transaction cost exceeds current gas limit. Limit: {}, got: {}. Try decreasing supplied gas.&quot;</span>, <span class='ident'>limit</span>, <span class='ident'>got</span>)
+			},
+			<span class='ident'>InvalidGasLimit</span>(_) <span class='op'>=&gt;</span> <span class='string'>&quot;Supplied gas is beyond limit.&quot;</span>.<span class='ident'>into</span>(),
+		};
+		<span class='ident'>Error</span> {
+			<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>TRANSACTION_ERROR</span>),
+			<span class='ident'>message</span>: <span class='ident'>msg</span>,
+			<span class='ident'>data</span>: <span class='prelude-val'>None</span>,
+		}
+	} <span class='kw'>else</span> {
+		<span class='ident'>Error</span> {
+			<span class='ident'>code</span>: <span class='ident'>ErrorCode</span>::<span class='ident'>ServerError</span>(<span class='ident'>codes</span>::<span class='ident'>UNKNOWN_ERROR</span>),
+			<span class='ident'>message</span>: <span class='string'>&quot;Unknown error when sending transaction.&quot;</span>.<span class='ident'>into</span>(),
+			<span class='ident'>data</span>: <span class='prelude-val'>Some</span>(<span class='ident'>Value</span>::<span class='ident'>String</span>(<span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;{:?}&quot;</span>, <span class='ident'>error</span>))),
+		}
+	}
+}
+
+
+</pre>
+</section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../../../";
+        window.currentCrate = "ethcore_rpc";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../../../../jquery.js"></script>
+    <script src="../../../../../../main.js"></script>
+    
+    <script defer src="../../../../../../search-index.js"></script>
+</body>
+</html>

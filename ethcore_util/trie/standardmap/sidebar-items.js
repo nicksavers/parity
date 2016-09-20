@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Alphabet","Alphabet to use when creating words for insertion into tries."],["ValueMode","Means of determining the value."]],"struct":[["StandardMap","Standard test map for profiling tries."]]});

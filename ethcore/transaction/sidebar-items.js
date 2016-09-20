@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Action","Transaction action type."]],"struct":[["LocalizedTransaction","Signed Transaction that is a part of canon blockchain."],["SignedTransaction","Signed transaction information."],["Transaction","A set of information describing an externally-originating message call or contract creation operation."]]});

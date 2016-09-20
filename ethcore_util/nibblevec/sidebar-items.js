@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["NibbleVec","Owning, nibble-oriented byte vector. Counterpart to `NibbleSlice`."]]});

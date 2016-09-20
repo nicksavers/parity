@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `EthSync` struct in crate `ethsync`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, EthSync">
+
+    <title>ethsync::EthSync - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>ethsync</a></p><script>window.sidebarCurrent = {name: 'EthSync', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>ethsync</a>::<wbr><a class='struct' href=''>EthSync</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1856' class='srclink' href='../src/ethsync/home/travis/build/ethcore/parity/target/debug/build/ethsync-db821377d043be83/out/api.rs.html#66-71' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct EthSync {
+    // some fields omitted
+}</pre><div class='docblock'><p>Ethereum network protocol handler</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../ethsync/struct.EthSync.html' title='ethsync::EthSync'>EthSync</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-1859' class='srclink' href='../src/ethsync/home/travis/build/ethcore/parity/target/debug/build/ethsync-db821377d043be83/out/api.rs.html#73-94' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(config: <a class='struct' href='../ethsync/struct.SyncConfig.html' title='ethsync::SyncConfig'>SyncConfig</a>, chain: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='trait' href='../ethcore/client/traits/trait.BlockChainClient.html' title='ethcore::client::traits::BlockChainClient'>BlockChainClient</a>&gt;, snapshot_service: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='trait' href='../ethcore/snapshot/traits/trait.SnapshotService.html' title='ethcore::snapshot::traits::SnapshotService'>SnapshotService</a>&gt;, network_config: <a class='struct' href='../ethsync/struct.NetworkConfiguration.html' title='ethsync::NetworkConfiguration'>NetworkConfiguration</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../ethsync/struct.EthSync.html' title='ethsync::EthSync'>EthSync</a>&gt;,&nbsp;<a class='enum' href='../ethsync/enum.NetworkError.html' title='ethsync::NetworkError'>NetworkError</a>&gt;</code></h4>
+<div class='docblock'><p>Creates and register protocol with the network service</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../ethsync/trait.SyncProvider.html' title='ethsync::SyncProvider'>SyncProvider</a> for <a class='struct' href='../ethsync/struct.EthSync.html' title='ethsync::EthSync'>EthSync</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-1872' class='srclink' href='../src/ethsync/home/travis/build/ethcore/parity/target/debug/build/ethsync-db821377d043be83/out/api.rs.html#96-99' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.status' class='method'><code>fn <a href='../ethsync/trait.SyncProvider.html#tymethod.status' class='fnname'>status</a>(&amp;self) -&gt; <a class='struct' href='../ethsync/struct.SyncStatus.html' title='ethsync::SyncStatus'>SyncStatus</a></code></h4>
+<div class='docblock'><p>Get sync status</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../ethcore/client/chain_notify/trait.ChainNotify.html' title='ethcore::client::chain_notify::ChainNotify'>ChainNotify</a> for <a class='struct' href='../ethsync/struct.EthSync.html' title='ethsync::EthSync'>EthSync</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-1979' class='srclink' href='../src/ethsync/home/travis/build/ethcore/parity/target/debug/build/ethsync-db821377d043be83/out/api.rs.html#310-343' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new_blocks' class='method'><code>fn <a href='../ethcore/client/chain_notify/trait.ChainNotify.html#method.new_blocks' class='fnname'>new_blocks</a>(&amp;self, imported: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;, invalid: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;, enacted: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;, retracted: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;, sealed: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;, _duration: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>)</code></h4>
+<div class='docblock'><p>fires when chain has new blocks.</p>
+</div><h4 id='method.start' class='method'><code>fn <a href='../ethcore/client/chain_notify/trait.ChainNotify.html#method.start' class='fnname'>start</a>(&amp;self)</code></h4>
+<div class='docblock'><p>fires when chain achieves active mode</p>
+</div><h4 id='method.stop' class='method'><code>fn <a href='../ethcore/client/chain_notify/trait.ChainNotify.html#method.stop' class='fnname'>stop</a>(&amp;self)</code></h4>
+<div class='docblock'><p>fires when chain achieves passive mode</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../ethsync/trait.ManageNetwork.html' title='ethsync::ManageNetwork'>ManageNetwork</a> for <a class='struct' href='../ethsync/struct.EthSync.html' title='ethsync::EthSync'>EthSync</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2032' class='srclink' href='../src/ethsync/home/travis/build/ethcore/parity/target/debug/build/ethsync-db821377d043be83/out/api.rs.html#366-395' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.accept_unreserved_peers' class='method'><code>fn <a href='../ethsync/trait.ManageNetwork.html#tymethod.accept_unreserved_peers' class='fnname'>accept_unreserved_peers</a>(&amp;self)</code></h4>
+<div class='docblock'><p>Set to allow unreserved peers to connect</p>
+</div><h4 id='method.deny_unreserved_peers' class='method'><code>fn <a href='../ethsync/trait.ManageNetwork.html#tymethod.deny_unreserved_peers' class='fnname'>deny_unreserved_peers</a>(&amp;self)</code></h4>
+<div class='docblock'><p>Set to deny unreserved peers to connect</p>
+</div><h4 id='method.remove_reserved_peer' class='method'><code>fn <a href='../ethsync/trait.ManageNetwork.html#tymethod.remove_reserved_peer' class='fnname'>remove_reserved_peer</a>(&amp;self, peer: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code></h4>
+<div class='docblock'><p>Remove reservation for the peer</p>
+</div><h4 id='method.add_reserved_peer' class='method'><code>fn <a href='../ethsync/trait.ManageNetwork.html#tymethod.add_reserved_peer' class='fnname'>add_reserved_peer</a>(&amp;self, peer: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code></h4>
+<div class='docblock'><p>Add reserved peer</p>
+</div><h4 id='method.start_network' class='method'><code>fn <a href='../ethsync/trait.ManageNetwork.html#tymethod.start_network' class='fnname'>start_network</a>(&amp;self)</code></h4>
+<div class='docblock'><p>Start network</p>
+</div><h4 id='method.stop_network' class='method'><code>fn <a href='../ethsync/trait.ManageNetwork.html#tymethod.stop_network' class='fnname'>stop_network</a>(&amp;self)</code></h4>
+<div class='docblock'><p>Stop network</p>
+</div><h4 id='method.network_config' class='method'><code>fn <a href='../ethsync/trait.ManageNetwork.html#tymethod.network_config' class='fnname'>network_config</a>(&amp;self) -&gt; <a class='struct' href='../ethsync/struct.NetworkConfiguration.html' title='ethsync::NetworkConfiguration'>NetworkConfiguration</a></code></h4>
+<div class='docblock'><p>Query the current configuration of the network</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "ethsync";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

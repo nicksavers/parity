@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `RpcServer` struct in crate `ethcore_rpc`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, RpcServer">
+
+    <title>ethcore_rpc::RpcServer - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>ethcore_rpc</a></p><script>window.sidebarCurrent = {name: 'RpcServer', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>ethcore_rpc</a>::<wbr><a class='struct' href=''>RpcServer</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-6377' class='srclink' href='../src/ethcore_rpc/rpc/src/lib.rs.html#65-67' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct RpcServer {
+    // some fields omitted
+}</pre><div class='docblock'><p>Http server.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../ethcore_rpc/struct.RpcServer.html' title='ethcore_rpc::RpcServer'>RpcServer</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-6384' class='srclink' href='../src/ethcore_rpc/rpc/src/lib.rs.html#76-118' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class='struct' href='../ethcore_rpc/struct.RpcServer.html' title='ethcore_rpc::RpcServer'>RpcServer</a></code></h4>
+<div class='docblock'><p>Construct new http server object.</p>
+</div><h4 id='method.start_http' class='method'><code>fn <a href='#method.start_http' class='fnname'>start_http</a>(&amp;self, addr: &amp;<a class='enum' href='https://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>, cors_domains: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;, allowed_hosts: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;&gt;, panic_handler: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../ethcore_io/panics/struct.PanicHandler.html' title='ethcore_io::panics::PanicHandler'>PanicHandler</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../ethcore_rpc/struct.Server.html' title='ethcore_rpc::Server'>Server</a>,&nbsp;<a class='enum' href='../ethcore_rpc/enum.RpcServerError.html' title='ethcore_rpc::RpcServerError'>RpcServerError</a>&gt;</code></h4>
+<div class='docblock'><p>Start http server asynchronously and returns result with <code>Server</code> handle on success or an error.</p>
+</div><h4 id='method.start_ipc' class='method'><code>fn <a href='#method.start_ipc' class='fnname'>start_ipc</a>(&amp;self, addr: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Server,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Start ipc server asynchronously and returns result with <code>Server</code> handle on success or an error.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../ethcore_rpc/trait.Extendable.html' title='ethcore_rpc::Extendable'>Extendable</a> for <a class='struct' href='../ethcore_rpc/struct.RpcServer.html' title='ethcore_rpc::RpcServer'>RpcServer</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-6379' class='srclink' href='../src/ethcore_rpc/rpc/src/lib.rs.html#69-74' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.add_delegate' class='method'><code>fn <a href='../ethcore_rpc/trait.Extendable.html#tymethod.add_delegate' class='fnname'>add_delegate</a>&lt;D:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + 'static&gt;(&amp;self, delegate: IoDelegate&lt;D&gt;)</code></h4>
+<div class='docblock'><p>Add io delegate.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "ethcore_rpc";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

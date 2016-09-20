@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `client` mod in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, client">
+
+    <title>ethcore::client - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore</a></p><script>window.sidebarCurrent = {name: 'client', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>ethcore</a>::<wbr><a class='mod' href=''>client</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1189' class='srclink' href='../../src/ethcore/ethcore/src/client/mod.rs.html#17-50' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Blockchain database client.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::config::{<a class='struct' href='../../ethcore/block_queue/struct.BlockQueueConfig.html' title='ethcore::block_queue::BlockQueueConfig'>BlockQueueConfig</a>, <a class='enum' href='../../ethcore/evm/factory/enum.VMType.html' title='ethcore::evm::factory::VMType'>VMType</a>};</code></td></tr><tr><td><code>pub use self::chain_notify::{<a class='trait' href='../../ethcore/client/chain_notify/trait.ChainNotify.html' title='ethcore::client::chain_notify::ChainNotify'>ChainNotify</a>, <a class='struct' href='../../ethcore/client/chain_notify/struct.ChainNotifyClient.html' title='ethcore::client::chain_notify::ChainNotifyClient'>ChainNotifyClient</a>};</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='chain_notify/index.html'
+                                  title='ethcore::client::chain_notify'>chain_notify</a></td>
+                           <td class='docblock short'>
+                                <p>Chain notify interface</p>
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.BlockChainCacheSize.html'
+                                  title='ethcore::client::BlockChainCacheSize'>BlockChainCacheSize</a></td>
+                           <td class='docblock short'>
+                                <p>Represents blockchain&#39;s in-memory cache size in bytes.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.BlockChainInfo.html'
+                                  title='ethcore::client::BlockChainInfo'>BlockChainInfo</a></td>
+                           <td class='docblock short'>
+                                <p>Information about the blockchain gathered together.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.CallAnalytics.html'
+                                  title='ethcore::client::CallAnalytics'>CallAnalytics</a></td>
+                           <td class='docblock short'>
+                                <p>Options concerning what analytics we run on the call.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Client.html'
+                                  title='ethcore::client::Client'>Client</a></td>
+                           <td class='docblock short'>
+                                <p>Blockchain database client backed by a persistent database. Owns and manages a blockchain and a block queue.
+Call <code>import_block()</code> to import a block asynchronously; <code>flush_queue()</code> flushes the queue.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.ClientConfig.html'
+                                  title='ethcore::client::ClientConfig'>ClientConfig</a></td>
+                           <td class='docblock short'>
+                                <p>Client configuration. Includes configs for all sub-systems.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.ClientReport.html'
+                                  title='ethcore::client::ClientReport'>ClientReport</a></td>
+                           <td class='docblock short'>
+                                <p>Report on the status of a client.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Config.html'
+                                  title='ethcore::client::Config'>Config</a></td>
+                           <td class='docblock short'>
+                                <p>Blockchain configuration.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.EnvInfo.html'
+                                  title='ethcore::client::EnvInfo'>EnvInfo</a></td>
+                           <td class='docblock short'>
+                                <p>Information concerning the execution environment for a message-call/contract-creation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Executed.html'
+                                  title='ethcore::client::Executed'>Executed</a></td>
+                           <td class='docblock short'>
+                                <p>Transaction execution receipt.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Executive.html'
+                                  title='ethcore::client::Executive'>Executive</a></td>
+                           <td class='docblock short'>
+                                <p>Transaction executor.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.RemoteClient.html'
+                                  title='ethcore::client::RemoteClient'>RemoteClient</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.TestBlockChainClient.html'
+                                  title='ethcore::client::TestBlockChainClient'>TestBlockChainClient</a></td>
+                           <td class='docblock short'>
+                                <p>Test client.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.TraceFilter.html'
+                                  title='ethcore::client::TraceFilter'>TraceFilter</a></td>
+                           <td class='docblock short'>
+                                <p>Easy to use trace filter.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.TraceId.html'
+                                  title='ethcore::client::TraceId'>TraceId</a></td>
+                           <td class='docblock short'>
+                                <p>Uniquely identifies Trace.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.TransactOptions.html'
+                                  title='ethcore::client::TransactOptions'>TransactOptions</a></td>
+                           <td class='docblock short'>
+                                <p>Transaction execution options.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.UncleID.html'
+                                  title='ethcore::client::UncleID'>UncleID</a></td>
+                           <td class='docblock short'>
+                                <p>Uniquely identifies Uncle.</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.BlockID.html'
+                                  title='ethcore::client::BlockID'>BlockID</a></td>
+                           <td class='docblock short'>
+                                <p>Uniquely identifies block.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.BlockImportError.html'
+                                  title='ethcore::client::BlockImportError'>BlockImportError</a></td>
+                           <td class='docblock short'>
+                                <p>Error dedicated to import block function</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.BlockStatus.html'
+                                  title='ethcore::client::BlockStatus'>BlockStatus</a></td>
+                           <td class='docblock short'>
+                                <p>General block status</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.DatabaseCompactionProfile.html'
+                                  title='ethcore::client::DatabaseCompactionProfile'>DatabaseCompactionProfile</a></td>
+                           <td class='docblock short'>
+                                <p>Client state db compaction profile</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.EachBlockWith.html'
+                                  title='ethcore::client::EachBlockWith'>EachBlockWith</a></td>
+                           <td class='docblock short'>
+                                <p>Used for generating test client blocks.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.Error.html'
+                                  title='ethcore::client::Error'>Error</a></td>
+                           <td class='docblock short'>
+                                <p>Client configuration errors.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.Mode.html'
+                                  title='ethcore::client::Mode'>Mode</a></td>
+                           <td class='docblock short'>
+                                <p>Operating mode for the client.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.Switch.html'
+                                  title='ethcore::client::Switch'>Switch</a></td>
+                           <td class='docblock short'>
+                                <p>3-value enum.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.TransactionID.html'
+                                  title='ethcore::client::TransactionID'>TransactionID</a></td>
+                           <td class='docblock short'>
+                                <p>Uniquely identifies transaction.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.TransactionImportError.html'
+                                  title='ethcore::client::TransactionImportError'>TransactionImportError</a></td>
+                           <td class='docblock short'>
+                                <p>Api-level error for transaction import</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.TransactionImportResult.html'
+                                  title='ethcore::client::TransactionImportResult'>TransactionImportResult</a></td>
+                           <td class='docblock short'>
+                                <p>Represents the result of importing transaction.</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.BlockChainClient.html'
+                                  title='ethcore::client::BlockChainClient'>BlockChainClient</a></td>
+                           <td class='docblock short'>
+                                <p>Blockchain database client. Owns and manages a blockchain and a block queue.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.MiningBlockChainClient.html'
+                                  title='ethcore::client::MiningBlockChainClient'>MiningBlockChainClient</a></td>
+                           <td class='docblock short'>
+                                <p>Extended client interface used for mining</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.append_path.html'
+                                  title='ethcore::client::append_path'>append_path</a></td>
+                           <td class='docblock short'>
+                                <p>Append a path element to the given path and return the string.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.LastHashes.html'
+                                  title='ethcore::client::LastHashes'>LastHashes</a></td>
+                           <td class='docblock short'>
+                                <p>Simple vector of hashes, should be at most 256 items large, can be smaller if being used
+for a block whose number is less than 257.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

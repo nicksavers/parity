@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `TracesClient` struct in crate `ethcore_rpc`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, TracesClient">
+
+    <title>ethcore_rpc::v1::TracesClient - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore_rpc</a>::<wbr><a href='index.html'>v1</a></p><script>window.sidebarCurrent = {name: 'TracesClient', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>ethcore_rpc</a>::<wbr><a href='index.html'>v1</a>::<wbr><a class='struct' href=''>TracesClient</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2615' class='srclink' href='../../src/ethcore_rpc/rpc/src/v1/impls/traces.rs.html#39-42' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct TracesClient&lt;C,&nbsp;M&gt; <span class='where'>where C: <a class='trait' href='../../ethcore/client/traits/trait.BlockChainClient.html' title='ethcore::client::traits::BlockChainClient'>BlockChainClient</a>, M: <a class='trait' href='../../ethcore/miner/trait.MinerService.html' title='ethcore::miner::MinerService'>MinerService</a></span> {
+    // some fields omitted
+}</pre><div class='docblock'><p>Traces api implementation.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;C,&nbsp;M&gt; <a class='struct' href='../../ethcore_rpc/v1/struct.TracesClient.html' title='ethcore_rpc::v1::TracesClient'>TracesClient</a>&lt;C,&nbsp;M&gt; <span class='where'>where C: <a class='trait' href='../../ethcore/client/traits/trait.BlockChainClient.html' title='ethcore::client::traits::BlockChainClient'>BlockChainClient</a>, M: <a class='trait' href='../../ethcore/miner/trait.MinerService.html' title='ethcore::miner::MinerService'>MinerService</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2620' class='srclink' href='../../src/ethcore_rpc/rpc/src/v1/impls/traces.rs.html#44-73' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(client: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;C&gt;, miner: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;M&gt;) -&gt; Self</code></h4>
+<div class='docblock'><p>Creates new Traces client.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;C,&nbsp;M&gt; <a class='trait' href='../../ethcore_rpc/v1/traits/traces/trait.Traces.html' title='ethcore_rpc::v1::traits::traces::Traces'>Traces</a> for <a class='struct' href='../../ethcore_rpc/v1/struct.TracesClient.html' title='ethcore_rpc::v1::TracesClient'>TracesClient</a>&lt;C,&nbsp;M&gt; <span class='where'>where C: <a class='trait' href='../../ethcore/client/traits/trait.BlockChainClient.html' title='ethcore::client::traits::BlockChainClient'>BlockChainClient</a> + 'static, M: <a class='trait' href='../../ethcore/miner/trait.MinerService.html' title='ethcore::miner::MinerService'>MinerService</a> + 'static</span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2644' class='srclink' href='../../src/ethcore_rpc/rpc/src/v1/impls/traces.rs.html#75-162' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.filter' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/traces/trait.Traces.html#tymethod.filter' class='fnname'>filter</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Returns traces matching given filter.</p>
+</div><h4 id='method.block_traces' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/traces/trait.Traces.html#tymethod.block_traces' class='fnname'>block_traces</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Returns all traces produced at given block.</p>
+</div><h4 id='method.transaction_traces' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/traces/trait.Traces.html#tymethod.transaction_traces' class='fnname'>transaction_traces</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Returns all traces of given transaction.</p>
+</div><h4 id='method.trace' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/traces/trait.Traces.html#tymethod.trace' class='fnname'>trace</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Returns transaction trace at given index.</p>
+</div><h4 id='method.call' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/traces/trait.Traces.html#tymethod.call' class='fnname'>call</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Executes the given call and returns a number of possible traces for it.</p>
+</div><h4 id='method.raw_transaction' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/traces/trait.Traces.html#tymethod.raw_transaction' class='fnname'>raw_transaction</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Executes the given raw transaction and returns a number of possible traces for it.</p>
+</div><h4 id='method.replay_transaction' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/traces/trait.Traces.html#tymethod.replay_transaction' class='fnname'>replay_transaction</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Executes the transaction with the given hash and returns a number of possible traces for it.</p>
+</div><h4 id='method.to_delegate' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/traces/trait.Traces.html#method.to_delegate' class='fnname'>to_delegate</a>(self) -&gt; IoDelegate&lt;Self&gt;</code></h4>
+<div class='docblock'><p>Should be used to convert object to io delegate.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore_rpc";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

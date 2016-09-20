@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Schedule","Definition of the cost schedule and other parameterisations for the EVM."]]});

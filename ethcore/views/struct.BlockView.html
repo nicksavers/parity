@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `BlockView` struct in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, BlockView">
+
+    <title>ethcore::views::BlockView - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>views</a></p><script>window.sidebarCurrent = {name: 'BlockView', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>views</a>::<wbr><a class='struct' href=''>BlockView</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-9371' class='srclink' href='../../src/ethcore/ethcore/src/views/block.rs.html#26-28' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct BlockView&lt;'a&gt; {
+    // some fields omitted
+}</pre><div class='docblock'><p>View onto block rlp.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class='struct' href='../../ethcore/views/struct.BlockView.html' title='ethcore::views::BlockView'>BlockView</a>&lt;'a&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-9374' class='srclink' href='../../src/ethcore/ethcore/src/views/block.rs.html#30-153' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(bytes: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;'a [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='struct' href='../../ethcore/views/struct.BlockView.html' title='ethcore::views::BlockView'>BlockView</a>&lt;'a&gt;</code></h4>
+<div class='docblock'><p>Creates new view onto block from raw bytes.</p>
+</div><h4 id='method.new_from_rlp' class='method'><code>fn <a href='#method.new_from_rlp' class='fnname'>new_from_rlp</a>(rlp: <a class='struct' href='../../rlp/rlpin/struct.Rlp.html' title='rlp::rlpin::Rlp'>Rlp</a>&lt;'a&gt;) -&gt; <a class='struct' href='../../ethcore/views/struct.BlockView.html' title='ethcore::views::BlockView'>BlockView</a>&lt;'a&gt;</code></h4>
+<div class='docblock'><p>Creates new view onto block from rlp.</p>
+</div><h4 id='method.hash' class='method'><code>fn <a href='#method.hash' class='fnname'>hash</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code></h4>
+<div class='docblock'><p>Block header hash.</p>
+</div><h4 id='method.rlp' class='method'><code>fn <a href='#method.rlp' class='fnname'>rlp</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../rlp/rlpin/struct.Rlp.html' title='rlp::rlpin::Rlp'>Rlp</a>&lt;'a&gt;</code></h4>
+<div class='docblock'><p>Return reference to underlaying rlp.</p>
+</div><h4 id='method.header' class='method'><code>fn <a href='#method.header' class='fnname'>header</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a></code></h4>
+<div class='docblock'><p>Create new Header object from header rlp.</p>
+</div><h4 id='method.header_rlp' class='method'><code>fn <a href='#method.header_rlp' class='fnname'>header_rlp</a>(&amp;self) -&gt; <a class='struct' href='../../rlp/rlpin/struct.Rlp.html' title='rlp::rlpin::Rlp'>Rlp</a></code></h4>
+<div class='docblock'><p>Return header rlp.</p>
+</div><h4 id='method.header_view' class='method'><code>fn <a href='#method.header_view' class='fnname'>header_view</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore/views/struct.HeaderView.html' title='ethcore::views::HeaderView'>HeaderView</a>&lt;'a&gt;</code></h4>
+<div class='docblock'><p>Create new header view obto block head rlp.</p>
+</div><h4 id='method.transactions' class='method'><code>fn <a href='#method.transactions' class='fnname'>transactions</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a>&gt;</code></h4>
+<div class='docblock'><p>Return List of transactions in given block.</p>
+</div><h4 id='method.localized_transactions' class='method'><code>fn <a href='#method.localized_transactions' class='fnname'>localized_transactions</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/transaction/struct.LocalizedTransaction.html' title='ethcore::transaction::LocalizedTransaction'>LocalizedTransaction</a>&gt;</code></h4>
+<div class='docblock'><p>Return List of transactions with additional localization info.</p>
+</div><h4 id='method.transactions_count' class='method'><code>fn <a href='#method.transactions_count' class='fnname'>transactions_count</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Return number of transactions in given block, without deserializing them.</p>
+</div><h4 id='method.transaction_views' class='method'><code>fn <a href='#method.transaction_views' class='fnname'>transaction_views</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/views/struct.TransactionView.html' title='ethcore::views::TransactionView'>TransactionView</a>&gt;</code></h4>
+<div class='docblock'><p>Return List of transactions in given block.</p>
+</div><h4 id='method.transaction_hashes' class='method'><code>fn <a href='#method.transaction_hashes' class='fnname'>transaction_hashes</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;</code></h4>
+<div class='docblock'><p>Return transaction hashes.</p>
+</div><h4 id='method.transaction_at' class='method'><code>fn <a href='#method.transaction_at' class='fnname'>transaction_at</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a>&gt;</code></h4>
+<div class='docblock'><p>Returns transaction at given index without deserializing unnecessary data.</p>
+</div><h4 id='method.localized_transaction_at' class='method'><code>fn <a href='#method.localized_transaction_at' class='fnname'>localized_transaction_at</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/transaction/struct.LocalizedTransaction.html' title='ethcore::transaction::LocalizedTransaction'>LocalizedTransaction</a>&gt;</code></h4>
+<div class='docblock'><p>Returns localized transaction at given index.</p>
+</div><h4 id='method.uncles' class='method'><code>fn <a href='#method.uncles' class='fnname'>uncles</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>&gt;</code></h4>
+<div class='docblock'><p>Return list of uncles of given block.</p>
+</div><h4 id='method.uncles_count' class='method'><code>fn <a href='#method.uncles_count' class='fnname'>uncles_count</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Return number of uncles in given block, without deserializing them.</p>
+</div><h4 id='method.uncle_views' class='method'><code>fn <a href='#method.uncle_views' class='fnname'>uncle_views</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/views/struct.HeaderView.html' title='ethcore::views::HeaderView'>HeaderView</a>&gt;</code></h4>
+<div class='docblock'><p>Return List of transactions in given block.</p>
+</div><h4 id='method.uncle_hashes' class='method'><code>fn <a href='#method.uncle_hashes' class='fnname'>uncle_hashes</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>&gt;</code></h4>
+<div class='docblock'><p>Return list of uncle hashes of given block.</p>
+</div><h4 id='method.uncle_at' class='method'><code>fn <a href='#method.uncle_at' class='fnname'>uncle_at</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a>&gt;</code></h4>
+<div class='docblock'><p>Return nth uncle.</p>
+</div><h4 id='method.uncle_rlp_at' class='method'><code>fn <a href='#method.uncle_rlp_at' class='fnname'>uncle_rlp_at</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;</code></h4>
+<div class='docblock'><p>Return nth uncle rlp.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class='trait' href='../../ethcore_util/sha3/trait.Hashable.html' title='ethcore_util::sha3::Hashable'>Hashable</a> for <a class='struct' href='../../ethcore/views/struct.BlockView.html' title='ethcore::views::BlockView'>BlockView</a>&lt;'a&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-9441' class='srclink' href='../../src/ethcore/ethcore/src/views/block.rs.html#155-159' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.sha3' class='method'><code>fn <a href='../../ethcore_util/sha3/trait.Hashable.html#tymethod.sha3' class='fnname'>sha3</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code></h4>
+<div class='docblock'><p>Calculate SHA3 of this object.</p>
+</div><h4 id='method.sha3_into' class='method'><code>fn <a href='../../ethcore_util/sha3/trait.Hashable.html#method.sha3_into' class='fnname'>sha3_into</a>(&amp;self, dest: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;mut [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>)</code></h4>
+<div class='docblock'><p>Calculate SHA3 of this object and place result into dest.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

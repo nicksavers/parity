@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ServerError","Webapp Server startup error"]],"fn":[["random_filename","Random filename"]],"struct":[["Server","Webapps HTTP server."],["ServerBuilder","Webapps HTTP+RPC server build."]],"trait":[["ContractClient","RAW Contract interface. Should execute transaction using current blockchain state."],["SyncStatus","Indicates sync status"]]});

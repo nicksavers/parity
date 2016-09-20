@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Service` struct in crate `ethcore_ipc_tests`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Service">
+
+    <title>ethcore_ipc_tests::service::Service - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore_ipc_tests</a>::<wbr><a href='index.html'>service</a></p><script>window.sidebarCurrent = {name: 'Service', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>ethcore_ipc_tests</a>::<wbr><a href='index.html'>service</a>::<wbr><a class='struct' href=''>Service</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-14' class='srclink' href='../../src/ethcore_ipc_tests/home/travis/build/ethcore/parity/target/debug/build/ethcore-ipc-tests-a95c69682ae167aa/out/service.rs.in.html#20-23' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Service {
+    pub commits: <a class='struct' href='https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html' title='std::sync::rwlock::RwLock'>RwLock</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;,
+    pub rollbacks: <a class='struct' href='https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html' title='std::sync::rwlock::RwLock'>RwLock</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;,
+}</pre><h2 class='fields'>Fields</h2><span id='structfield.commits' class='structfield'><code>commits: <a class='struct' href='https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html' title='std::sync::rwlock::RwLock'>RwLock</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code>
+                           </span><span class='stab '></span><span id='structfield.rollbacks' class='structfield'><code>rollbacks: <a class='struct' href='https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html' title='std::sync::rwlock::RwLock'>RwLock</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;</code>
+                           </span><span class='stab '></span><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../ethcore_ipc_tests/service/struct.Service.html' title='ethcore_ipc_tests::service::Service'>Service</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-59' class='srclink' href='../../src/ethcore_ipc_tests/home/travis/build/ethcore/parity/target/debug/build/ethcore-ipc-tests-a95c69682ae167aa/out/service.rs.in.html#125-150' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.rollback' class='method'><code>fn <a href='#method.rollback' class='fnname'>rollback</a>(&amp;self, a: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;, b: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a></code></h4>
+<h4 id='method.push_custom' class='method'><code>fn <a href='#method.push_custom' class='fnname'>push_custom</a>(&amp;self, data: <a class='struct' href='../../ethcore_ipc_tests/service/struct.CustomData.html' title='ethcore_ipc_tests::service::CustomData'>CustomData</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.void' class='method'><code>fn <a href='#method.void' class='fnname'>void</a>(&amp;self, a: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>)</code></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../ethcore_ipc_tests/service/struct.Service.html' title='ethcore_ipc_tests::service::Service'>Service</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-543' class='srclink' href='../../src/ethcore_ipc_tests/home/travis/build/ethcore/parity/target/debug/build/ethcore-ipc-tests-a95c69682ae167aa/out/service.rs.in.html#1076-1080' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class='struct' href='../../ethcore_ipc_tests/service/struct.Service.html' title='ethcore_ipc_tests::service::Service'>Service</a></code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../../ethcore_ipc/interface/trait.IpcInterface.html' title='ethcore_ipc::interface::IpcInterface'>IpcInterface</a> for <a class='struct' href='../../ethcore_ipc_tests/service/struct.Service.html' title='ethcore_ipc_tests::service::Service'>Service</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-449' class='srclink' href='../../src/ethcore_ipc_tests/home/travis/build/ethcore/parity/target/debug/build/ethcore-ipc-tests-a95c69682ae167aa/out/service.rs.in.html#925-1075' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.dispatch' class='method'><code>fn <a href='../../ethcore_ipc/interface/trait.IpcInterface.html#tymethod.dispatch' class='fnname'>dispatch</a>&lt;R&gt;(&amp;self, r: &amp;mut R) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt; <span class='where'>where R: <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Read.html' title='std::io::Read'>Read</a></span></code></h4>
+<div class='docblock'><p>reads the message from io, dispatches the call and returns serialized result</p>
+</div><h4 id='method.dispatch_buf' class='method'><code>fn <a href='../../ethcore_ipc/interface/trait.IpcInterface.html#tymethod.dispatch_buf' class='fnname'>dispatch_buf</a>(&amp;self, method_num: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>, buf: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;</code></h4>
+<div class='docblock'><p>deserializes the payload from buffer, dispatches invoke and returns serialized result (for non-blocking io) <a href="../../ethcore_ipc/interface/trait.IpcInterface.html#tymethod.dispatch_buf">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../../ethcore_ipc/interface/trait.IpcConfig.html' title='ethcore_ipc::interface::IpcConfig'>IpcConfig</a> for <a class='struct' href='../../ethcore_ipc_tests/service/struct.Service.html' title='ethcore_ipc_tests::service::Service'>Service</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-545' class='srclink' href='../../src/ethcore_ipc_tests/home/travis/build/ethcore/parity/target/debug/build/ethcore-ipc-tests-a95c69682ae167aa/out/service.rs.in.html#1081' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.api_version' class='method'><code>fn <a href='../../ethcore_ipc/interface/trait.IpcConfig.html#method.api_version' class='fnname'>api_version</a>() -&gt; Version</code></h4>
+<div class='docblock'><p>Current service api version Should be increased if any of the methods changes signature <a href="../../ethcore_ipc/interface/trait.IpcConfig.html#method.api_version">Read more</a></p>
+</div><h4 id='method.protocol_version' class='method'><code>fn <a href='../../ethcore_ipc/interface/trait.IpcConfig.html#method.protocol_version' class='fnname'>protocol_version</a>() -&gt; Version</code></h4>
+<div class='docblock'><p>Current ipc protocol version Should be increased only if signature of system methods changes <a href="../../ethcore_ipc/interface/trait.IpcConfig.html#method.protocol_version">Read more</a></p>
+</div><h4 id='method.handshake' class='method'><code>fn <a href='../../ethcore_ipc/interface/trait.IpcConfig.html#method.handshake' class='fnname'>handshake</a>(handshake: &amp;<a class='struct' href='../../ethcore_ipc/interface/struct.Handshake.html' title='ethcore_ipc::interface::Handshake'>Handshake</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Default handshake requires exact versions match</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore_ipc_tests";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

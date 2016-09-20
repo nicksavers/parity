@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["TransactionImportError","Api-level error for transaction import"],["TransactionImportResult","Represents the result of importing transaction."]]});

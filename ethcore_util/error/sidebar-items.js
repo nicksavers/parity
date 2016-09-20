@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["BaseDataError","Error in database subsystem."],["UtilError","General error type which should be capable of representing all errors in ethcore."]],"struct":[["Mismatch","Error indicating an expected value was not found."],["OutOfBounds","Error indicating value found is outside of a valid range."]]});

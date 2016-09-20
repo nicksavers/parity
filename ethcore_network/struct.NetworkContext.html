@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `NetworkContext` struct in crate `ethcore_network`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, NetworkContext">
+
+    <title>ethcore_network::NetworkContext - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>ethcore_network</a></p><script>window.sidebarCurrent = {name: 'NetworkContext', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>ethcore_network</a>::<wbr><a class='struct' href=''>NetworkContext</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-255' class='srclink' href='../src/ethcore_network/util/network/src/host.rs.html#194-201' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct NetworkContext&lt;'s&gt; {
+    // some fields omitted
+}</pre><div class='docblock'><p>IO access point. This is passed to all IO handlers and provides an interface to the IO subsystem.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'s&gt; <a class='struct' href='../ethcore_network/struct.NetworkContext.html' title='ethcore_network::NetworkContext'>NetworkContext</a>&lt;'s&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-263' class='srclink' href='../src/ethcore_network/util/network/src/host.rs.html#203-291' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.send' class='method'><code>fn <a href='#method.send' class='fnname'>send</a>(&amp;self, peer: <a class='type' href='../ethcore_network/type.PeerId.html' title='ethcore_network::PeerId'>PeerId</a>, packet_id: <a class='type' href='../ethcore_network/type.PacketId.html' title='ethcore_network::PacketId'>PacketId</a>, data: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../ethcore_network/enum.NetworkError.html' title='ethcore_network::NetworkError'>NetworkError</a>&gt;</code></h4>
+<div class='docblock'><p>Send a packet over the network to another peer.</p>
+</div><h4 id='method.respond' class='method'><code>fn <a href='#method.respond' class='fnname'>respond</a>(&amp;self, packet_id: <a class='type' href='../ethcore_network/type.PacketId.html' title='ethcore_network::PacketId'>PacketId</a>, data: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../ethcore_network/enum.NetworkError.html' title='ethcore_network::NetworkError'>NetworkError</a>&gt;</code></h4>
+<div class='docblock'><p>Respond to a current network message. Panics if no there is no packet in the context. If the session is expired returns nothing.</p>
+</div><h4 id='method.io_channel' class='method'><code>fn <a href='#method.io_channel' class='fnname'>io_channel</a>(&amp;self) -&gt; <a class='struct' href='../ethcore_io/service/struct.IoChannel.html' title='ethcore_io::service::IoChannel'>IoChannel</a>&lt;<a class='enum' href='../ethcore_network/enum.NetworkIoMessage.html' title='ethcore_network::NetworkIoMessage'>NetworkIoMessage</a>&gt;</code></h4>
+<div class='docblock'><p>Get an IoChannel.</p>
+</div><h4 id='method.disable_peer' class='method'><code>fn <a href='#method.disable_peer' class='fnname'>disable_peer</a>(&amp;self, peer: <a class='type' href='../ethcore_network/type.PeerId.html' title='ethcore_network::PeerId'>PeerId</a>)</code></h4>
+<div class='docblock'><p>Disable current protocol capability for given peer. If no capabilities left peer gets disconnected.</p>
+</div><h4 id='method.disconnect_peer' class='method'><code>fn <a href='#method.disconnect_peer' class='fnname'>disconnect_peer</a>(&amp;self, peer: <a class='type' href='../ethcore_network/type.PeerId.html' title='ethcore_network::PeerId'>PeerId</a>)</code></h4>
+<div class='docblock'><p>Disconnect peer. Reconnect can be attempted later.</p>
+</div><h4 id='method.is_expired' class='method'><code>fn <a href='#method.is_expired' class='fnname'>is_expired</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Check if the session is still active.</p>
+</div><h4 id='method.register_timer' class='method'><code>fn <a href='#method.register_timer' class='fnname'>register_timer</a>(&amp;self, token: <a class='type' href='../ethcore_io/service/type.TimerToken.html' title='ethcore_io::service::TimerToken'>TimerToken</a>, ms: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../ethcore_network/enum.NetworkError.html' title='ethcore_network::NetworkError'>NetworkError</a>&gt;</code></h4>
+<div class='docblock'><p>Register a new IO timer. &#39;IoHandler::timeout&#39; will be called with the token.</p>
+</div><h4 id='method.peer_info' class='method'><code>fn <a href='#method.peer_info' class='fnname'>peer_info</a>(&amp;self, peer: <a class='type' href='../ethcore_network/type.PeerId.html' title='ethcore_network::PeerId'>PeerId</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></h4>
+<div class='docblock'><p>Returns peer identification string</p>
+</div><h4 id='method.protocol_version' class='method'><code>fn <a href='#method.protocol_version' class='fnname'>protocol_version</a>(&amp;self, peer: <a class='type' href='../ethcore_network/type.PeerId.html' title='ethcore_network::PeerId'>PeerId</a>, protocol: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;</code></h4>
+<div class='docblock'><p>Returns max version for a given protocol.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "ethcore_network";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `EthStore` struct in crate `ethstore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, EthStore">
+
+    <title>ethstore::EthStore - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>ethstore</a></p><script>window.sidebarCurrent = {name: 'EthStore', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>ethstore</a>::<wbr><a class='struct' href=''>EthStore</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2269' class='srclink' href='../src/ethstore/ethstore/src/ethstore.rs.html#32-36' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct EthStore {
+    // some fields omitted
+}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../ethstore/struct.EthStore.html' title='ethstore::EthStore'>EthStore</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2273' class='srclink' href='../src/ethstore/ethstore/src/ethstore.rs.html#38-83' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.open' class='method'><code>fn <a href='#method.open' class='fnname'>open</a>(directory: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='../ethstore/dir/trait.KeyDirectory.html' title='ethstore::dir::KeyDirectory'>KeyDirectory</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Self,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.open_with_iterations' class='method'><code>fn <a href='#method.open_with_iterations' class='fnname'>open_with_iterations</a>(directory: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='../ethstore/dir/trait.KeyDirectory.html' title='ethstore::dir::KeyDirectory'>KeyDirectory</a>&gt;, iterations: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Self,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../ethstore/trait.SecretStore.html' title='ethstore::SecretStore'>SecretStore</a> for <a class='struct' href='../ethstore/struct.EthStore.html' title='ethstore::EthStore'>EthStore</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2310' class='srclink' href='../src/ethstore/ethstore/src/ethstore.rs.html#85-189' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.insert_account' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.insert_account' class='fnname'>insert_account</a>(&amp;self, secret: <a class='type' href='../ethkey/type.Secret.html' title='ethkey::Secret'>Secret</a>, password: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.import_presale' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.import_presale' class='fnname'>import_presale</a>(&amp;self, json: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, password: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.import_wallet' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.import_wallet' class='fnname'>import_wallet</a>(&amp;self, json: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, password: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.accounts' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.accounts' class='fnname'>accounts</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>&gt;,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.change_password' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.change_password' class='fnname'>change_password</a>(&amp;self, address: &amp;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>, old_password: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, new_password: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.remove_account' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.remove_account' class='fnname'>remove_account</a>(&amp;self, address: &amp;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>, password: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.sign' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.sign' class='fnname'>sign</a>(&amp;self, address: &amp;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>, password: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, message: &amp;<a class='type' href='../ethkey/type.Message.html' title='ethkey::Message'>Message</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../ethkey/signature/struct.Signature.html' title='ethkey::signature::Signature'>Signature</a>,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.uuid' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.uuid' class='fnname'>uuid</a>(&amp;self, address: &amp;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;UUID,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.name' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.name' class='fnname'>name</a>(&amp;self, address: &amp;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.meta' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.meta' class='fnname'>meta</a>(&amp;self, address: &amp;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.set_name' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.set_name' class='fnname'>set_name</a>(&amp;self, address: &amp;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>, name: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.set_meta' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.set_meta' class='fnname'>set_meta</a>(&amp;self, address: &amp;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>, meta: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+<h4 id='method.local_path' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.local_path' class='fnname'>local_path</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></h4>
+<h4 id='method.list_geth_accounts' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.list_geth_accounts' class='fnname'>list_geth_accounts</a>(&amp;self, testnet: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>&gt;</code></h4>
+<h4 id='method.import_geth_accounts' class='method'><code>fn <a href='../ethstore/trait.SecretStore.html#tymethod.import_geth_accounts' class='fnname'>import_geth_accounts</a>(&amp;self, desired: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>&gt;, testnet: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../ethkey/type.Address.html' title='ethkey::Address'>Address</a>&gt;,&nbsp;<a class='enum' href='../ethstore/enum.Error.html' title='ethstore::Error'>Error</a>&gt;</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "ethstore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

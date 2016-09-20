@@ -1,0 +1,1 @@
+initSidebarItems({"macro":[["binary_fixed_size!",""]],"mod":[["binary","Binary representation of types"],["interface","IPC RPC interface"]]});

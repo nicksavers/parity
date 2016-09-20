@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Ethcore` trait in crate `ethcore_rpc`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Ethcore">
+
+    <title>ethcore_rpc::v1::traits::ethcore::Ethcore - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../../index.html'>ethcore_rpc</a>::<wbr><a href='../../index.html'>v1</a>::<wbr><a href='../index.html'>traits</a>::<wbr><a href='index.html'>ethcore</a></p><script>window.sidebarCurrent = {name: 'Ethcore', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../../../index.html'>ethcore_rpc</a>::<wbr><a href='../../index.html'>v1</a>::<wbr><a href='../index.html'>traits</a>::<wbr><a href='index.html'>ethcore</a>::<wbr><a class='trait' href=''>Ethcore</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2959' class='srclink' href='../../../../src/ethcore_rpc/rpc/src/v1/traits/ethcore.rs.html#22-104' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Ethcore: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + 'static {
+    fn <a href='#tymethod.transactions_limit' class='fnname'>transactions_limit</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.extra_data' class='fnname'>extra_data</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.gas_floor_target' class='fnname'>gas_floor_target</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.gas_ceil_target' class='fnname'>gas_ceil_target</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.min_gas_price' class='fnname'>min_gas_price</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.dev_logs' class='fnname'>dev_logs</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.dev_logs_levels' class='fnname'>dev_logs_levels</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.net_chain' class='fnname'>net_chain</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.net_peers' class='fnname'>net_peers</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.net_port' class='fnname'>net_port</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.rpc_settings' class='fnname'>rpc_settings</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.node_name' class='fnname'>node_name</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.default_extra_data' class='fnname'>default_extra_data</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.gas_price_statistics' class='fnname'>gas_price_statistics</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.unsigned_transactions_count' class='fnname'>unsigned_transactions_count</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.generate_secret_phrase' class='fnname'>generate_secret_phrase</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.phrase_to_address' class='fnname'>phrase_to_address</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.registry_address' class='fnname'>registry_address</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+
+    fn <a href='#method.to_delegate' class='fnname'>to_delegate</a>(self) -&gt; IoDelegate&lt;Self&gt; { ... }
+}</pre><div class='docblock'><p>Ethcore-specific rpc interface.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.transactions_limit' class='method stab '><code>fn <a href='#tymethod.transactions_limit' class='fnname'>transactions_limit</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns current transactions limit.</p>
+</div><h3 id='tymethod.extra_data' class='method stab '><code>fn <a href='#tymethod.extra_data' class='fnname'>extra_data</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns mining extra data.</p>
+</div><h3 id='tymethod.gas_floor_target' class='method stab '><code>fn <a href='#tymethod.gas_floor_target' class='fnname'>gas_floor_target</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns mining gas floor target.</p>
+</div><h3 id='tymethod.gas_ceil_target' class='method stab '><code>fn <a href='#tymethod.gas_ceil_target' class='fnname'>gas_ceil_target</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns mining gas floor cap.</p>
+</div><h3 id='tymethod.min_gas_price' class='method stab '><code>fn <a href='#tymethod.min_gas_price' class='fnname'>min_gas_price</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns minimal gas price for transaction to be included in queue.</p>
+</div><h3 id='tymethod.dev_logs' class='method stab '><code>fn <a href='#tymethod.dev_logs' class='fnname'>dev_logs</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns latest logs</p>
+</div><h3 id='tymethod.dev_logs_levels' class='method stab '><code>fn <a href='#tymethod.dev_logs_levels' class='fnname'>dev_logs_levels</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns logs levels</p>
+</div><h3 id='tymethod.net_chain' class='method stab '><code>fn <a href='#tymethod.net_chain' class='fnname'>net_chain</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns chain name</p>
+</div><h3 id='tymethod.net_peers' class='method stab '><code>fn <a href='#tymethod.net_peers' class='fnname'>net_peers</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns peers details</p>
+</div><h3 id='tymethod.net_port' class='method stab '><code>fn <a href='#tymethod.net_port' class='fnname'>net_port</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns network port</p>
+</div><h3 id='tymethod.rpc_settings' class='method stab '><code>fn <a href='#tymethod.rpc_settings' class='fnname'>rpc_settings</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns rpc settings</p>
+</div><h3 id='tymethod.node_name' class='method stab '><code>fn <a href='#tymethod.node_name' class='fnname'>node_name</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns node name</p>
+</div><h3 id='tymethod.default_extra_data' class='method stab '><code>fn <a href='#tymethod.default_extra_data' class='fnname'>default_extra_data</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns default extra data</p>
+</div><h3 id='tymethod.gas_price_statistics' class='method stab '><code>fn <a href='#tymethod.gas_price_statistics' class='fnname'>gas_price_statistics</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns distribution of gas price in latest blocks.</p>
+</div><h3 id='tymethod.unsigned_transactions_count' class='method stab '><code>fn <a href='#tymethod.unsigned_transactions_count' class='fnname'>unsigned_transactions_count</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns number of unsigned transactions waiting in the signer queue (if signer enabled)
+Returns error when signer is disabled</p>
+</div><h3 id='tymethod.generate_secret_phrase' class='method stab '><code>fn <a href='#tymethod.generate_secret_phrase' class='fnname'>generate_secret_phrase</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns a cryptographically random phrase sufficient for securely seeding a secret key.</p>
+</div><h3 id='tymethod.phrase_to_address' class='method stab '><code>fn <a href='#tymethod.phrase_to_address' class='fnname'>phrase_to_address</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns whatever address would be derived from the given phrase if it were to seed a brainwallet.</p>
+</div><h3 id='tymethod.registry_address' class='method stab '><code>fn <a href='#tymethod.registry_address' class='fnname'>registry_address</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Returns the value of the registrar for this network.</p>
+</div></div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.to_delegate' class='method stab '><code>fn <a href='#method.to_delegate' class='fnname'>to_delegate</a>(self) -&gt; IoDelegate&lt;Self&gt;</code></h3><div class='docblock'><p>Should be used to convert object to io delegate.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl&lt;C,&nbsp;M,&nbsp;S:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt; Ethcore for <a class='struct' href='../../../../ethcore_rpc/v1/struct.EthcoreClient.html' title='ethcore_rpc::v1::EthcoreClient'>EthcoreClient</a>&lt;C,&nbsp;M,&nbsp;S&gt; <span class='where'>where M: <a class='trait' href='../../../../ethcore/miner/trait.MinerService.html' title='ethcore::miner::MinerService'>MinerService</a> + 'static, C: <a class='trait' href='../../../../ethcore/client/traits/trait.MiningBlockChainClient.html' title='ethcore::client::traits::MiningBlockChainClient'>MiningBlockChainClient</a> + 'static, S: <a class='trait' href='../../../../ethsync/api/trait.SyncProvider.html' title='ethsync::api::SyncProvider'>SyncProvider</a> + 'static</span></code></li>
+</ul><script type="text/javascript" async
+                         src="../../../../implementors/ethcore_rpc/v1/traits/ethcore/trait.Ethcore.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../";
+        window.currentCrate = "ethcore_rpc";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../../jquery.js"></script>
+    <script src="../../../../main.js"></script>
+    
+    <script defer src="../../../../search-index.js"></script>
+</body>
+</html>

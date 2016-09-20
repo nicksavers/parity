@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["EthcoreSet","Ethcore-specific rpc interface for operations altering the settings."]]});

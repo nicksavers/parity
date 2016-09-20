@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["VMType","Type of EVM to use."]],"struct":[["Factory","Evm factory. Creates appropriate Evm."]]});

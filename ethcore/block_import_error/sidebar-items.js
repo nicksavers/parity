@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["BlockImportError","Error dedicated to import block function"]]});

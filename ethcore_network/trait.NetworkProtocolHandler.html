@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `NetworkProtocolHandler` trait in crate `ethcore_network`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, NetworkProtocolHandler">
+
+    <title>ethcore_network::NetworkProtocolHandler - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>ethcore_network</a></p><script>window.sidebarCurrent = {name: 'NetworkProtocolHandler', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>ethcore_network</a>::<wbr><a class='trait' href=''>NetworkProtocolHandler</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2982' class='srclink' href='../src/ethcore_network/util/network/src/lib.rs.html#111-122' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait NetworkProtocolHandler: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> {
+    fn <a href='#tymethod.read' class='fnname'>read</a>(&amp;self, io: &amp;<a class='struct' href='../ethcore_network/struct.NetworkContext.html' title='ethcore_network::NetworkContext'>NetworkContext</a>, peer: &amp;<a class='type' href='../ethcore_network/type.PeerId.html' title='ethcore_network::PeerId'>PeerId</a>, packet_id: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>, data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>);
+    fn <a href='#tymethod.connected' class='fnname'>connected</a>(&amp;self, io: &amp;<a class='struct' href='../ethcore_network/struct.NetworkContext.html' title='ethcore_network::NetworkContext'>NetworkContext</a>, peer: &amp;<a class='type' href='../ethcore_network/type.PeerId.html' title='ethcore_network::PeerId'>PeerId</a>);
+    fn <a href='#tymethod.disconnected' class='fnname'>disconnected</a>(&amp;self, io: &amp;<a class='struct' href='../ethcore_network/struct.NetworkContext.html' title='ethcore_network::NetworkContext'>NetworkContext</a>, peer: &amp;<a class='type' href='../ethcore_network/type.PeerId.html' title='ethcore_network::PeerId'>PeerId</a>);
+
+    fn <a href='#method.initialize' class='fnname'>initialize</a>(&amp;self, _io: &amp;<a class='struct' href='../ethcore_network/struct.NetworkContext.html' title='ethcore_network::NetworkContext'>NetworkContext</a>) { ... }
+    fn <a href='#method.timeout' class='fnname'>timeout</a>(&amp;self, _io: &amp;<a class='struct' href='../ethcore_network/struct.NetworkContext.html' title='ethcore_network::NetworkContext'>NetworkContext</a>, _timer: <a class='type' href='../ethcore_io/service/type.TimerToken.html' title='ethcore_io::service::TimerToken'>TimerToken</a>) { ... }
+}</pre><div class='docblock'><p>Network IO protocol handler. This needs to be implemented for each new subprotocol.
+All the handler function are called from within IO event loop.
+<code>Message</code> is the type for message data.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.read' class='method stab '><code>fn <a href='#tymethod.read' class='fnname'>read</a>(&amp;self, io: &amp;<a class='struct' href='../ethcore_network/struct.NetworkContext.html' title='ethcore_network::NetworkContext'>NetworkContext</a>, peer: &amp;<a class='type' href='../ethcore_network/type.PeerId.html' title='ethcore_network::PeerId'>PeerId</a>, packet_id: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>, data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>)</code></h3><div class='docblock'><p>Called when new network packet received.</p>
+</div><h3 id='tymethod.connected' class='method stab '><code>fn <a href='#tymethod.connected' class='fnname'>connected</a>(&amp;self, io: &amp;<a class='struct' href='../ethcore_network/struct.NetworkContext.html' title='ethcore_network::NetworkContext'>NetworkContext</a>, peer: &amp;<a class='type' href='../ethcore_network/type.PeerId.html' title='ethcore_network::PeerId'>PeerId</a>)</code></h3><div class='docblock'><p>Called when new peer is connected. Only called when peer supports the same protocol.</p>
+</div><h3 id='tymethod.disconnected' class='method stab '><code>fn <a href='#tymethod.disconnected' class='fnname'>disconnected</a>(&amp;self, io: &amp;<a class='struct' href='../ethcore_network/struct.NetworkContext.html' title='ethcore_network::NetworkContext'>NetworkContext</a>, peer: &amp;<a class='type' href='../ethcore_network/type.PeerId.html' title='ethcore_network::PeerId'>PeerId</a>)</code></h3><div class='docblock'><p>Called when a previously connected peer disconnects.</p>
+</div></div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.initialize' class='method stab '><code>fn <a href='#method.initialize' class='fnname'>initialize</a>(&amp;self, _io: &amp;<a class='struct' href='../ethcore_network/struct.NetworkContext.html' title='ethcore_network::NetworkContext'>NetworkContext</a>)</code></h3><div class='docblock'><p>Initialize the handler</p>
+</div><h3 id='method.timeout' class='method stab '><code>fn <a href='#method.timeout' class='fnname'>timeout</a>(&amp;self, _io: &amp;<a class='struct' href='../ethcore_network/struct.NetworkContext.html' title='ethcore_network::NetworkContext'>NetworkContext</a>, _timer: <a class='type' href='../ethcore_io/service/type.TimerToken.html' title='ethcore_io::service::TimerToken'>TimerToken</a>)</code></h3><div class='docblock'><p>Timer function called after a timeout created with <code>NetworkContext::timeout</code>.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    </ul><script type="text/javascript" async
+                         src="../implementors/ethcore_network/trait.NetworkProtocolHandler.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "ethcore_network";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ClosedBlock` struct in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ClosedBlock">
+
+    <title>ethcore::block::ClosedBlock - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>block</a></p><script>window.sidebarCurrent = {name: 'ClosedBlock', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>block</a>::<wbr><a class='struct' href=''>ClosedBlock</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-728' class='srclink' href='../../src/ethcore/ethcore/src/block.rs.html#204-209' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ClosedBlock {
+    // some fields omitted
+}</pre><div class='docblock'><p>Just like <code>OpenBlock</code>, except that we&#39;ve applied <code>Engine::on_close_block</code>, finished up the non-seal header fields,
+and collected the uncles.</p>
+
+<p>There is no function available to push a transaction.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../ethcore/block/struct.ClosedBlock.html' title='ethcore::block::ClosedBlock'>ClosedBlock</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-850' class='srclink' href='../../src/ethcore/ethcore/src/block.rs.html#407-430' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.hash' class='method'><code>fn <a href='#method.hash' class='fnname'>hash</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code></h4>
+<div class='docblock'><p>Get the hash of the header without seal arguments.</p>
+</div><h4 id='method.lock' class='method'><code>fn <a href='#method.lock' class='fnname'>lock</a>(self) -&gt; <a class='struct' href='../../ethcore/block/struct.LockedBlock.html' title='ethcore::block::LockedBlock'>LockedBlock</a></code></h4>
+<div class='docblock'><p>Turn this into a <code>LockedBlock</code>, unable to be reopened again.</p>
+</div><h4 id='method.reopen' class='method'><code>fn <a href='#method.reopen' class='fnname'>reopen</a>(self, engine: &amp;<a class='trait' href='../../ethcore/engines/trait.Engine.html' title='ethcore::engines::Engine'>Engine</a>) -&gt; <a class='struct' href='../../ethcore/block/struct.OpenBlock.html' title='ethcore::block::OpenBlock'>OpenBlock</a></code></h4>
+<div class='docblock'><p>Given an engine reference, reopen the <code>ClosedBlock</code> into an <code>OpenBlock</code>.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../ethcore/block/struct.ClosedBlock.html' title='ethcore::block::ClosedBlock'>ClosedBlock</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-721' class='srclink' href='../../src/ethcore/ethcore/src/block.rs.html#203' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore/block/struct.ClosedBlock.html' title='ethcore::block::ClosedBlock'>ClosedBlock</a></code></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'x&gt; <a class='trait' href='../../ethcore/block/trait.IsBlock.html' title='ethcore::block::IsBlock'>IsBlock</a> for <a class='struct' href='../../ethcore/block/struct.ClosedBlock.html' title='ethcore::block::ClosedBlock'>ClosedBlock</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-842' class='srclink' href='../../src/ethcore/ethcore/src/block.rs.html#399-401' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.block' class='method'><code>fn <a href='../../ethcore/block/trait.IsBlock.html#tymethod.block' class='fnname'>block</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../ethcore/block/struct.ExecutedBlock.html' title='ethcore::block::ExecutedBlock'>ExecutedBlock</a></code></h4>
+<div class='docblock'><p>Get the <code>ExecutedBlock</code> associated with this object.</p>
+</div><h4 id='method.base' class='method'><code>fn <a href='../../ethcore/block/trait.IsBlock.html#method.base' class='fnname'>base</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../ethcore/block/struct.Block.html' title='ethcore::block::Block'>Block</a></code></h4>
+<div class='docblock'><p>Get the base <code>Block</code> object associated with this.</p>
+</div><h4 id='method.header' class='method'><code>fn <a href='../../ethcore/block/trait.IsBlock.html#method.header' class='fnname'>header</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a></code></h4>
+<div class='docblock'><p>Get the header associated with this object&#39;s block.</p>
+</div><h4 id='method.state' class='method'><code>fn <a href='../../ethcore/block/trait.IsBlock.html#method.state' class='fnname'>state</a>(&amp;self) -&gt; &amp;State</code></h4>
+<div class='docblock'><p>Get the final state associated with this object&#39;s block.</p>
+</div><h4 id='method.transactions' class='method'><code>fn <a href='../../ethcore/block/trait.IsBlock.html#method.transactions' class='fnname'>transactions</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></h4>
+<div class='docblock'><p>Get all information on transactions in this block.</p>
+</div><h4 id='method.receipts' class='method'><code>fn <a href='../../ethcore/block/trait.IsBlock.html#method.receipts' class='fnname'>receipts</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='struct' href='../../ethcore/receipt/struct.Receipt.html' title='ethcore::receipt::Receipt'>Receipt</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></h4>
+<div class='docblock'><p>Get all information on receipts in this block.</p>
+</div><h4 id='method.traces' class='method'><code>fn <a href='../../ethcore/block/trait.IsBlock.html#method.traces' class='fnname'>traces</a>(&amp;self) -&gt; &amp;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.FlatTrace.html' title='ethcore::trace::FlatTrace'>FlatTrace</a>&gt;&gt;&gt;</code></h4>
+<div class='docblock'><p>Get all information concerning transaction tracing in this block.</p>
+</div><h4 id='method.uncles' class='method'><code>fn <a href='../../ethcore/block/trait.IsBlock.html#method.uncles' class='fnname'>uncles</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='struct' href='../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></h4>
+<div class='docblock'><p>Get all uncles in this block.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

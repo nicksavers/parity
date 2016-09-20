@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ContractCreateResult","Result of externalities create function."],["MessageCallResult","Result of externalities call function."]],"trait":[["Ext","Externalities interface for EVMs"]]});

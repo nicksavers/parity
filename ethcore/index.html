@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ethcore` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ethcore">
+
+    <title>ethcore - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'ethcore', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>ethcore</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/ethcore/ethcore/src/lib.rs.html#17-162' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Ethcore library</p>
+
+<h3 id='rust-version' class='section-header'><a href='#rust-version'>Rust version:</a></h3>
+<ul>
+<li>nightly</li>
+</ul>
+
+<h3 id='supported-platforms' class='section-header'><a href='#supported-platforms'>Supported platforms:</a></h3>
+<ul>
+<li>OSX</li>
+<li>Linux</li>
+</ul>
+
+<h3 id='building' class='section-header'><a href='#building'>Building:</a></h3>
+<ul>
+<li><p>Ubuntu 14.04 and later:</p>
+
+<pre><code class="language-bash">
+# install multirust
+curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh -s -- --yes
+
+# export rust LIBRARY_PATH
+export LIBRARY_PATH=/usr/local/lib
+
+# download and build parity
+git clone https://github.com/ethcore/parity
+cd parity
+multirust override beta
+cargo build --release
+</code></pre></li>
+<li><p>OSX:</p>
+
+<pre><code class="language-bash"># install rocksdb &amp;&amp; multirust
+brew update
+brew install multirust
+
+# export rust LIBRARY_PATH
+export LIBRARY_PATH=/usr/local/lib
+
+# download and build parity
+git clone https://github.com/ethcore/parity
+cd parity
+multirust override beta
+cargo build --release
+</code></pre></li>
+</ul>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub extern crate <a class='mod' href='../ethstore/index.html' title='ethstore'>ethstore</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='account_diff/index.html'
+                                  title='ethcore::account_diff'>account_diff</a></td>
+                           <td class='docblock short'>
+                                <p>Diff between two accounts.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='account_provider/index.html'
+                                  title='ethcore::account_provider'>account_provider</a></td>
+                           <td class='docblock short'>
+                                <p>Account management.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='action_params/index.html'
+                                  title='ethcore::action_params'>action_params</a></td>
+                           <td class='docblock short'>
+                                <p>Evm input params.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='block/index.html'
+                                  title='ethcore::block'>block</a></td>
+                           <td class='docblock short'>
+                                <p>Blockchain block.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='block_import_error/index.html'
+                                  title='ethcore::block_import_error'>block_import_error</a></td>
+                           <td class='docblock short'>
+                                <p>Block import error related types</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='block_queue/index.html'
+                                  title='ethcore::block_queue'>block_queue</a></td>
+                           <td class='docblock short'>
+                                <p>A queue of blocks. Sits between network or other I/O and the <code>BlockChain</code>.
+Sorts them ready for blockchain insertion.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='block_queue_info/index.html'
+                                  title='ethcore::block_queue_info'>block_queue_info</a></td>
+                           <td class='docblock short'>
+                                <p>Block queue info types</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='block_status/index.html'
+                                  title='ethcore::block_status'>block_status</a></td>
+                           <td class='docblock short'>
+                                <p>Block status description module</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='blockchain_info/index.html'
+                                  title='ethcore::blockchain_info'>blockchain_info</a></td>
+                           <td class='docblock short'>
+                                <p>Blockhain info type definition</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='call_analytics/index.html'
+                                  title='ethcore::call_analytics'>call_analytics</a></td>
+                           <td class='docblock short'>
+                                <p>Call analytics related types</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='client/index.html'
+                                  title='ethcore::client'>client</a></td>
+                           <td class='docblock short'>
+                                <p>Blockchain database client.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='db/index.html'
+                                  title='ethcore::db'>db</a></td>
+                           <td class='docblock short'>
+                                <p>Database utilities and definitions.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='engines/index.html'
+                                  title='ethcore::engines'>engines</a></td>
+                           <td class='docblock short'>
+                                <p>Consensus engine specification and basic implementations.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='error/index.html'
+                                  title='ethcore::error'>error</a></td>
+                           <td class='docblock short'>
+                                <p>General error types for use in ethcore.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='ethereum/index.html'
+                                  title='ethcore::ethereum'>ethereum</a></td>
+                           <td class='docblock short'>
+                                <p>Ethereum protocol module.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='evm/index.html'
+                                  title='ethcore::evm'>evm</a></td>
+                           <td class='docblock short'>
+                                <p>Ethereum virtual machine.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='executed/index.html'
+                                  title='ethcore::executed'>executed</a></td>
+                           <td class='docblock short'>
+                                <p>Transaction execution format module.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='filter/index.html'
+                                  title='ethcore::filter'>filter</a></td>
+                           <td class='docblock short'>
+                                <p>Blockchain filter</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='header/index.html'
+                                  title='ethcore::header'>header</a></td>
+                           <td class='docblock short'>
+                                <p>Block header.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='ids/index.html'
+                                  title='ethcore::ids'>ids</a></td>
+                           <td class='docblock short'>
+                                <p>Unique identifiers.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='log_entry/index.html'
+                                  title='ethcore::log_entry'>log_entry</a></td>
+                           <td class='docblock short'>
+                                <p>Log entry type definition.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='migrations/index.html'
+                                  title='ethcore::migrations'>migrations</a></td>
+                           <td class='docblock short'>
+                                <p>Database migrations.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='miner/index.html'
+                                  title='ethcore::miner'>miner</a></td>
+                           <td class='docblock short'>
+                                <p>Miner module
+Keeps track of transactions and mined block.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='pod_state/index.html'
+                                  title='ethcore::pod_state'>pod_state</a></td>
+                           <td class='docblock short'>
+                                <p>State of all accounts in the system expressed in Plain Old Data.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='receipt/index.html'
+                                  title='ethcore::receipt'>receipt</a></td>
+                           <td class='docblock short'>
+                                <p>Receipt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='restoration_status/index.html'
+                                  title='ethcore::restoration_status'>restoration_status</a></td>
+                           <td class='docblock short'>
+                                <p>Restoration status type definition</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='service/index.html'
+                                  title='ethcore::service'>service</a></td>
+                           <td class='docblock short'>
+                                <p>Creates and registers client and network services.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='snapshot/index.html'
+                                  title='ethcore::snapshot'>snapshot</a></td>
+                           <td class='docblock short'>
+                                <p>Snapshot creation, restoration, and network service.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='snapshot_manifest/index.html'
+                                  title='ethcore::snapshot_manifest'>snapshot_manifest</a></td>
+                           <td class='docblock short'>
+                                <p>Snapshot manifest type definition</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='spec/index.html'
+                                  title='ethcore::spec'>spec</a></td>
+                           <td class='docblock short'>
+                                <p>Blockchain params.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='state_diff/index.html'
+                                  title='ethcore::state_diff'>state_diff</a></td>
+                           <td class='docblock short'>
+                                <p>State diff module.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='trace/index.html'
+                                  title='ethcore::trace'>trace</a></td>
+                           <td class='docblock short'>
+                                <p>Tracing</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='trace_filter/index.html'
+                                  title='ethcore::trace_filter'>trace_filter</a></td>
+                           <td class='docblock short'>
+                                <p>Trace filter related types</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='trace_types/index.html'
+                                  title='ethcore::trace_types'>trace_types</a></td>
+                           <td class='docblock short'>
+                                <p>Types used in the public api</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='transaction/index.html'
+                                  title='ethcore::transaction'>transaction</a></td>
+                           <td class='docblock short'>
+                                <p>Transaction data structure.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='transaction_import/index.html'
+                                  title='ethcore::transaction_import'>transaction_import</a></td>
+                           <td class='docblock short'>
+                                <p>Transaction import result related types</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='tree_route/index.html'
+                                  title='ethcore::tree_route'>tree_route</a></td>
+                           <td class='docblock short'>
+                                <p>Tree route info type definition</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='views/index.html'
+                                  title='ethcore::views'>views</a></td>
+                           <td class='docblock short'>
+                                <p>Block oriented views onto rlp.</p>
+                           </td>
+                       </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.evm_test!.html'
+                                  title='ethcore::evm_test!'>evm_test!</a></td>
+                           <td class='docblock short'>
+                                <p>Create tests by injecting different VM factories</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.evm_test_ignore!.html'
+                                  title='ethcore::evm_test_ignore!'>evm_test_ignore!</a></td>
+                           <td class='docblock short'>
+                                <p>Create ignored tests by injecting different VM factories</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.contract_address.html'
+                                  title='ethcore::contract_address'>contract_address</a></td>
+                           <td class='docblock short'>
+                                <p>Returns new address created from address and given nonce.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

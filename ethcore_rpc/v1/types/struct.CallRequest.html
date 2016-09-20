@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `CallRequest` struct in crate `ethcore_rpc`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, CallRequest">
+
+    <title>ethcore_rpc::v1::types::CallRequest - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>ethcore_rpc</a>::<wbr><a href='../index.html'>v1</a>::<wbr><a href='index.html'>types</a></p><script>window.sidebarCurrent = {name: 'CallRequest', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>ethcore_rpc</a>::<wbr><a href='../index.html'>v1</a>::<wbr><a href='index.html'>types</a>::<wbr><a class='struct' href=''>CallRequest</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-3712' class='srclink' href='../../../src/ethcore_rpc/home/travis/build/ethcore/parity/target/debug/build/ethcore-rpc-5201b6ac91fbddd6/out/mod.rs.html#710-725' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct CallRequest {
+    pub from: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.H160.html' title='ethcore_rpc::v1::types::H160'>H160</a>&gt;,
+    pub to: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.H160.html' title='ethcore_rpc::v1::types::H160'>H160</a>&gt;,
+    pub gas_price: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.U256.html' title='ethcore_rpc::v1::types::U256'>U256</a>&gt;,
+    pub gas: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.U256.html' title='ethcore_rpc::v1::types::U256'>U256</a>&gt;,
+    pub value: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.U256.html' title='ethcore_rpc::v1::types::U256'>U256</a>&gt;,
+    pub data: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.Bytes.html' title='ethcore_rpc::v1::types::Bytes'>Bytes</a>&gt;,
+    pub nonce: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.U256.html' title='ethcore_rpc::v1::types::U256'>U256</a>&gt;,
+}</pre><div class='docblock'><p>Call request</p>
+</div><h2 class='fields'>Fields</h2><span id='structfield.from' class='structfield'><code>from: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.H160.html' title='ethcore_rpc::v1::types::H160'>H160</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>From</p>
+</div><span id='structfield.to' class='structfield'><code>to: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.H160.html' title='ethcore_rpc::v1::types::H160'>H160</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>To</p>
+</div><span id='structfield.gas_price' class='structfield'><code>gas_price: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.U256.html' title='ethcore_rpc::v1::types::U256'>U256</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas Price</p>
+</div><span id='structfield.gas' class='structfield'><code>gas: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.U256.html' title='ethcore_rpc::v1::types::U256'>U256</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>Gas</p>
+</div><span id='structfield.value' class='structfield'><code>value: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.U256.html' title='ethcore_rpc::v1::types::U256'>U256</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>Value</p>
+</div><span id='structfield.data' class='structfield'><code>data: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.Bytes.html' title='ethcore_rpc::v1::types::Bytes'>Bytes</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>Data</p>
+</div><span id='structfield.nonce' class='structfield'><code>nonce: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.U256.html' title='ethcore_rpc::v1::types::U256'>U256</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>Nonce</p>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../../ethcore_rpc/v1/types/struct.CallRequest.html' title='ethcore_rpc::v1::types::CallRequest'>CallRequest</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3663' class='srclink' href='../../../src/ethcore_rpc/home/travis/build/ethcore/parity/target/debug/build/ethcore-rpc-5201b6ac91fbddd6/out/mod.rs.html#709' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../../../ethcore_rpc/v1/types/struct.CallRequest.html' title='ethcore_rpc::v1::types::CallRequest'>CallRequest</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3675' class='srclink' href='../../../src/ethcore_rpc/home/travis/build/ethcore/parity/target/debug/build/ethcore-rpc-5201b6ac91fbddd6/out/mod.rs.html#709' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../../../ethcore_rpc/v1/types/struct.CallRequest.html' title='ethcore_rpc::v1::types::CallRequest'>CallRequest</a></code></h4>
+<div class='docblock'><p>Returns the &quot;default value&quot; for a type. <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../../../ethcore_rpc/v1/types/struct.CallRequest.html' title='ethcore_rpc::v1::types::CallRequest'>CallRequest</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3677' class='srclink' href='../../../src/ethcore_rpc/home/travis/build/ethcore/parity/target/debug/build/ethcore-rpc-5201b6ac91fbddd6/out/mod.rs.html#709' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.CallRequest.html' title='ethcore_rpc::v1::types::CallRequest'>CallRequest</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../ethcore_rpc/v1/types/struct.CallRequest.html' title='ethcore_rpc::v1::types::CallRequest'>CallRequest</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;Request&gt; for <a class='struct' href='../../../ethcore_rpc/v1/types/struct.CallRequest.html' title='ethcore_rpc::v1::types::CallRequest'>CallRequest</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3720' class='srclink' href='../../../src/ethcore_rpc/home/travis/build/ethcore/parity/target/debug/build/ethcore-rpc-5201b6ac91fbddd6/out/mod.rs.html#726-736' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.into' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into' class='fnname'>into</a>(self) -&gt; Request</code></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "ethcore_rpc";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

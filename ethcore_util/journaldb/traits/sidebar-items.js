@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["JournalDB","A `HashDB` which can manage a short-term journal potentially containing many forks of mutually exclusive actions."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["log2","Returns log2."]],"trait":[["Bloomable","Bloom operations."]]});

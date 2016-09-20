@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Spec` struct in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Spec">
+
+    <title>ethcore::spec::spec::Spec - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>ethcore</a>::<wbr><a href='../index.html'>spec</a>::<wbr><a href='index.html'>spec</a></p><script>window.sidebarCurrent = {name: 'Spec', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>ethcore</a>::<wbr><a href='../index.html'>spec</a>::<wbr><a href='index.html'>spec</a>::<wbr><a class='struct' href=''>Spec</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-9276' class='srclink' href='../../../src/ethcore/ethcore/src/spec/spec.rs.html#59-101' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Spec {
+    pub name: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>,
+    pub engine: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='trait' href='../../../ethcore/engines/trait.Engine.html' title='ethcore::engines::Engine'>Engine</a>&gt;,
+    pub fork_name: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;,
+    pub nodes: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;,
+    pub params: <a class='struct' href='../../../ethcore/spec/spec/struct.CommonParams.html' title='ethcore::spec::spec::CommonParams'>CommonParams</a>,
+    pub parent_hash: <a class='struct' href='../../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>,
+    pub author: <a class='type' href='../../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>,
+    pub difficulty: <a class='struct' href='../../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>,
+    pub gas_limit: <a class='struct' href='../../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>,
+    pub gas_used: <a class='struct' href='../../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>,
+    pub timestamp: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>,
+    pub transactions_root: <a class='struct' href='../../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>,
+    pub receipts_root: <a class='struct' href='../../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>,
+    pub extra_data: <a class='type' href='../../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>,
+    pub seal_fields: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+    pub seal_rlp: <a class='type' href='../../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>,
+    // some fields omitted
+}</pre><div class='docblock'><p>Parameters for a block chain; includes both those intrinsic to the design of the
+chain and those to be interpreted by the active chain engine.</p>
+</div><h2 class='fields'>Fields</h2><span id='structfield.name' class='structfield'><code>name: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>User friendly spec name</p>
+</div><span id='structfield.engine' class='structfield'><code>engine: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='trait' href='../../../ethcore/engines/trait.Engine.html' title='ethcore::engines::Engine'>Engine</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>What engine are we using for this?</p>
+</div><span id='structfield.fork_name' class='structfield'><code>fork_name: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>The fork identifier for this chain. Only needed to distinguish two chains sharing the same genesis.</p>
+</div><span id='structfield.nodes' class='structfield'><code>nodes: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code>
+                           </span><span class='stab '></span><div class='docblock'><p>Known nodes on the network in enode format.</p>
+</div><span id='structfield.params' class='structfield'><code>params: <a class='struct' href='../../../ethcore/spec/spec/struct.CommonParams.html' title='ethcore::spec::spec::CommonParams'>CommonParams</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Parameters common to all engines.</p>
+</div><span id='structfield.parent_hash' class='structfield'><code>parent_hash: <a class='struct' href='../../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>The genesis block&#39;s parent hash field.</p>
+</div><span id='structfield.author' class='structfield'><code>author: <a class='type' href='../../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>The genesis block&#39;s author field.</p>
+</div><span id='structfield.difficulty' class='structfield'><code>difficulty: <a class='struct' href='../../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>The genesis block&#39;s difficulty field.</p>
+</div><span id='structfield.gas_limit' class='structfield'><code>gas_limit: <a class='struct' href='../../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>The genesis block&#39;s gas limit field.</p>
+</div><span id='structfield.gas_used' class='structfield'><code>gas_used: <a class='struct' href='../../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>The genesis block&#39;s gas used field.</p>
+</div><span id='structfield.timestamp' class='structfield'><code>timestamp: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>The genesis block&#39;s timestamp field.</p>
+</div><span id='structfield.transactions_root' class='structfield'><code>transactions_root: <a class='struct' href='../../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Transactions root of the genesis block. Should be SHA3_NULL_RLP.</p>
+</div><span id='structfield.receipts_root' class='structfield'><code>receipts_root: <a class='struct' href='../../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Receipts root of the genesis block. Should be SHA3_NULL_RLP.</p>
+</div><span id='structfield.extra_data' class='structfield'><code>extra_data: <a class='type' href='../../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>The genesis block&#39;s extra data field.</p>
+</div><span id='structfield.seal_fields' class='structfield'><code>seal_fields: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>The number of seal fields in the genesis block.</p>
+</div><span id='structfield.seal_rlp' class='structfield'><code>seal_rlp: <a class='type' href='../../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Each seal field, expressed as RLP, concatenated.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../../ethcore/spec/spec/struct.Spec.html' title='ethcore::spec::spec::Spec'>Spec</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-9304' class='srclink' href='../../../src/ethcore/ethcore/src/spec/spec.rs.html#132-268' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.state_root' class='method'><code>fn <a href='#method.state_root' class='fnname'>state_root</a>(&amp;self) -&gt; <a class='struct' href='../../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code></h4>
+<div class='docblock'><p>Return the state root for the genesis state, memoising accordingly.</p>
+</div><h4 id='method.nodes' class='method'><code>fn <a href='#method.nodes' class='fnname'>nodes</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></h4>
+<div class='docblock'><p>Get the known knodes of the network in enode format.</p>
+</div><h4 id='method.network_id' class='method'><code>fn <a href='#method.network_id' class='fnname'>network_id</a>(&amp;self) -&gt; <a class='struct' href='../../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a></code></h4>
+<div class='docblock'><p>Get the configured Network ID.</p>
+</div><h4 id='method.fork_block' class='method'><code>fn <a href='#method.fork_block' class='fnname'>fork_block</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='type' href='../../../ethcore/header/type.BlockNumber.html' title='ethcore::header::BlockNumber'>BlockNumber</a>, <a class='struct' href='../../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;</code></h4>
+<div class='docblock'><p>Get the configured network fork block.</p>
+</div><h4 id='method.genesis_header' class='method'><code>fn <a href='#method.genesis_header' class='fnname'>genesis_header</a>(&amp;self) -&gt; <a class='struct' href='../../../ethcore/header/struct.Header.html' title='ethcore::header::Header'>Header</a></code></h4>
+<div class='docblock'><p>Get the header of the genesis block.</p>
+</div><h4 id='method.genesis_block' class='method'><code>fn <a href='#method.genesis_block' class='fnname'>genesis_block</a>(&amp;self) -&gt; <a class='type' href='../../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a></code></h4>
+<div class='docblock'><p>Compose the genesis block for this chain.</p>
+</div><h4 id='method.overwrite_genesis_params' class='method'><code>fn <a href='#method.overwrite_genesis_params' class='fnname'>overwrite_genesis_params</a>(&amp;mut self, g: <a class='struct' href='../../../ethcore/spec/struct.Genesis.html' title='ethcore::spec::Genesis'>Genesis</a>)</code></h4>
+<div class='docblock'><p>Overwrite the genesis components.</p>
+</div><h4 id='method.set_genesis_state' class='method'><code>fn <a href='#method.set_genesis_state' class='fnname'>set_genesis_state</a>(&amp;mut self, s: <a class='struct' href='../../../ethcore/pod_state/struct.PodState.html' title='ethcore::pod_state::PodState'>PodState</a>)</code></h4>
+<div class='docblock'><p>Alter the value of the genesis state.</p>
+</div><h4 id='method.is_state_root_valid' class='method'><code>fn <a href='#method.is_state_root_valid' class='fnname'>is_state_root_valid</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>false</code> if the memoized state root is invalid. <code>true</code> otherwise.</p>
+</div><h4 id='method.ensure_db_good' class='method'><code>fn <a href='#method.ensure_db_good' class='fnname'>ensure_db_good</a>(&amp;self, db: &amp;mut <a class='trait' href='../../../ethcore_util/hashdb/trait.HashDB.html' title='ethcore_util::hashdb::HashDB'>HashDB</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='enum' href='../../../ethcore_util/trie/enum.TrieError.html' title='ethcore_util::trie::TrieError'>TrieError</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Ensure that the given state DB has the trie nodes in for the genesis state.</p>
+</div><h4 id='method.load' class='method'><code>fn <a href='#method.load' class='fnname'>load</a>&lt;R&gt;(reader: R) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Self,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt; <span class='where'>where R: <a class='trait' href='https://doc.rust-lang.org/nightly/std/io/trait.Read.html' title='std::io::Read'>Read</a></span></code></h4>
+<div class='docblock'><p>Loads spec from json file.</p>
+</div><h4 id='method.new_test' class='method'><code>fn <a href='#method.new_test' class='fnname'>new_test</a>() -&gt; Self</code></h4>
+<div class='docblock'><p>Create a new Spec which conforms to the Frontier-era Morden chain except that it&#39;s a NullEngine consensus.</p>
+</div><h4 id='method.new_null' class='method'><code>fn <a href='#method.new_null' class='fnname'>new_null</a>() -&gt; Self</code></h4>
+<div class='docblock'><p>Create a new Spec which is a NullEngine consensus with a premine of address whose secret is sha3(&#39;&#39;).</p>
+</div><h4 id='method.new_test_instant' class='method'><code>fn <a href='#method.new_test_instant' class='fnname'>new_test_instant</a>() -&gt; Self</code></h4>
+<div class='docblock'><p>Create a new Spec with InstantSeal consensus which does internal sealing (not requiring work).</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html' title='core::convert::From'>From</a>&lt;Spec&gt; for <a class='struct' href='../../../ethcore/spec/spec/struct.Spec.html' title='ethcore::spec::spec::Spec'>Spec</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-9295' class='srclink' href='../../../src/ethcore/ethcore/src/spec/spec.rs.html#103-130' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(s: Spec) -&gt; Self</code></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `PersonalClient` struct in crate `ethcore_rpc`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, PersonalClient">
+
+    <title>ethcore_rpc::v1::PersonalClient - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore_rpc</a>::<wbr><a href='index.html'>v1</a></p><script>window.sidebarCurrent = {name: 'PersonalClient', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>ethcore_rpc</a>::<wbr><a href='index.html'>v1</a>::<wbr><a class='struct' href=''>PersonalClient</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2287' class='srclink' href='../../src/ethcore_rpc/rpc/src/v1/impls/personal.rs.html#33-39' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct PersonalClient&lt;C,&nbsp;M&gt; <span class='where'>where C: <a class='trait' href='../../ethcore/client/traits/trait.MiningBlockChainClient.html' title='ethcore::client::traits::MiningBlockChainClient'>MiningBlockChainClient</a>, M: <a class='trait' href='../../ethcore/miner/trait.MinerService.html' title='ethcore::miner::MinerService'>MinerService</a></span> {
+    // some fields omitted
+}</pre><div class='docblock'><p>Account management (personal) rpc implementation.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;C,&nbsp;M&gt; <a class='struct' href='../../ethcore_rpc/v1/struct.PersonalClient.html' title='ethcore_rpc::v1::PersonalClient'>PersonalClient</a>&lt;C,&nbsp;M&gt; <span class='where'>where C: <a class='trait' href='../../ethcore/client/traits/trait.MiningBlockChainClient.html' title='ethcore::client::traits::MiningBlockChainClient'>MiningBlockChainClient</a>, M: <a class='trait' href='../../ethcore/miner/trait.MinerService.html' title='ethcore::miner::MinerService'>MinerService</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2295' class='srclink' href='../../src/ethcore_rpc/rpc/src/v1/impls/personal.rs.html#41-58' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(store: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../ethcore/account_provider/struct.AccountProvider.html' title='ethcore::account_provider::AccountProvider'>AccountProvider</a>&gt;, client: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;C&gt;, miner: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;M&gt;, signer_port: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>&gt;, allow_perm_unlock: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; Self</code></h4>
+<div class='docblock'><p>Creates new PersonalClient</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;C:&nbsp;'static,&nbsp;M:&nbsp;'static&gt; <a class='trait' href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html' title='ethcore_rpc::v1::traits::personal::Personal'>Personal</a> for <a class='struct' href='../../ethcore_rpc/v1/struct.PersonalClient.html' title='ethcore_rpc::v1::PersonalClient'>PersonalClient</a>&lt;C,&nbsp;M&gt; <span class='where'>where C: <a class='trait' href='../../ethcore/client/traits/trait.MiningBlockChainClient.html' title='ethcore::client::traits::MiningBlockChainClient'>MiningBlockChainClient</a>, M: <a class='trait' href='../../ethcore/miner/trait.MinerService.html' title='ethcore::miner::MinerService'>MinerService</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-2308' class='srclink' href='../../src/ethcore_rpc/rpc/src/v1/impls/personal.rs.html#60-205' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.signer_enabled' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.signer_enabled' class='fnname'>signer_enabled</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Returns <code>true</code> if Trusted Signer is enabled, <code>false</code> otherwise.</p>
+</div><h4 id='method.accounts' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.accounts' class='fnname'>accounts</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Lists all stored accounts</p>
+</div><h4 id='method.new_account' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.new_account' class='fnname'>new_account</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Creates new account (it becomes new current unlocked account) Param is the password for the account. <a href="../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.new_account">Read more</a></p>
+</div><h4 id='method.new_account_from_phrase' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.new_account_from_phrase' class='fnname'>new_account_from_phrase</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Creates new account from the given phrase using standard brainwallet mechanism. Second parameter is password for the new account. <a href="../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.new_account_from_phrase">Read more</a></p>
+</div><h4 id='method.new_account_from_wallet' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.new_account_from_wallet' class='fnname'>new_account_from_wallet</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Creates new account from the given JSON wallet. Second parameter is password for the wallet and the new account. <a href="../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.new_account_from_wallet">Read more</a></p>
+</div><h4 id='method.unlock_account' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.unlock_account' class='fnname'>unlock_account</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Unlocks specified account for use (can only be one unlocked account at one moment)</p>
+</div><h4 id='method.sign_and_send_transaction' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.sign_and_send_transaction' class='fnname'>sign_and_send_transaction</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Sends transaction and signs it in single call. The account is not unlocked in such case.</p>
+</div><h4 id='method.set_account_name' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.set_account_name' class='fnname'>set_account_name</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Set an account&#39;s name.</p>
+</div><h4 id='method.set_account_meta' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.set_account_meta' class='fnname'>set_account_meta</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Set an account&#39;s metadata string.</p>
+</div><h4 id='method.accounts_info' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.accounts_info' class='fnname'>accounts_info</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Returns accounts information.</p>
+</div><h4 id='method.geth_accounts' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.geth_accounts' class='fnname'>geth_accounts</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Returns the accounts available for importing from Geth.</p>
+</div><h4 id='method.import_geth_accounts' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#tymethod.import_geth_accounts' class='fnname'>import_geth_accounts</a>(&amp;self, params: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h4>
+<div class='docblock'><p>Imports a number of Geth accounts, with the list provided as the argument.</p>
+</div><h4 id='method.to_delegate' class='method'><code>fn <a href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html#method.to_delegate' class='fnname'>to_delegate</a>(self) -&gt; IoDelegate&lt;Self&gt;</code></h4>
+<div class='docblock'><p>Should be used to convert object to io delegate.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore_rpc";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

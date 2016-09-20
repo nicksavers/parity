@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `v1` mod in crate `ethcore_rpc`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, v1">
+
+    <title>ethcore_rpc::v1 - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore_rpc</a></p><script>window.sidebarCurrent = {name: 'v1', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>ethcore_rpc</a>::<wbr><a class='mod' href=''>v1</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-26' class='srclink' href='../../src/ethcore_rpc/rpc/src/v1/mod.rs.html#17-31' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Ethcore rpc v1.</p>
+
+<p>Compliant with ethereum rpc.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::traits::{<a class='trait' href='../../ethcore_rpc/v1/traits/web3/trait.Web3.html' title='ethcore_rpc::v1::traits::web3::Web3'>Web3</a>, <a class='trait' href='../../ethcore_rpc/v1/traits/eth/trait.Eth.html' title='ethcore_rpc::v1::traits::eth::Eth'>Eth</a>, <a class='trait' href='../../ethcore_rpc/v1/traits/eth/trait.EthFilter.html' title='ethcore_rpc::v1::traits::eth::EthFilter'>EthFilter</a>, <a class='trait' href='../../ethcore_rpc/v1/traits/eth/trait.EthSigning.html' title='ethcore_rpc::v1::traits::eth::EthSigning'>EthSigning</a>, <a class='trait' href='../../ethcore_rpc/v1/traits/personal/trait.Personal.html' title='ethcore_rpc::v1::traits::personal::Personal'>Personal</a>, <a class='trait' href='../../ethcore_rpc/v1/traits/personal/trait.PersonalSigner.html' title='ethcore_rpc::v1::traits::personal::PersonalSigner'>PersonalSigner</a>, <a class='trait' href='../../ethcore_rpc/v1/traits/net/trait.Net.html' title='ethcore_rpc::v1::traits::net::Net'>Net</a>, <a class='trait' href='../../ethcore_rpc/v1/traits/ethcore/trait.Ethcore.html' title='ethcore_rpc::v1::traits::ethcore::Ethcore'>Ethcore</a>, <a class='trait' href='../../ethcore_rpc/v1/traits/ethcore_set/trait.EthcoreSet.html' title='ethcore_rpc::v1::traits::ethcore_set::EthcoreSet'>EthcoreSet</a>, <a class='trait' href='../../ethcore_rpc/v1/traits/traces/trait.Traces.html' title='ethcore_rpc::v1::traits::traces::Traces'>Traces</a>, <a class='trait' href='../../ethcore_rpc/v1/traits/rpc/trait.Rpc.html' title='ethcore_rpc::v1::traits::rpc::Rpc'>Rpc</a>};</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='tests/index.html'
+                                  title='ethcore_rpc::v1::tests'>tests</a></td>
+                           <td class='docblock short'>
+                                <p>RPC unit test moduleS</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='traits/index.html'
+                                  title='ethcore_rpc::v1::traits'>traits</a></td>
+                           <td class='docblock short'>
+                                <p>Ethereum rpc interfaces.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='types/index.html'
+                                  title='ethcore_rpc::v1::types'>types</a></td>
+                           <td class='docblock short'>
+                                <p>Structures used in RPC communication</p>
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.ConfirmationsQueue.html'
+                                  title='ethcore_rpc::v1::ConfirmationsQueue'>ConfirmationsQueue</a></td>
+                           <td class='docblock short'>
+                                <p>Queue for all unconfirmed requests.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.EthClient.html'
+                                  title='ethcore_rpc::v1::EthClient'>EthClient</a></td>
+                           <td class='docblock short'>
+                                <p>Eth rpc implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.EthClientOptions.html'
+                                  title='ethcore_rpc::v1::EthClientOptions'>EthClientOptions</a></td>
+                           <td class='docblock short'>
+                                <p>Eth RPC options</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.EthFilterClient.html'
+                                  title='ethcore_rpc::v1::EthFilterClient'>EthFilterClient</a></td>
+                           <td class='docblock short'>
+                                <p>Eth filter rpc implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.EthSigningQueueClient.html'
+                                  title='ethcore_rpc::v1::EthSigningQueueClient'>EthSigningQueueClient</a></td>
+                           <td class='docblock short'>
+                                <p>Implementation of functions that require signing when no trusted signer is used.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.EthSigningUnsafeClient.html'
+                                  title='ethcore_rpc::v1::EthSigningUnsafeClient'>EthSigningUnsafeClient</a></td>
+                           <td class='docblock short'>
+                                <p>Implementation of functions that require signing when no trusted signer is used.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.EthcoreClient.html'
+                                  title='ethcore_rpc::v1::EthcoreClient'>EthcoreClient</a></td>
+                           <td class='docblock short'>
+                                <p>Ethcore implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.EthcoreSetClient.html'
+                                  title='ethcore_rpc::v1::EthcoreSetClient'>EthcoreSetClient</a></td>
+                           <td class='docblock short'>
+                                <p>Ethcore-specific rpc interface for operations altering the settings.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.NetClient.html'
+                                  title='ethcore_rpc::v1::NetClient'>NetClient</a></td>
+                           <td class='docblock short'>
+                                <p>Net rpc implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.NetworkSettings.html'
+                                  title='ethcore_rpc::v1::NetworkSettings'>NetworkSettings</a></td>
+                           <td class='docblock short'>
+                                <p>Networking &amp; RPC settings</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.PersonalClient.html'
+                                  title='ethcore_rpc::v1::PersonalClient'>PersonalClient</a></td>
+                           <td class='docblock short'>
+                                <p>Account management (personal) rpc implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.RpcClient.html'
+                                  title='ethcore_rpc::v1::RpcClient'>RpcClient</a></td>
+                           <td class='docblock short'>
+                                <p>RPC generic methods implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.SignerClient.html'
+                                  title='ethcore_rpc::v1::SignerClient'>SignerClient</a></td>
+                           <td class='docblock short'>
+                                <p>Transactions confirmation (personal) rpc implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.TracesClient.html'
+                                  title='ethcore_rpc::v1::TracesClient'>TracesClient</a></td>
+                           <td class='docblock short'>
+                                <p>Traces api implementation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Web3Client.html'
+                                  title='ethcore_rpc::v1::Web3Client'>Web3Client</a></td>
+                           <td class='docblock short'>
+                                <p>Web3 rpc implementation.</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.SigningQueue.html'
+                                  title='ethcore_rpc::v1::SigningQueue'>SigningQueue</a></td>
+                           <td class='docblock short'>
+                                <p>A queue of transactions awaiting to be confirmed and signed.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore_rpc";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

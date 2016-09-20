@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["Personal","Personal rpc interface."],["PersonalSigner","Personal extension for confirmations rpc interface."]]});

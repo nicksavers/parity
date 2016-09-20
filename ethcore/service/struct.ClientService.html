@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ClientService` struct in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ClientService">
+
+    <title>ethcore::service::ClientService - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>service</a></p><script>window.sidebarCurrent = {name: 'ClientService', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>service</a>::<wbr><a class='struct' href=''>ClientService</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-8239' class='srclink' href='../../src/ethcore/ethcore/src/service.rs.html#54-60' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ClientService {
+    // some fields omitted
+}</pre><div class='docblock'><p>Client service setup. Creates and registers client and network services with the IO subsystem.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../ethcore/service/struct.ClientService.html' title='ethcore::service::ClientService'>ClientService</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-8245' class='srclink' href='../../src/ethcore/ethcore/src/service.rs.html#62-149' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.start' class='method'><code>fn <a href='#method.start' class='fnname'>start</a>(config: <a class='struct' href='../../ethcore/client/struct.ClientConfig.html' title='ethcore::client::ClientConfig'>ClientConfig</a>, spec: &amp;<a class='struct' href='../../ethcore/spec/spec/struct.Spec.html' title='ethcore::spec::spec::Spec'>Spec</a>, client_path: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>, snapshot_path: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>, ipc_path: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>, miner: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../ethcore/miner/struct.Miner.html' title='ethcore::miner::Miner'>Miner</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../ethcore/service/struct.ClientService.html' title='ethcore::service::ClientService'>ClientService</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Start the <code>ClientService</code>.</p>
+</div><h4 id='method.add_node' class='method'><code>fn <a href='#method.add_node' class='fnname'>add_node</a>(&amp;mut self, _enode: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</code></h4>
+<div class='docblock'><p>Add a node to network</p>
+</div><h4 id='method.register_io_handler' class='method'><code>fn <a href='#method.register_io_handler' class='fnname'>register_io_handler</a>(&amp;self, handler: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='trait' href='../../ethcore_io/trait.IoHandler.html' title='ethcore_io::IoHandler'>IoHandler</a>&lt;<a class='enum' href='../../ethcore/service/enum.ClientIoMessage.html' title='ethcore::service::ClientIoMessage'>ClientIoMessage</a>&gt; + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore_io/enum.IoError.html' title='ethcore_io::IoError'>IoError</a>&gt;</code></h4>
+<div class='docblock'><p>Get general IO interface</p>
+</div><h4 id='method.client' class='method'><code>fn <a href='#method.client' class='fnname'>client</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../ethcore/client/struct.Client.html' title='ethcore::client::Client'>Client</a>&gt;</code></h4>
+<div class='docblock'><p>Get client interface</p>
+</div><h4 id='method.snapshot_service' class='method'><code>fn <a href='#method.snapshot_service' class='fnname'>snapshot_service</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../ethcore/snapshot/service/struct.Service.html' title='ethcore::snapshot::service::Service'>SnapshotService</a>&gt;</code></h4>
+<div class='docblock'><p>Get snapshot interface.</p>
+</div><h4 id='method.io' class='method'><code>fn <a href='#method.io' class='fnname'>io</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../../ethcore_io/service/struct.IoService.html' title='ethcore_io::service::IoService'>IoService</a>&lt;<a class='enum' href='../../ethcore/service/enum.ClientIoMessage.html' title='ethcore::service::ClientIoMessage'>ClientIoMessage</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Get network service component</p>
+</div><h4 id='method.add_notify' class='method'><code>fn <a href='#method.add_notify' class='fnname'>add_notify</a>(&amp;self, notify: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='trait' href='../../ethcore/client/chain_notify/trait.ChainNotify.html' title='ethcore::client::chain_notify::ChainNotify'>ChainNotify</a>&gt;)</code></h4>
+<div class='docblock'><p>Set the actor to be notified on certain chain events</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../../ethcore_io/panics/trait.MayPanic.html' title='ethcore_io::panics::MayPanic'>MayPanic</a> for <a class='struct' href='../../ethcore/service/struct.ClientService.html' title='ethcore::service::ClientService'>ClientService</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-8295' class='srclink' href='../../src/ethcore/ethcore/src/service.rs.html#151-155' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.on_panic' class='method'><code>fn <a href='../../ethcore_io/panics/trait.MayPanic.html#tymethod.on_panic' class='fnname'>on_panic</a>&lt;F&gt;(&amp;self, closure: F) <span class='where'>where F: <a class='trait' href='../../ethcore_io/panics/trait.OnPanicListener.html' title='ethcore_io::panics::OnPanicListener'>OnPanicListener</a></span></code></h4>
+<div class='docblock'><p><code>closure</code> will be invoked whenever panic in thread is caught</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

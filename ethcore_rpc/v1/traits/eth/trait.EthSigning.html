@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `EthSigning` trait in crate `ethcore_rpc`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, EthSigning">
+
+    <title>ethcore_rpc::v1::traits::eth::EthSigning - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../../index.html'>ethcore_rpc</a>::<wbr><a href='../../index.html'>v1</a>::<wbr><a href='../index.html'>traits</a>::<wbr><a href='index.html'>eth</a></p><script>window.sidebarCurrent = {name: 'EthSigning', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../../../index.html'>ethcore_rpc</a>::<wbr><a href='../../index.html'>v1</a>::<wbr><a href='../index.html'>traits</a>::<wbr><a href='index.html'>eth</a>::<wbr><a class='trait' href=''>EthSigning</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2887' class='srclink' href='../../../../src/ethcore_rpc/rpc/src/v1/traits/eth.rs.html#205-240' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait EthSigning: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + 'static {
+    fn <a href='#tymethod.sign' class='fnname'>sign</a>(&amp;self, _: Params, _: Ready);
+    fn <a href='#tymethod.post_sign' class='fnname'>post_sign</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.send_transaction' class='fnname'>send_transaction</a>(&amp;self, _: Params, _: Ready);
+    fn <a href='#tymethod.post_transaction' class='fnname'>post_transaction</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+    fn <a href='#tymethod.check_request' class='fnname'>check_request</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;;
+
+    fn <a href='#method.to_delegate' class='fnname'>to_delegate</a>(self) -&gt; IoDelegate&lt;Self&gt; { ... }
+}</pre><div class='docblock'><p>Signing methods implementation relying on unlocked accounts.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.sign' class='method stab '><code>fn <a href='#tymethod.sign' class='fnname'>sign</a>(&amp;self, _: Params, _: Ready)</code></h3><div class='docblock'><p>Signs the data with given address signature.</p>
+</div><h3 id='tymethod.post_sign' class='method stab '><code>fn <a href='#tymethod.post_sign' class='fnname'>post_sign</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Posts sign request asynchronously.
+Will return a confirmation ID for later use with check_transaction.</p>
+</div><h3 id='tymethod.send_transaction' class='method stab '><code>fn <a href='#tymethod.send_transaction' class='fnname'>send_transaction</a>(&amp;self, _: Params, _: Ready)</code></h3><div class='docblock'><p>Sends transaction; will block for 20s to try to return the
+transaction hash.
+If it cannot yet be signed, it will return a transaction ID for
+later use with check_transaction.</p>
+</div><h3 id='tymethod.post_transaction' class='method stab '><code>fn <a href='#tymethod.post_transaction' class='fnname'>post_transaction</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Posts transaction asynchronously.
+Will return a transaction ID for later use with check_transaction.</p>
+</div><h3 id='tymethod.check_request' class='method stab '><code>fn <a href='#tymethod.check_request' class='fnname'>check_request</a>(&amp;self, _: Params) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Value,&nbsp;Error&gt;</code></h3><div class='docblock'><p>Checks the progress of a previously posted request (transaction/sign).
+Should be given a valid send_transaction ID.
+Returns the transaction hash, the zero hash (not yet available),
+or the signature,
+or an error.</p>
+</div></div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.to_delegate' class='method stab '><code>fn <a href='#method.to_delegate' class='fnname'>to_delegate</a>(self) -&gt; IoDelegate&lt;Self&gt;</code></h3><div class='docblock'><p>Should be used to convert object to io delegate.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl&lt;C,&nbsp;M&gt; EthSigning for <a class='struct' href='../../../../ethcore_rpc/v1/struct.EthSigningQueueClient.html' title='ethcore_rpc::v1::EthSigningQueueClient'>EthSigningQueueClient</a>&lt;C,&nbsp;M&gt; <span class='where'>where C: <a class='trait' href='../../../../ethcore/client/traits/trait.MiningBlockChainClient.html' title='ethcore::client::traits::MiningBlockChainClient'>MiningBlockChainClient</a> + 'static, M: <a class='trait' href='../../../../ethcore/miner/trait.MinerService.html' title='ethcore::miner::MinerService'>MinerService</a> + 'static</span></code></li>
+<li><code>impl&lt;C,&nbsp;M&gt; EthSigning for <a class='struct' href='../../../../ethcore_rpc/v1/struct.EthSigningUnsafeClient.html' title='ethcore_rpc::v1::EthSigningUnsafeClient'>EthSigningUnsafeClient</a>&lt;C,&nbsp;M&gt; <span class='where'>where C: <a class='trait' href='../../../../ethcore/client/traits/trait.MiningBlockChainClient.html' title='ethcore::client::traits::MiningBlockChainClient'>MiningBlockChainClient</a> + 'static, M: <a class='trait' href='../../../../ethcore/miner/trait.MinerService.html' title='ethcore::miner::MinerService'>MinerService</a> + 'static</span></code></li>
+</ul><script type="text/javascript" async
+                         src="../../../../implementors/ethcore_rpc/v1/traits/eth/trait.EthSigning.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../";
+        window.currentCrate = "ethcore_rpc";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../../jquery.js"></script>
+    <script src="../../../../main.js"></script>
+    
+    <script defer src="../../../../search-index.js"></script>
+</body>
+</html>

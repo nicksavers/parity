@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Tracer` trait in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Tracer">
+
+    <title>ethcore::trace::Tracer - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>trace</a></p><script>window.sidebarCurrent = {name: 'Tracer', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>trace</a>::<wbr><a class='trait' href=''>Tracer</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-9067' class='srclink' href='../../src/ethcore/ethcore/src/trace/mod.rs.html#45-88' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Tracer: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> {
+    fn <a href='#tymethod.prepare_trace_call' class='fnname'>prepare_trace_call</a>(&amp;self, params: &amp;<a class='struct' href='../../ethcore/action_params/struct.ActionParams.html' title='ethcore::action_params::ActionParams'>ActionParams</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Call.html' title='ethcore::trace::trace::Call'>Call</a>&gt;;
+    fn <a href='#tymethod.prepare_trace_create' class='fnname'>prepare_trace_create</a>(&amp;self, params: &amp;<a class='struct' href='../../ethcore/action_params/struct.ActionParams.html' title='ethcore::action_params::ActionParams'>ActionParams</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Create.html' title='ethcore::trace::trace::Create'>Create</a>&gt;;
+    fn <a href='#tymethod.prepare_trace_output' class='fnname'>prepare_trace_output</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;;
+    fn <a href='#tymethod.trace_call' class='fnname'>trace_call</a>(&amp;mut self, call: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Call.html' title='ethcore::trace::trace::Call'>Call</a>&gt;, gas_used: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>, output: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;, subs: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.FlatTrace.html' title='ethcore::trace::FlatTrace'>FlatTrace</a>&gt;);
+    fn <a href='#tymethod.trace_create' class='fnname'>trace_create</a>(&amp;mut self, create: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Create.html' title='ethcore::trace::trace::Create'>Create</a>&gt;, gas_used: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>, code: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;, address: <a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, subs: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.FlatTrace.html' title='ethcore::trace::FlatTrace'>FlatTrace</a>&gt;);
+    fn <a href='#tymethod.trace_failed_call' class='fnname'>trace_failed_call</a>(&amp;mut self, call: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Call.html' title='ethcore::trace::trace::Call'>Call</a>&gt;, subs: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.FlatTrace.html' title='ethcore::trace::FlatTrace'>FlatTrace</a>&gt;, error: <a class='enum' href='../../ethcore/trace/enum.TraceError.html' title='ethcore::trace::TraceError'>TraceError</a>);
+    fn <a href='#tymethod.trace_failed_create' class='fnname'>trace_failed_create</a>(&amp;mut self, create: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Create.html' title='ethcore::trace::trace::Create'>Create</a>&gt;, subs: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.FlatTrace.html' title='ethcore::trace::FlatTrace'>FlatTrace</a>&gt;, error: <a class='enum' href='../../ethcore/trace/enum.TraceError.html' title='ethcore::trace::TraceError'>TraceError</a>);
+    fn <a href='#tymethod.trace_suicide' class='fnname'>trace_suicide</a>(&amp;mut self, address: <a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, balance: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>, refund_address: <a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>);
+    fn <a href='#tymethod.subtracer' class='fnname'>subtracer</a>(&amp;self) -&gt; Self <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span>;
+    fn <a href='#tymethod.traces' class='fnname'>traces</a>(self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.FlatTrace.html' title='ethcore::trace::FlatTrace'>FlatTrace</a>&gt;;
+}</pre><div class='docblock'><p>This trait is used by executive to build traces.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.prepare_trace_call' class='method stab '><code>fn <a href='#tymethod.prepare_trace_call' class='fnname'>prepare_trace_call</a>(&amp;self, params: &amp;<a class='struct' href='../../ethcore/action_params/struct.ActionParams.html' title='ethcore::action_params::ActionParams'>ActionParams</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Call.html' title='ethcore::trace::trace::Call'>Call</a>&gt;</code></h3><div class='docblock'><p>Prepares call trace for given params. Noop tracer should return None.</p>
+</div><h3 id='tymethod.prepare_trace_create' class='method stab '><code>fn <a href='#tymethod.prepare_trace_create' class='fnname'>prepare_trace_create</a>(&amp;self, params: &amp;<a class='struct' href='../../ethcore/action_params/struct.ActionParams.html' title='ethcore::action_params::ActionParams'>ActionParams</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Create.html' title='ethcore::trace::trace::Create'>Create</a>&gt;</code></h3><div class='docblock'><p>Prepares create trace for given params. Noop tracer should return None.</p>
+</div><h3 id='tymethod.prepare_trace_output' class='method stab '><code>fn <a href='#tymethod.prepare_trace_output' class='fnname'>prepare_trace_output</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;</code></h3><div class='docblock'><p>Prepare trace output. Noop tracer should return None.</p>
+</div><h3 id='tymethod.trace_call' class='method stab '><code>fn <a href='#tymethod.trace_call' class='fnname'>trace_call</a>(&amp;mut self, call: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Call.html' title='ethcore::trace::trace::Call'>Call</a>&gt;, gas_used: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>, output: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;, subs: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.FlatTrace.html' title='ethcore::trace::FlatTrace'>FlatTrace</a>&gt;)</code></h3><div class='docblock'><p>Stores trace call info.</p>
+</div><h3 id='tymethod.trace_create' class='method stab '><code>fn <a href='#tymethod.trace_create' class='fnname'>trace_create</a>(&amp;mut self, create: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Create.html' title='ethcore::trace::trace::Create'>Create</a>&gt;, gas_used: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>, code: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../ethcore_util/bytes/type.Bytes.html' title='ethcore_util::bytes::Bytes'>Bytes</a>&gt;, address: <a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, subs: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.FlatTrace.html' title='ethcore::trace::FlatTrace'>FlatTrace</a>&gt;)</code></h3><div class='docblock'><p>Stores trace create info.</p>
+</div><h3 id='tymethod.trace_failed_call' class='method stab '><code>fn <a href='#tymethod.trace_failed_call' class='fnname'>trace_failed_call</a>(&amp;mut self, call: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Call.html' title='ethcore::trace::trace::Call'>Call</a>&gt;, subs: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.FlatTrace.html' title='ethcore::trace::FlatTrace'>FlatTrace</a>&gt;, error: <a class='enum' href='../../ethcore/trace/enum.TraceError.html' title='ethcore::trace::TraceError'>TraceError</a>)</code></h3><div class='docblock'><p>Stores failed call trace.</p>
+</div><h3 id='tymethod.trace_failed_create' class='method stab '><code>fn <a href='#tymethod.trace_failed_create' class='fnname'>trace_failed_create</a>(&amp;mut self, create: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../ethcore/trace/trace/struct.Create.html' title='ethcore::trace::trace::Create'>Create</a>&gt;, subs: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.FlatTrace.html' title='ethcore::trace::FlatTrace'>FlatTrace</a>&gt;, error: <a class='enum' href='../../ethcore/trace/enum.TraceError.html' title='ethcore::trace::TraceError'>TraceError</a>)</code></h3><div class='docblock'><p>Stores failed create trace.</p>
+</div><h3 id='tymethod.trace_suicide' class='method stab '><code>fn <a href='#tymethod.trace_suicide' class='fnname'>trace_suicide</a>(&amp;mut self, address: <a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>, balance: <a class='struct' href='../../ethcore_bigint/uint/struct.U256.html' title='ethcore_bigint::uint::U256'>U256</a>, refund_address: <a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>)</code></h3><div class='docblock'><p>Stores suicide info.</p>
+</div><h3 id='tymethod.subtracer' class='method stab '><code>fn <a href='#tymethod.subtracer' class='fnname'>subtracer</a>(&amp;self) -&gt; Self <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></h3><div class='docblock'><p>Spawn subtracer which will be used to trace deeper levels of execution.</p>
+</div><h3 id='tymethod.traces' class='method stab '><code>fn <a href='#tymethod.traces' class='fnname'>traces</a>(self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../ethcore/trace/struct.FlatTrace.html' title='ethcore::trace::FlatTrace'>FlatTrace</a>&gt;</code></h3><div class='docblock'><p>Consumes self and returns all traces.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl Tracer for <a class='struct' href='../../ethcore/trace/struct.ExecutiveTracer.html' title='ethcore::trace::ExecutiveTracer'>ExecutiveTracer</a></code></li>
+<li><code>impl Tracer for <a class='struct' href='../../ethcore/trace/struct.NoopTracer.html' title='ethcore::trace::NoopTracer'>NoopTracer</a></code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/ethcore/trace/trait.Tracer.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

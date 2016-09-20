@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `LocalizedTransaction` struct in crate `ethcore`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, LocalizedTransaction">
+
+    <title>ethcore::transaction::LocalizedTransaction - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>transaction</a></p><script>window.sidebarCurrent = {name: 'LocalizedTransaction', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>ethcore</a>::<wbr><a href='index.html'>transaction</a>::<wbr><a class='struct' href=''>LocalizedTransaction</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-18171' class='srclink' href='../../src/ethcore/home/travis/build/ethcore/parity/target/debug/build/ethcore-b5bcb8f9c87cd686/out/mod.rs.in.html#847-856' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct LocalizedTransaction {
+    pub signed: <a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a>,
+    pub block_number: <a class='type' href='../../ethcore/header/type.BlockNumber.html' title='ethcore::header::BlockNumber'>BlockNumber</a>,
+    pub block_hash: <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a>,
+    pub transaction_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
+}</pre><div class='docblock'><p>Signed Transaction that is a part of canon blockchain.</p>
+</div><h2 class='fields'>Fields</h2><span id='structfield.signed' class='structfield'><code>signed: <a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Signed part.</p>
+</div><span id='structfield.block_number' class='structfield'><code>block_number: <a class='type' href='../../ethcore/header/type.BlockNumber.html' title='ethcore::header::BlockNumber'>BlockNumber</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Block number.</p>
+</div><span id='structfield.block_hash' class='structfield'><code>block_hash: <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Block hash.</p>
+</div><span id='structfield.transaction_index' class='structfield'><code>transaction_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Transaction index within block.</p>
+</div><h2 id='deref-methods'>Methods from <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a>&gt;</h2><div class='impl-items'><h4 id='method.rlp_append_sealed_transaction' class='method'><code>fn <a href='#method.rlp_append_sealed_transaction' class='fnname'>rlp_append_sealed_transaction</a>(&amp;self, s: &amp;mut <a class='struct' href='../../rlp/rlpstream/struct.RlpStream.html' title='rlp::rlpstream::RlpStream'>RlpStream</a>)</code></h4>
+<div class='docblock'><p>Append object with a signature into RLP stream</p>
+</div><h4 id='method.hash' class='method'><code>fn <a href='#method.hash' class='fnname'>hash</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore_bigint/hash/struct.H256.html' title='ethcore_bigint::hash::H256'>H256</a></code></h4>
+<div class='docblock'><p>Get the hash of this header (sha3 of the RLP).</p>
+</div><h4 id='method.standard_v' class='method'><code>fn <a href='#method.standard_v' class='fnname'>standard_v</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a></code></h4>
+<div class='docblock'><p>0 is <code>v</code> is 27, 1 if 28, and 4 otherwise.</p>
+</div><h4 id='method.signature' class='method'><code>fn <a href='#method.signature' class='fnname'>signature</a>(&amp;self) -&gt; <a class='struct' href='../../ethcore/account_provider/struct.Signature.html' title='ethcore::account_provider::Signature'>Signature</a></code></h4>
+<div class='docblock'><p>Construct a signature object from the sig.</p>
+</div><h4 id='method.check_low_s' class='method'><code>fn <a href='#method.check_low_s' class='fnname'>check_low_s</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Checks whether the signature has a low &#39;s&#39; value.</p>
+</div><h4 id='method.sender' class='method'><code>fn <a href='#method.sender' class='fnname'>sender</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='type' href='../../ethcore_util/type.Address.html' title='ethcore_util::Address'>Address</a>,&nbsp;<a class='enum' href='../../ethcore/error/enum.Error.html' title='ethcore::error::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Returns transaction sender.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../ethcore/transaction/struct.LocalizedTransaction.html' title='ethcore::transaction::LocalizedTransaction'>LocalizedTransaction</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-18132' class='srclink' href='../../src/ethcore/home/travis/build/ethcore/parity/target/debug/build/ethcore-b5bcb8f9c87cd686/out/mod.rs.in.html#846' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../../ethcore/transaction/struct.LocalizedTransaction.html' title='ethcore::transaction::LocalizedTransaction'>LocalizedTransaction</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-18141' class='srclink' href='../../src/ethcore/home/travis/build/ethcore/parity/target/debug/build/ethcore-b5bcb8f9c87cd686/out/mod.rs.in.html#846' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../ethcore/transaction/struct.LocalizedTransaction.html' title='ethcore::transaction::LocalizedTransaction'>LocalizedTransaction</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../ethcore/transaction/struct.LocalizedTransaction.html' title='ethcore::transaction::LocalizedTransaction'>LocalizedTransaction</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a> for <a class='struct' href='../../ethcore/transaction/struct.LocalizedTransaction.html' title='ethcore::transaction::LocalizedTransaction'>LocalizedTransaction</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-18164' class='srclink' href='../../src/ethcore/home/travis/build/ethcore/parity/target/debug/build/ethcore-b5bcb8f9c87cd686/out/mod.rs.in.html#846' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../../ethcore_ipc/binary/trait.BinaryConvertable.html' title='ethcore_ipc::binary::BinaryConvertable'>BinaryConvertable</a> for <a class='struct' href='../../ethcore/transaction/struct.LocalizedTransaction.html' title='ethcore::transaction::LocalizedTransaction'>LocalizedTransaction</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-18176' class='srclink' href='../../src/ethcore/home/travis/build/ethcore/parity/target/debug/build/ethcore-b5bcb8f9c87cd686/out/mod.rs.in.html#857-1024' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.size' class='method'><code>fn <a href='../../ethcore_ipc/binary/trait.BinaryConvertable.html#method.size' class='fnname'>size</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<h4 id='method.to_bytes' class='method'><code>fn <a href='../../ethcore_ipc/binary/trait.BinaryConvertable.html#tymethod.to_bytes' class='fnname'>to_bytes</a>(&amp;self, buffer: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;mut [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, length_stack: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec_deque/struct.VecDeque.html' title='collections::vec_deque::VecDeque'>VecDeque</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='struct' href='../../ethcore_ipc/binary/struct.BinaryConvertError.html' title='ethcore_ipc::binary::BinaryConvertError'>BinaryConvertError</a>&gt;</code></h4>
+<h4 id='method.from_bytes' class='method'><code>fn <a href='../../ethcore_ipc/binary/trait.BinaryConvertable.html#tymethod.from_bytes' class='fnname'>from_bytes</a>(buffer: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, length_stack: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec_deque/struct.VecDeque.html' title='collections::vec_deque::VecDeque'>VecDeque</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Self,&nbsp;<a class='struct' href='../../ethcore_ipc/binary/struct.BinaryConvertError.html' title='ethcore_ipc::binary::BinaryConvertError'>BinaryConvertError</a>&gt;</code></h4>
+<h4 id='method.len_params' class='method'><code>fn <a href='../../ethcore_ipc/binary/trait.BinaryConvertable.html#method.len_params' class='fnname'>len_params</a>() -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<h4 id='method.from_empty_bytes' class='method'><code>fn <a href='../../ethcore_ipc/binary/trait.BinaryConvertable.html#method.from_empty_bytes' class='fnname'>from_empty_bytes</a>() -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Self,&nbsp;<a class='struct' href='../../ethcore_ipc/binary/struct.BinaryConvertError.html' title='ethcore_ipc::binary::BinaryConvertError'>BinaryConvertError</a>&gt;</code></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a> for <a class='struct' href='../../ethcore/transaction/struct.LocalizedTransaction.html' title='ethcore::transaction::LocalizedTransaction'>LocalizedTransaction</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-18239' class='srclink' href='../../src/ethcore/home/travis/build/ethcore/parity/target/debug/build/ethcore-b5bcb8f9c87cd686/out/mod.rs.in.html#1025-1031' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Target' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#associatedtype.Target' class='type'>Target</a> = <a class='struct' href='../../ethcore/transaction/struct.SignedTransaction.html' title='ethcore::transaction::SignedTransaction'>SignedTransaction</a></code></h4>
+<div class='docblock'><p>The resulting type after dereferencing</p>
+</div><h4 id='method.deref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Target</a></code></h4>
+<div class='docblock'><p>The method called to dereference a value</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "ethcore";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
